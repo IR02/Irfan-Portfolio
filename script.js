@@ -297,7 +297,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (showMoreAwardsBtn && showLessAwardsBtn && hiddenAwards.length > 0) {
         showMoreAwardsBtn.addEventListener('click', () => {
             hiddenAwards.forEach(award => {
-                award.style.display = 'block';
+                award.classList.remove('award-hidden');
                 award.classList.add('fade-in-up');
             });
             showMoreAwardsBtn.style.display = 'none';
@@ -309,7 +309,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         showLessAwardsBtn.addEventListener('click', () => {
             hiddenAwards.forEach(award => {
-                award.style.display = 'none';
+                award.classList.add('award-hidden');
                 award.classList.remove('fade-in-up');
             });
             showMoreAwardsBtn.style.display = 'inline-block';
@@ -421,5 +421,4 @@ document.addEventListener('DOMContentLoaded', () => {
         projectObserver.observe(projectGrid, { childList: true, subtree: true });
     }
 });
-
 
