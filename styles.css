@@ -44,9 +44,6 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
     background: var(--space-black);
-    background-image: 
-        radial-gradient(ellipse at top, rgba(30, 64, 175, 0.1) 0%, transparent 50%),
-        radial-gradient(ellipse at bottom, rgba(59, 130, 246, 0.05) 0%, transparent 50%);
     background-attachment: fixed;
     position: relative;
     min-height: 100vh;
@@ -235,7 +232,7 @@ body::after {
     align-items: center;
     justify-content: center;
     padding: 8rem 2rem 4rem;
-    background: radial-gradient(ellipse at center, rgba(30, 64, 175, 0.15) 0%, transparent 70%);
+    background: transparent;
     position: relative;
     overflow: hidden;
     z-index: 2;
@@ -263,7 +260,7 @@ body::after {
     transform: translate(-50%, -50%);
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+    background: transparent;
     border-radius: 50%;
     animation: pulse-ring 4s ease-in-out infinite;
     z-index: 0;
@@ -343,7 +340,7 @@ body::after {
 .btn-primary {
     background: var(--gradient-ai);
     color: var(--bg-dark);
-    box-shadow: var(--shadow-neon);
+    box-shadow: none;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -410,8 +407,8 @@ body::after {
     left: 10%;
     animation-delay: 0s;
     opacity: 0.4;
-    box-shadow: 0 0 40px rgba(59, 130, 246, 0.4);
-    filter: blur(1px);
+    box-shadow: none;
+    filter: none;
 }
 
 .shape-2 {
@@ -422,8 +419,8 @@ body::after {
     right: 20%;
     animation-delay: 2s;
     opacity: 0.3;
-    box-shadow: 0 0 30px rgba(30, 64, 175, 0.4);
-    filter: blur(1px);
+    box-shadow: none;
+    filter: none;
 }
 
 .shape-3 {
@@ -434,8 +431,8 @@ body::after {
     left: 30%;
     animation-delay: 4s;
     opacity: 0.3;
-    box-shadow: 0 0 20px rgba(6, 182, 212, 0.4);
-    filter: blur(1px);
+    box-shadow: none;
+    filter: none;
 }
 
 @keyframes float {
@@ -613,7 +610,7 @@ section {
 .stat-item:hover {
     transform: translateY(-5px);
     border-color: var(--neon-blue);
-    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+    box-shadow: none;
 }
 
 .stat-number {
@@ -640,7 +637,7 @@ section {
     position: relative;
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: var(--shadow-xl);
+    box-shadow: none;
     width: 100%;
     aspect-ratio: 4 / 5;
 }
@@ -759,14 +756,14 @@ section {
     border-radius: 50px;
     font-weight: 500;
     color: var(--text-primary);
-    box-shadow: var(--shadow-sm);
+    box-shadow: none;
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
 }
 
 .skill-tag:hover {
     transform: translateY(-2px);
-    box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+    box-shadow: none;
     background: var(--gradient-ai);
     color: var(--bg-dark);
     border-color: var(--neon-blue);
@@ -810,7 +807,7 @@ section {
     border: 1px solid var(--border-color);
     border-radius: 16px;
     overflow: hidden;
-    box-shadow: var(--shadow-md);
+    box-shadow: none;
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
     display: flex;
@@ -820,7 +817,7 @@ section {
 .project-card:hover {
     transform: translateY(-8px);
     border-color: var(--neon-blue);
-    box-shadow: 0 0 12px rgba(59, 130, 246, 0.4), 0 0 25px rgba(30, 64, 175, 0.2);
+    box-shadow: none;
 }
 
 .project-image {
@@ -923,7 +920,7 @@ section {
 .project-less-btn:hover {
     background: var(--neon-blue);
     color: var(--bg-primary);
-    box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+    box-shadow: none;
 }
 
 .project-tags {
@@ -946,7 +943,7 @@ section {
 .project-tag:hover {
     background: rgba(59, 130, 246, 0.2);
     border-color: var(--neon-blue);
-    box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+    box-shadow: none;
 }
 
 .project-hidden {
@@ -1037,7 +1034,7 @@ section {
     border: 1px solid var(--border-color);
     padding: 2.5rem;
     border-radius: 20px;
-    box-shadow: var(--shadow-md);
+    box-shadow: none;
     backdrop-filter: blur(10px);
 }
 
@@ -1067,7 +1064,7 @@ section {
 .form-group textarea:focus {
     outline: none;
     border-color: var(--neon-blue);
-    box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+    box-shadow: none;
     background: rgba(15, 23, 42, 0.7);
 }
 
@@ -1282,16 +1279,16 @@ section {
     border-radius: 50%;
     background: var(--gradient-ai);
     border: 3px solid var(--bg-primary);
-    box-shadow: 0 0 0 3px var(--border-color);
+    box-shadow: none;
     z-index: 1;
 }
 
 @keyframes pulse-dot {
     0%, 100% {
-        box-shadow: 0 0 0 3px var(--border-color), 0 0 15px rgba(59, 130, 246, 0.5);
+        box-shadow: none;
     }
     50% {
-        box-shadow: 0 0 0 3px var(--border-color), 0 0 25px rgba(59, 130, 246, 0.8);
+        box-shadow: none;
     }
 }
 
@@ -1341,14 +1338,14 @@ section {
     border-radius: 8px;
     border: 2px solid var(--border-color);
     background: var(--bg-card);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: none;
     transition: all 0.3s ease;
     display: block;
 }
 
 .timeline-content:hover .timeline-company-logo {
     border-color: var(--neon-blue);
-    box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+    box-shadow: none;
     transform: scale(1.05);
 }
 
@@ -1383,7 +1380,7 @@ section {
 .timeline-less-btn:hover {
     background: var(--neon-blue);
     color: var(--bg-primary);
-    box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+    box-shadow: none;
 }
 
 .award-hidden {
@@ -1398,7 +1395,7 @@ section {
 .timeline-content:hover {
     transform: translateX(10px);
     border-color: var(--neon-blue);
-    box-shadow: 0 0 25px rgba(59, 130, 246, 0.3);
+    box-shadow: none;
 }
 
 .timeline-role {
@@ -1480,7 +1477,7 @@ section {
 .cert-card:hover {
     transform: translateY(-8px);
     border-color: var(--neon-blue);
-    box-shadow: 0 0 12px rgba(59, 130, 246, 0.4), 0 0 25px rgba(30, 64, 175, 0.2);
+    box-shadow: none;
 }
 
 .cert-image {
@@ -1562,7 +1559,7 @@ section {
 
 .cert-link:hover {
     color: var(--neon-cyan);
-    text-shadow: 0 0 8px rgba(59, 130, 246, 0.5);
+    text-shadow: none;
 }
 
 .cert-link:hover::after {
@@ -1591,7 +1588,7 @@ section {
 .cert-tag:hover {
     background: rgba(59, 130, 246, 0.3);
     border-color: var(--neon-blue);
-    box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+    box-shadow: none;
 }
 
 .cert-hidden {
@@ -1661,7 +1658,7 @@ section {
 .award-card:hover {
     transform: translateY(-8px);
     border-color: var(--neon-blue);
-    box-shadow: 0 0 12px rgba(59, 130, 246, 0.4), 0 0 25px rgba(30, 64, 175, 0.2);
+    box-shadow: none;
 }
 
 .award-icon {
