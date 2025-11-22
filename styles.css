@@ -1235,10 +1235,11 @@ section {
     content: '';
     position: absolute;
     left: 150px;
-    top: 0;
-    bottom: 0;
     width: 2px;
     background: var(--border-color);
+    top: var(--timeline-top, 0);
+    height: var(--timeline-height, 100%);
+    transform: translateX(-50%);
 }
 
 .timeline-item {
@@ -1266,9 +1267,9 @@ section {
 .timeline-item::before {
     content: '';
     position: absolute;
-    left: 143px;
+    left: 150px;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translate(-50%, -50%);
     width: 16px;
     height: 16px;
     border-radius: 50%;

@@ -512,5 +512,93 @@ document.addEventListener('DOMContentLoaded', () => {
             showLessSoftSkillsBtn.style.display = 'none';
         }
     }
+    
+    // Timeline line positioning - center on dots and span from first to last
+    const timeline = document.querySelector('.timeline');
+    if (timeline) {
+        const updateTimelineLine = () => {
+            // Get all timeline items (including hidden ones)
+            const allItems = Array.from(timeline.querySelectorAll('.timeline-item'));
+            
+            // Get visible items (not hidden and actually displayed)
+            const visibleItems = allItems.filter(item => {
+                const style = window.getComputedStyle(item);
+                return style.display !== 'none' && !item.classList.contains('experience-hidden');
+            });
+            
+            // Get the last item overall (oldest experience - Oct - Dec 2020)
+            const lastItemOverall = allItems[allItems.length - 1];
+            
+            // Check if there are hidden items that are not displayed
+            const hiddenItems = allItems.filter(item => item.classList.contains('experience-hidden'));
+            const hasHiddenItems = hiddenItems.some(item => {
+                const style = window.getComputedStyle(item);
+                return style.display === 'none';
+            });
+            
+            if (visibleItems.length > 0) {
+                const firstItem = visibleItems[0];
+                const lastVisibleItem = visibleItems[visibleItems.length - 1];
+                
+                // Get positions relative to timeline container
+                const timelineRect = timeline.getBoundingClientRect();
+                const firstItemRect = firstItem.getBoundingClientRect();
+                const lastVisibleItemRect = lastVisibleItem.getBoundingClientRect();
+                
+                // Calculate top position (center of first dot - dots are at 50% of item height)
+                const topPosition = firstItemRect.top - timelineRect.top + (firstItemRect.height / 2);
+                
+                // Calculate height
+                let lineHeight;
+                if (hasHiddenItems) {
+                    // If there are hidden items, extend the line just a bit past the last visible dot
+                    // Extend the entire line length by 40%
+                    const lastVisibleDotCenter = lastVisibleItemRect.top - timelineRect.top + (lastVisibleItemRect.height / 2);
+                    const baseLineHeight = (lastVisibleDotCenter - topPosition) + 25; // Base extension
+                    lineHeight = baseLineHeight * 1.4; // Extend entire line by 40%
+                } else {
+                    // If all items are visible, end at the center of the last (oldest) dot
+                    const lastItemRect = lastItemOverall.getBoundingClientRect();
+                    const lastDotCenter = lastItemRect.top - timelineRect.top + (lastItemRect.height / 2);
+                    lineHeight = lastDotCenter - topPosition;
+                }
+                
+                // Set line position using CSS custom properties
+                timeline.style.setProperty('--timeline-top', `${topPosition}px`);
+                timeline.style.setProperty('--timeline-height', `${lineHeight}px`);
+            }
+        };
+        
+        // Update on load
+        setTimeout(updateTimelineLine, 200);
+        
+        // Update when hidden items are shown/hidden
+        const showMoreExperiencesBtn = document.getElementById('showMoreExperiences');
+        const showLessExperiencesBtn = document.getElementById('showLessExperiences');
+        
+        if (showMoreExperiencesBtn) {
+            showMoreExperiencesBtn.addEventListener('click', () => {
+                setTimeout(updateTimelineLine, 400);
+            });
+        }
+        
+        if (showLessExperiencesBtn) {
+            showLessExperiencesBtn.addEventListener('click', () => {
+                setTimeout(updateTimelineLine, 400);
+            });
+        }
+        
+        // Update on window resize
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(updateTimelineLine, 250);
+        });
+        
+        // Also update when page is fully loaded
+        window.addEventListener('load', () => {
+            setTimeout(updateTimelineLine, 300);
+        });
+    }
 });
 
