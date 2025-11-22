@@ -405,8 +405,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (showMoreProjectsBtn && showLessProjectsBtn && hiddenProjects.length > 0) {
         showMoreProjectsBtn.addEventListener('click', () => {
             hiddenProjects.forEach(project => {
-                project.style.display = 'block';
-                project.classList.add('show');
+                project.classList.remove('project-hidden');
             });
             showMoreProjectsBtn.style.display = 'none';
             showLessProjectsBtn.style.display = 'inline-block';
@@ -417,8 +416,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         showLessProjectsBtn.addEventListener('click', () => {
             hiddenProjects.forEach(project => {
-                project.style.display = 'none';
-                project.classList.remove('show');
+                project.classList.add('project-hidden');
             });
             showMoreProjectsBtn.style.display = 'inline-block';
             showLessProjectsBtn.style.display = 'none';
