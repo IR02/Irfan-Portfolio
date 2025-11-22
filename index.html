@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Irfan Ramiza - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        /* Equations Overlay - Moved to CSS file */
+        .equation {
+            position: absolute;
+            white-space: nowrap;
+            animation: float-equation-diagonal 40s linear infinite;
+            font-size: 22px;
+            color: rgba(255, 255, 255, 0.15);
+            opacity: 0.15;
+        }
+        /* Left to Right - Covering top 50% of screen, evenly spaced */
+        .equation-1 { top: 0%; left: -400px; animation-delay: 0s; }
+        .equation-2 { top: 4%; left: -500px; animation-delay: 2s; }
+        .equation-3 { top: 8%; left: -450px; animation-delay: 4s; }
+        .equation-4 { top: 12%; left: -400px; animation-delay: 6s; }
+        .equation-5 { top: 16%; left: -500px; animation-delay: 8s; }
+        .equation-6 { top: 20%; left: -450px; animation-delay: 10s; }
+        .equation-7 { top: 24%; left: -400px; animation-delay: 12s; }
+        .equation-8 { top: 28%; left: -500px; animation-delay: 14s; }
+        .equation-9 { top: 32%; left: -450px; animation-delay: 16s; }
+        .equation-10 { top: 36%; left: -400px; animation-delay: 18s; }
+        .equation-11 { top: 40%; left: -500px; animation-delay: 20s; }
+        .equation-12 { top: 44%; left: -450px; animation-delay: 22s; }
+        .equation-13 { top: 48%; left: -400px; animation-delay: 24s; }
+        .equation-14 { top: 0%; left: -600px; animation-delay: 1s; }
+        
+        /* Right to Left - Covering top 50% of screen */
+        .equation-15 { top: 0%; right: -400px; animation: float-equation-diagonal-reverse 40s linear infinite; animation-delay: 1s; }
+        .equation-16 { top: 4%; right: -450px; animation: float-equation-diagonal-reverse 42s linear infinite; animation-delay: 3s; }
+        .equation-17 { top: 8%; right: -400px; animation: float-equation-diagonal-reverse 38s linear infinite; animation-delay: 5s; }
+        .equation-18 { top: 12%; right: -450px; animation: float-equation-diagonal-reverse 44s linear infinite; animation-delay: 7s; }
+        .equation-19 { top: 16%; right: -400px; animation: float-equation-diagonal-reverse 40s linear infinite; animation-delay: 9s; }
+        .equation-20 { top: 20%; right: -450px; animation: float-equation-diagonal-reverse 42s linear infinite; animation-delay: 11s; }
+        .equation-21 { top: 24%; right: -400px; animation: float-equation-diagonal-reverse 38s linear infinite; animation-delay: 13s; }
+        .equation-22 { top: 28%; right: -450px; animation: float-equation-diagonal-reverse 44s linear infinite; animation-delay: 15s; }
+        .equation-23 { top: 32%; right: -400px; animation: float-equation-diagonal-reverse 40s linear infinite; animation-delay: 17s; }
+        .equation-24 { top: 36%; right: -450px; animation: float-equation-diagonal-reverse 42s linear infinite; animation-delay: 19s; }
+        .equation-25 { top: 40%; right: -400px; animation: float-equation-diagonal-reverse 38s linear infinite; animation-delay: 21s; }
+        .equation-26 { top: 44%; right: -450px; animation: float-equation-diagonal-reverse 44s linear infinite; animation-delay: 23s; }
+        .equation-27 { top: 48%; right: -400px; animation: float-equation-diagonal-reverse 40s linear infinite; animation-delay: 25s; }
+        
+        @keyframes float-equation-diagonal {
+            0% { 
+                transform: translate(0, 0); 
+                opacity: 0; 
+            }
+            5% { 
+                opacity: 0.15; 
+            }
+            95% { 
+                opacity: 0.15; 
+            }
+            100% { 
+                transform: translate(calc(100vw + 600px), 50vh); 
+                opacity: 0; 
+            }
+        }
+        @keyframes float-equation-diagonal-reverse {
+            0% { 
+                transform: translate(0, 0); 
+                opacity: 0; 
+            }
+            5% { 
+                opacity: 0.15; 
+            }
+            95% { 
+                opacity: 0.15; 
+            }
+            100% { 
+                transform: translate(calc(-100vw - 600px), 50vh); 
+                opacity: 0; 
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Equations Background Overlay -->
+    <div class="equations-overlay">
+        <!-- Wave & Quantum Equations -->
+        <div class="equation equation-1">∇²ψ = (1/v²)∂²ψ/∂t²</div>
+        <div class="equation equation-2">iℏ∂ψ/∂t = Ĥψ</div>
+        <div class="equation equation-3">∂²u/∂t² = c²∇²u</div>
+        <div class="equation equation-4">E = ℏω</div>
+        <div class="equation equation-5">ψ(x,t) = A·e^(i(kx-ωt))</div>
+        <div class="equation equation-6">H = -ℏ²/2m ∇² + V</div>
+        
+        <!-- Fluid Dynamics Equations -->
+        <div class="equation equation-7">∂u/∂t + (u·∇)u = -∇p/ρ + ν∇²u</div>
+        <div class="equation equation-8">∇·u = 0</div>
+        <div class="equation equation-9">∂ρ/∂t + ∇·(ρu) = 0</div>
+        <div class="equation equation-10">Du/Dt = -∇p + μ∇²u + f</div>
+        <div class="equation equation-11">Re = ρUL/μ</div>
+        <div class="equation equation-12">∂T/∂t + u·∇T = α∇²T</div>
+        
+        <!-- Machine Learning Equations -->
+        <div class="equation equation-13">y = σ(Wx + b)</div>
+        <div class="equation equation-14">L = -Σ y log(ŷ)</div>
+        <div class="equation equation-15">∂L/∂w = ∂L/∂ŷ · ∂ŷ/∂w</div>
+        <div class="equation equation-16">W_new = W - α∇W</div>
+        <div class="equation equation-17">ŷ = softmax(z)</div>
+        <div class="equation equation-18">J(θ) = (1/2m)Σ(h(x) - y)²</div>
+        
+        <!-- Additional Equations -->
+        <div class="equation equation-19">F = ma</div>
+        <div class="equation equation-20">E = mc²</div>
+        <div class="equation equation-21">∇×E = -∂B/∂t</div>
+        <div class="equation equation-22">∇·E = ρ/ε₀</div>
+        <div class="equation equation-23">∂²u/∂x² = (1/c²)∂²u/∂t²</div>
+        <div class="equation equation-24">H = ∫(p·dq - L·dt)</div>
+        <div class="equation equation-25">S = k·ln(Ω)</div>
+        <div class="equation equation-26">ΔG = ΔH - TΔS</div>
+        <div class="equation equation-27">∇²φ = 0</div>
+        <div class="equation equation-11">E = mc²</div>
+        <div class="equation equation-12">F = ma</div>
+        <div class="equation equation-13">∇ × E = -∂B/∂t</div>
+    </div>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">Irfan Ramiza</div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#certifications" class="nav-link">Certifications</a></li>
+                <li><a href="#awards" class="nav-link">Awards</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="gradient-text">Hello, I'm</span>
+                    <span class="hero-name">Irfan</span>
+                </h1>
+                <p class="hero-subtitle">Final year MEng Mechanical Engineer</p>
+                <p class="hero-description">
+                    I'm driven to translate complex physics into real-world solutions through deep expertise in CFD for advanced aerodynamics, vibration analysis for structural reliability, quantum computing for future simulation paradigms, and applied AI for intelligent systems. I'm ready to deliver high-impact results in cutting-edge engineering roles from day one.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                    <a href="#projects" class="btn btn-secondary">View Work</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="floating-shapes">
+                    <div class="shape shape-1"></div>
+                    <div class="shape shape-2"></div>
+                    <div class="shape shape-3"></div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About Me</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="about-intro">
+                        I'm a final-year MEng Mechanical Engineering student at the University of Sheffield who solves complex problems from first principles and turns ideas into reality. Co-founder of RWBI Foundation and winner of Sheffield's Most Creative Sustainable Solution 2025, I blend deep engineering expertise (CFD, FEA, control systems, AI/ML) with entrepreneurial drive to build systems that matter.
+                    </p>
+                    <p>
+                        Outside the lab, I'm constantly feeding my curiosity through business strategy, philosophy, neuroscience, quantum physics, biographies, and self-mastery books, while teaching myself AI and quantum computing. I believe the future belongs to those who can think across disciplines and act decisively, and I'm here to make an outsized positive impact, one breakthrough at a time.
+                    </p>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <div class="stat-number" id="project-count" data-target="0">0</div>
+                            <div class="stat-label">Technical & Leadership Projects</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="4">0</div>
+                            <div class="stat-label">Industry Recognised Program/Internship</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" id="certificate-count" data-target="0">0</div>
+                            <div class="stat-label">Certificates</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="image-wrapper">
+                        <img src="Me Linkedin.jpeg" alt="Irfan Ramiza - Final year MEng Mechanical Engineer" class="profile-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Timeline Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Experiences</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">June 2024 - Present</div>
+                    <div class="timeline-content">
+                        <div class="timeline-logo-wrapper">
+                            <img src="RWBI Logo.png" alt="RWBI Foundation" class="timeline-company-logo">
+                        </div>
+                        <h3 class="timeline-role">Co-Founder</h3>
+                        <h4 class="timeline-company">RWBI Foundation</h4>
+                        <p class="timeline-location">Malaysia</p>
+                        <div class="timeline-description">
+                            <p>Co-founded RWBI Foundation, a non-profit organization dedicated to supporting STEM education initiatives, particularly aimed at inspiring the future through accessible learning opportunities for underprivileged students.</p>
+                            <p><br>Led an educational event for 69 high school students focused on Electrical Engineering, supplemented with interactive activities and achieved an 84% overall satisfaction rate.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">Aug - Aug 2025</div>
+                    <div class="timeline-content">
+                        <div class="timeline-logo-wrapper">
+                            <img src="Sunway.png" alt="Sunway Group" class="timeline-company-logo">
+                        </div>
+                        <h3 class="timeline-role">Participant</h3>
+                        <h4 class="timeline-company">Sunway Agility Challenge – Sunway Group</h4>
+                        <p class="timeline-location">Malaysia</p>
+                        <div class="timeline-description">
+                            <p>Participated in a 12-day fully in-person, cross-functional challenge solving real-world business cases across four Sunway business units; Strategy, Property, Healthcare, and Mall with intensive learning sessions with mentorship from Sunway professionals with a final pitch for each unit.</p>
+                            <p class="timeline-extra" style="display: none;"><br>Sunway Group Strategy: Identified and pitched an acquisition target using synergy mapping, competitor analysis, and strategic alignment to Sunway's business units.</p>
+                            <p class="timeline-extra" style="display: none;"><br>Sunway Property, Healthcare & Malls: Proposed Gen Z-focused housing solutions, ER marketing campaigns, & mall reactivation strategies to boost youth & community engagement.</p>
+                        </div>
+                        <button class="timeline-more-btn">More</button>
+                        <button class="timeline-less-btn" style="display: none;">Less</button>
+                    </div>
+                </div>
+                <div class="timeline-item experience-hidden">
+                    <div class="timeline-year">July - Aug 2025</div>
+                    <div class="timeline-content">
+                        <div class="timeline-logo-wrapper">
+                            <img src="Axiata.png" alt="Axiata Group" class="timeline-company-logo">
+                        </div>
+                        <h3 class="timeline-role">Participant</h3>
+                        <h4 class="timeline-company">University Leadership Development Programme (ULDP): Cohort 15 – Axiata Group</h4>
+                        <p class="timeline-location">Malaysia (13-day intensive program)</p>
+                        <div class="timeline-description">
+                            <p>Selected as 1 of only 73 participants from 807 applicants nationwide for Axiata's prestigious University Leadership Development Programme (ULDP 2025), a 13-day hybrid leadership bootcamp combining online modules and 8 AM – 11 PM in-person-9-day experiential learning.</p>
+                            <p class="timeline-extra" style="display: none;"><br>Awarded 3rd place nationally in the CEO Challenge at Axiata ULDP 2025, recognized for impact, feasibility, and innovative application of AI to drive equitable education outcomes.</p>
+                            <p class="timeline-extra" style="display: none;"><br>Pitched strategies to Axiata executives covering stakeholder alignment, finance, and strategic decision-making under time pressure for 4 different business simulations, where teams simulated C-suite leadership roles, developed solutions for live case studies.</p>
+                        </div>
+                        <button class="timeline-more-btn">More</button>
+                        <button class="timeline-less-btn" style="display: none;">Less</button>
+                    </div>
+                </div>
+                <div class="timeline-item experience-hidden">
+                    <div class="timeline-year">June - Dec 2023</div>
+                    <div class="timeline-content">
+                        <div class="timeline-logo-wrapper">
+                            <img src="RWNA.png" alt="RWNA Engineering" class="timeline-company-logo">
+                        </div>
+                        <h3 class="timeline-role">Business Development Officer</h3>
+                        <h4 class="timeline-company">Rwna Engineering Sdn Bhd</h4>
+                        <p class="timeline-location">Malaysia</p>
+                        <div class="timeline-description">
+                            <p>Initiated & Led ESG feasibility project with Cambridge Consulting Network, aligning sustainability plans with oil & gas operations and liaising with 10+ clients and subcontractors.</p>
+                            <p class="timeline-extra" style="display: none;"><br>Co-developed a company-wide NDA to reduce IP theft risk and strengthen protections in external technical collaborations.</p>
+                        </div>
+                        <button class="timeline-more-btn">More</button>
+                        <button class="timeline-less-btn" style="display: none;">Less</button>
+                    </div>
+                </div>
+                <div class="timeline-item experience-hidden">
+                    <div class="timeline-year">Nov 2021 - Sep 2022</div>
+                    <div class="timeline-content">
+                        <div class="timeline-logo-wrapper">
+                            <img src="iCUBE.png" alt="iCUBE International" class="timeline-company-logo">
+                        </div>
+                        <h3 class="timeline-role">Head of Region (UK)</h3>
+                        <h4 class="timeline-company">iCUBE International</h4>
+                        <p class="timeline-location">United Kingdom</p>
+                        <div class="timeline-description">
+                            <p>Started as an external liaison officer, Led a 7-department UK-based division of iCUBE, overseeing recruitment of 50+ officers, Liaising with 50+ sponsors & partnerships, and pitching international initiatives to 10+ external companies.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item experience-hidden">
+                    <div class="timeline-year">Nov 2021 - Jul 2022</div>
+                    <div class="timeline-content">
+                        <div class="timeline-logo-wrapper">
+                            <img src="MarsWork.png" alt="MarsWorks" class="timeline-company-logo">
+                        </div>
+                        <h3 class="timeline-role">Head of Industrial Relations</h3>
+                        <h4 class="timeline-company">Project MarsWorks</h4>
+                        <p class="timeline-location">United Kingdom</p>
+                        <div class="timeline-description">
+                            <p>Led industrial relations for a student-led aerospace and engineering initiative, managing team coordination, conflict resolution, and project compliance.</p>
+                            <p><br>Liaised with 20+ companies to attain sponsorship for the production of a rover to be competed in the Anatolian Rover Challenge 2022.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item experience-hidden">
+                    <div class="timeline-year">Oct - Dec 2020</div>
+                    <div class="timeline-content">
+                        <div class="timeline-logo-wrapper">
+                            <img src="RWNA.png" alt="RWNA Engineering" class="timeline-company-logo">
+                        </div>
+                        <h3 class="timeline-role">Technician</h3>
+                        <h4 class="timeline-company">RWNA Engineering Sdn. Bhd.</h4>
+                        <p class="timeline-location">Pahang, Malaysia</p>
+                        <div class="timeline-description">
+                            <p>Performed pneumatic and hydrostatic tests on a range of valve types (gate, ball, butterfly, safety, swing check), including precision grinding and lapping using SL-15 and SL-2 machines.</p>
+                            <p class="timeline-extra" style="display: none;"><br>Operated HPWJ systems (e.g., TLX Lance Tube Cleaner) and disassembled/reassembled 10+ pressure safety valves for hands-on diagnostics and maintenance.</p>
+                        </div>
+                        <button class="timeline-more-btn">More</button>
+                        <button class="timeline-less-btn" style="display: none;">Less</button>
+                    </div>
+                </div>
+            </div>
+            <div class="experience-more">
+                <button id="showMoreExperiences" class="btn btn-secondary">Show More Experiences</button>
+                <button id="showLessExperiences" class="btn btn-secondary" style="display: none;">Show Less Experiences</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Projects</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="QHack Bristol.png" alt="Quantum Heist" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="https://github.com/IR02/QAOA-Maxcut-Solver" class="project-link-secondary" target="_blank">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Quantum Heist</h3>
+                        <div class="project-description">
+                            <p>A creative and engaging quantum hackathon project that transforms the weighted Max-Cut problem into a realistic bank robbery scenario. The bank's vault network is modeled as a 5-node graph where nodes represent vaults and edges represent guarded pathways or critical alarm triggers.</p>
+                            <p class="project-description-extra" style="display: none;">By assigning an extremely high weight of 10,000 to the alarm edge between nodes 3 and 4, we ensure QAOA always includes this edge in the cut, forcing the decoy team to pass through and silently disable the main alarm system. High weights on other edges (such as 1-2) mark the locations of elite security guards that must be neutralized first, allowing the main robbery crew to reach the vaults undetected.</p>
+                            <p class="project-description-extra" style="display: none;">Running QAOA produces a clear sampling histogram with four dominant bitstrings (10010, 01101, 10101, 01010). Although the global maximum cut creates two balanced partitions, we discovered that the near-optimal solutions with exactly two 1s naturally divide the bank into three disconnected regions. This enables three simultaneous strike teams to enter and clear multiple vaults in parallel, significantly reducing total heist time. Our detailed post-processing, strategic insight, and clear visualizations of both the weighted graph and final partition elevate a standard QAOA implementation into a compelling, mission-optimized quantum-powered heist plan.</p>
+                            <button class="project-more-btn">More</button>
+                            <button class="project-less-btn" style="display: none;">Less</button>
+                        </div>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">Qiskit</span>
+                            <span class="project-tag">Cirq</span>
+                            <span class="project-tag">Quantum Technology</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="CFD VProfile.jpg" alt="CFD Analysis" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link-secondary">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">CFD Analysis of Turbulent Flow over a Backward-Facing Step</h3>
+                        <div class="project-description">
+                            <p>A high-fidelity 2D CFD investigation of incompressible turbulent flow over a classic backward-facing step benchmark (Driver & Seegmiller, 1985) was performed using ANSYS Fluent. The computational domain was carefully designed with an optimized inlet length of 0.76 m to develop a fully turbulent boundary layer matching the experimental thickness of 19 mm at 4 step heights upstream of the expansion.</p>
+                            <p class="project-description-extra" style="display: none;">A structured mesh with 20 inflation layers (first cell height ensuring y⁺ < 1 everywhere), growth rate 1.36, and localized face sizing delivered excellent near-wall resolution and mesh quality (average aspect ratio 1.11).</p>
+                            <p class="project-description-extra" style="display: none;">The k-ω Shear Stress Transport (SST) model with Low-Reynolds correction and production limiter was selected for its proven superiority in predicting separation and reattachment under adverse pressure gradients. A pressure-based coupled solver with second-order discretization for all equations ensured fast, stable convergence (82 iterations to residuals < 10⁻⁵, further stabilized to 500 iterations). Hybrid initialization and monitoring of turbulent kinetic energy at key wall locations confirmed both numerical and physical convergence.</p>
+                            <p class="project-description-extra" style="display: none;">Quantitative validation against experimental skin-friction coefficient data showed outstanding agreement: predicted reattachment length at x/H = 6.18 versus experimental 6.28 (error only 1.59%). Velocity contours, vectors, pressure fields, and turbulent kinetic energy distributions accurately captured the separation bubble, clockwise recirculation vortex, shear-layer growth, and downstream recovery, demonstrating that the SST model, combined with wall-resolved meshing and high-order numerics, reliably reproduces this canonical separated-flow benchmark.</p>
+                            <button class="project-more-btn">More</button>
+                            <button class="project-less-btn" style="display: none;">Less</button>
+                        </div>
+                        <div class="project-tags">
+                            <span class="project-tag">CFD</span>
+                            <span class="project-tag">Ansys</span>
+                            <span class="project-tag">Simulation</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="epuck.png" alt="E-Puck2 Robot" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Exploration of a Finite Area & Object Tracking Using a 2 DOF E-Puck2 Robot</h3>
+                        <div class="project-description">
+                            <p>An embedded robotics project using the E-Puck2 miniature robot to solve two distinct real-time control challenges. Task 1 required full exploration of an unknown obstacle-filled arena without collisions or trapping.</p>
+                            <p class="project-description-extra" style="display: none;">A lightweight reactive strategy using only the front ToF sensor and four infrared proximity sensors, combined with simple threshold-based rules and randomised escape turns, achieved a perfect 100% assessment score with smooth, efficient coverage. Task 2 demanded detection, approach, and continuous non-contact tracking of a moving 10 cm cylindrical object. A clean three-state finite state machine (Search → Approach → Chase) was implemented: 360° proximity sensors locate the object and estimate angle, proportional control smoothly aligns the robot, and the front ToF sensor maintains a safe 20–50 mm distance band while following straight and curved trajectories. The system scored 75% officially (full marks for detection, approach, chasing, and speed control) with minor deductions only for rare close-start collisions, demonstrating robust real-world performance on resource-constrained hardware.</p>
+                            <button class="project-more-btn">More</button>
+                            <button class="project-less-btn" style="display: none;">Less</button>
+                        </div>
+                        <div class="project-tags">
+                            <span class="project-tag">Embedded Systems</span>
+                            <span class="project-tag">Robotics</span>
+                            <span class="project-tag">Control Systems</span>
+                            <span class="project-tag">C/C++</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card project-hidden">
+                    <div class="project-image">
+                        <img src="Clevis.png" alt="Clevis Assembly" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Finite Element Analysis of Clevis Assembly Under Tensile Load</h3>
+                        <div class="project-description">
+                            <p>Constructed a computationally efficient quarter-symmetry 3D FEA model of a clevis assembly, simplifying geometry while preserving stress-critical features; reduced simulation time by 75% using Hex-dominant quadratic meshing and achieved <1% stress convergence at 2 mm element size. Performed rigorous verification and validation, including reaction force equilibrium checks and Digital Image Correlation (DIC) comparison; validated normal and shear strain fields with <1.5% error in X-direction strain and <0.2 μm residual displacement at fixed end.</p>
+                            <p class="project-description-extra" style="display: none;">Evaluated stress distribution and failure risk using Von Mises criteria, identifying local peak stress of 217.94 MPa with a factor of safety ≈ 1.2; conducted sensitivity study comparing quarter vs full assembly, confirming <10% deviation and model robustness under 12.5 kN loading.</p>
+                            <button class="project-more-btn">More</button>
+                            <button class="project-less-btn" style="display: none;">Less</button>
+                        </div>
+                        <div class="project-tags">
+                            <span class="project-tag">FEA</span>
+                            <span class="project-tag">Finite Element Analysis</span>
+                            <span class="project-tag">Structural Analysis</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="projects-more">
+                <button id="showMoreProjects" class="btn btn-secondary">Show More Projects</button>
+                <button id="showLessProjects" class="btn btn-secondary" style="display: none;">Show Less Projects</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="certifications">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Certifications</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="certifications-grid" id="certificationsGrid">
+                <!-- Visible Certifications (First 6) -->
+                <div class="cert-card">
+                    <div class="cert-image">
+                        <img src="QM Eng.png" alt="Quantum Mechanics for Engineers" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
+                    </div>
+                    <div class="cert-content">
+                        <h3 class="cert-title">Quantum Mechanics for Engineers</h3>
+                        <p class="cert-issuer">University of Colorado via Coursera</p>
+                        <p class="cert-date">2025</p>
+                        <div class="cert-tags">
+                            <span class="cert-tag">Physics</span>
+                            <span class="cert-tag">Quantum Technologies</span>
+                        </div>
+                        <a href="https://coursera.org/share/a1b46a62078bbdda7d04f181aafe0ba7" class="cert-link" target="_blank">View Verification</a>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-image">
+                        <img src="Gene Therapy Course.png" alt="The Future of Medicine: Potential Application of Gene-Based Therapy" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
+                    </div>
+                    <div class="cert-content">
+                        <h3 class="cert-title">The Future of Medicine: Potential Application of Gene-Based Therapy</h3>
+                        <p class="cert-issuer">University of Oxford</p>
+                        <p class="cert-date">2025</p>
+                        <div class="cert-tags">
+                            <span class="cert-tag">Gene-Therapy</span>
+                            <span class="cert-tag">Medicine</span>
+                            <span class="cert-tag">microRNA</span>
+                        </div>
+                        <a href="https://www.linkedin.com/in/mibmr/details/certifications/" class="cert-link" target="_blank">View Verification</a>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-image">
+                        <img src="QuantumRelativity.jpg" alt="Quantum and Relativity: The Science of Reality" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
+                    </div>
+                    <div class="cert-content">
+                        <h3 class="cert-title">Quantum and Relativity: The Science of Reality</h3>
+                        <p class="cert-issuer">University of Oxford</p>
+                        <p class="cert-date">2025</p>
+                        <div class="cert-tags">
+                            <span class="cert-tag">Quantum Technologies</span>
+                            <span class="cert-tag">General Relativity</span>
+                            <span class="cert-tag">Physics</span>
+                        </div>
+                        <a href="https://www.linkedin.com/in/mibmr/details/certifications/" class="cert-link" target="_blank">View Verification</a>
+                    </div>
+                </div>
+                <!-- Hidden Certifications (4+) -->
+                <div class="cert-card cert-hidden">
+                    <div class="cert-image">
+                        <img src="QuantumVienna.jpg" alt="Quantum Machine Learning" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
+                    </div>
+                    <div class="cert-content">
+                        <h3 class="cert-title">Quantum Machine Learning</h3>
+                        <p class="cert-issuer">University of Vienna</p>
+                        <p class="cert-date">2025</p>
+                        <div class="cert-tags">
+                            <span class="cert-tag">Quantum Technologies</span>
+                            <span class="cert-tag">Machine Learning</span>
+                        </div>
+                        <a href="https://www.linkedin.com/in/mibmr/details/certifications/" class="cert-link" target="_blank">View Verification</a>
+                    </div>
+                </div>
+                <div class="cert-card cert-hidden">
+                    <div class="cert-image">
+                        <img src="CCUS.png" alt="Climate Change: Carbon Capture and Storage" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
+                    </div>
+                    <div class="cert-content">
+                        <h3 class="cert-title">Climate Change: Carbon Capture and Storage</h3>
+                        <p class="cert-issuer">The University of Edinburgh via edX</p>
+                        <p class="cert-date">2023</p>
+                        <div class="cert-tags">
+                            <span class="cert-tag">Sustainability</span>
+                            <span class="cert-tag">CCS</span>
+                            <span class="cert-tag">Energy</span>
+                        </div>
+                        <a href="https://courses.edx.org/certificates/fe1e4dcf406e4b289d251dad7cf00cd5" class="cert-link" target="_blank">View Verification</a>
+                    </div>
+                </div>
+                <div class="cert-card cert-hidden">
+                    <div class="cert-image">
+                        <img src="DL.png" alt="Introduction to Deep Learning & Neural Networks with Keras" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
+                    </div>
+                    <div class="cert-content">
+                        <h3 class="cert-title">Introduction to Deep Learning & Neural Networks with Keras</h3>
+                        <p class="cert-issuer">IBM via Coursera</p>
+                        <p class="cert-date">2023</p>
+                        <div class="cert-tags">
+                            <span class="cert-tag">Python</span>
+                            <span class="cert-tag">Deep Learning</span>
+                            <span class="cert-tag">Neural Networks</span>
+                        </div>
+                        <a href="https://www.coursera.org/account/accomplishments/verify/Y3XSHJWQMUR8?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=course" class="cert-link" target="_blank">View Verification</a>
+                    </div>
+                </div>
+                
+                <!-- Hidden Certifications (7+) -->
+                <div class="cert-card cert-hidden">
+                    <div class="cert-image">
+                        <img src="ML.png" alt="Machine Learning with Python" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
+                    </div>
+                    <div class="cert-content">
+                        <h3 class="cert-title">Machine Learning with Python</h3>
+                        <p class="cert-issuer">IBM via Coursera</p>
+                        <p class="cert-date">2023</p>
+                        <div class="cert-tags">
+                            <span class="cert-tag">Python</span>
+                            <span class="cert-tag">Machine Learning</span>
+                            <span class="cert-tag">Scikit-Learn</span>
+                        </div>
+                        <a href="https://www.coursera.org/account/accomplishments/verify/Y44B488FHZ95?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=course" class="cert-link" target="_blank">View Verification</a>
+                    </div>
+                </div>
+                <div class="cert-card cert-hidden">
+                    <div class="cert-image">
+                        <img src="OG.png" alt="Oil & Gas Industry Operations and Markets" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
+                    </div>
+                    <div class="cert-content">
+                        <h3 class="cert-title">Oil & Gas Industry Operations and Markets</h3>
+                        <p class="cert-issuer">Duke University via Coursera</p>
+                        <p class="cert-date">2023</p>
+                        <div class="cert-tags">
+                            <span class="cert-tag">Energy</span>
+                            <span class="cert-tag">Oil & Gas</span>
+                            <span class="cert-tag">Market Analysis</span>
+                        </div>
+                        <a href="https://www.coursera.org/account/accomplishments/verify/WETSRBZGDLK4?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=course" class="cert-link" target="_blank">View Verification</a>
+                    </div>
+                </div>
+                <div class="cert-card cert-hidden">
+                    <div class="cert-image">
+                        <img src="MS.png" alt="Finance Accelerator Simulation Experience" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
+                    </div>
+                    <div class="cert-content">
+                        <h3 class="cert-title">Finance Accelerator Simulation Experience</h3>
+                        <p class="cert-issuer">Morgan Stanley via AmplifyME</p>
+                        <p class="cert-date">2022</p>
+                        <div class="cert-tags">
+                            <span class="cert-tag">Finance</span>
+                            <span class="cert-tag">Trading</span>
+                            <span class="cert-tag">Valuation</span>
+                        </div>
+                        <a href="https://my.amplifyme.com/certificate/c2d73b7d-a14e-408c-996a-b392a9f1bff6" class="cert-link" target="_blank">View Verification</a>
+                    </div>
+                </div>
+                <div class="cert-card cert-hidden">
+                    <div class="cert-image">
+                        <img src="Ard.png" alt="Learning Arduino: Foundations" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
+                    </div>
+                    <div class="cert-content">
+                        <h3 class="cert-title">Learning Arduino: Foundations</h3>
+                        <p class="cert-issuer">LinkedIn</p>
+                        <p class="cert-date">2023</p>
+                        <div class="cert-tags">
+                            <span class="cert-tag">Arduino</span>
+                        </div>
+                        <a href="https://www.linkedin.com/learning/certificates/032b01e6f61db981b1e965c8add771eb199664cf2c5149eaaa52c3659ad4a090" class="cert-link" target="_blank">View Verification</a>
+                    </div>
+                </div>
+            </div>
+            <div class="certifications-more">
+                <button id="showMoreCerts" class="btn btn-secondary">Show More Certifications</button>
+                <button id="showLessCerts" class="btn btn-secondary hide">Show Less</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Skills</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3 class="skill-category-title">Technical Skills</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python (3)</span>
+                        <span class="skill-tag">Quantum Technologies (4)</span>
+                        <span class="skill-tag">Physics (2)</span>
+                        <span class="skill-tag">Machine Learning (2)</span>
+                        <span class="skill-tag">Energy (2)</span>
+                        <span class="skill-tag">CFD</span>
+                        <span class="skill-tag skill-tag-hidden">Ansys</span>
+                        <span class="skill-tag skill-tag-hidden">Simulation</span>
+                        <span class="skill-tag skill-tag-hidden">Embedded Systems</span>
+                        <span class="skill-tag skill-tag-hidden">Robotics</span>
+                        <span class="skill-tag skill-tag-hidden">Control Systems</span>
+                        <span class="skill-tag skill-tag-hidden">FEA</span>
+                        <span class="skill-tag skill-tag-hidden">Finite Element Analysis</span>
+                        <span class="skill-tag skill-tag-hidden">Structural Analysis</span>
+                        <span class="skill-tag skill-tag-hidden">Qiskit</span>
+                        <span class="skill-tag skill-tag-hidden">Cirq</span>
+                        <span class="skill-tag skill-tag-hidden">Quantum Technology</span>
+                        <span class="skill-tag skill-tag-hidden">Gene-Therapy</span>
+                        <span class="skill-tag skill-tag-hidden">Medicine</span>
+                        <span class="skill-tag skill-tag-hidden">microRNA</span>
+                        <span class="skill-tag skill-tag-hidden">General Relativity</span>
+                        <span class="skill-tag skill-tag-hidden">Sustainability</span>
+                        <span class="skill-tag skill-tag-hidden">CCS</span>
+                        <span class="skill-tag skill-tag-hidden">Oil & Gas</span>
+                        <span class="skill-tag skill-tag-hidden">Market Analysis</span>
+                        <span class="skill-tag skill-tag-hidden">Deep Learning</span>
+                        <span class="skill-tag skill-tag-hidden">Neural Networks</span>
+                        <span class="skill-tag skill-tag-hidden">Scikit-Learn</span>
+                        <span class="skill-tag skill-tag-hidden">Finance</span>
+                        <span class="skill-tag skill-tag-hidden">Trading</span>
+                        <span class="skill-tag skill-tag-hidden">Valuation</span>
+                        <span class="skill-tag skill-tag-hidden">Arduino</span>
+                    </div>
+                    <div class="skills-more">
+                        <button id="showMoreTechnicalSkills" class="btn btn-secondary">Show More</button>
+                        <button id="showLessTechnicalSkills" class="btn btn-secondary" style="display: none;">Show Less</button>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3 class="skill-category-title">Programming Languages</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">C/C++</span>
+                        <span class="skill-tag">HTML</span>
+                        <span class="skill-tag">MATLAB</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3 class="skill-category-title">Design Software</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Fusion 360</span>
+                        <span class="skill-tag">Arduino</span>
+                        <span class="skill-tag">Granta Edupack</span>
+                        <span class="skill-tag">Computer Vision Studio</span>
+                        <span class="skill-tag">Tinkercad</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3 class="skill-category-title">Soft Skills</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Leadership</span>
+                        <span class="skill-tag">Problem Solving</span>
+                        <span class="skill-tag">Communication</span>
+                        <span class="skill-tag">Team Collaboration</span>
+                        <span class="skill-tag">Creative Thinking</span>
+                        <span class="skill-tag">Time Management</span>
+                        <span class="skill-tag skill-tag-hidden">Adaptability</span>
+                        <span class="skill-tag skill-tag-hidden">Mentoring</span>
+                    </div>
+                    <div class="skills-more">
+                        <button id="showMoreSoftSkills" class="btn btn-secondary">Show More</button>
+                        <button id="showLessSoftSkills" class="btn btn-secondary" style="display: none;">Show Less</button>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3 class="skill-category-title">Languages</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">English</span>
+                        <span class="skill-tag">Malay (Native)</span>
+                        <span class="skill-tag">German (CEFR B1+)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards & Achievements Section -->
+    <section id="awards" class="awards">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Awards & Achievements</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="awards-grid" id="awardsGrid">
+                <div class="award-card">
+                    <div class="award-icon">🏆</div>
+                    <h3 class="award-title">Most Creative Solution Towards a Sustainable Future</h3>
+                    <p class="award-event">University of Sheffield Data and Design Hackathon</p>
+                    <p class="award-team">Team EcoLogic</p>
+                </div>
+                <div class="award-card">
+                    <div class="award-icon">🏅</div>
+                    <h3 class="award-title">Bronze Medal</h3>
+                    <p class="award-event">Singapore and Asian Schools Math Olympiad (SASMO)</p>
+                </div>
+                <div class="award-card">
+                    <div class="award-icon">🏃</div>
+                    <h3 class="award-title">Champion</h3>
+                    <p class="award-event">High Performance Sports School (SPTS) State Category (Athletics)</p>
+                    <p class="award-team">Kuantan</p>
+                </div>
+                <div class="award-card award-hidden">
+                    <div class="award-icon">♟️</div>
+                    <h3 class="award-title">Champion</h3>
+                    <p class="award-event">District Zone (MSSD) Chess Competition</p>
+                </div>
+                <div class="award-card award-hidden">
+                    <div class="award-icon">⭐</div>
+                    <h3 class="award-title">Academic Distinction Award</h3>
+                    <p class="award-event">Regent International School</p>
+                </div>
+            </div>
+            <div class="awards-more">
+                <button id="showMoreAwards" class="btn btn-secondary">Show More Awards</button>
+                <button id="showLessAwards" class="btn btn-secondary" style="display: none;">Show Less Awards</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Let's Connect</h2>
+                <div class="title-underline"></div>
+                <p class="section-subtitle">
+                    I'm always open to discussing new opportunities and interesting projects.
+                </p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Email</h3>
+                            <a href="mailto:irfanramiza01@gmail.com">irfanramiza01@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/>
+                                <circle cx="4" cy="4" r="2"/>
+                            </svg>
+                        </div>
+                        <div class="contact-details">
+                            <h3>LinkedIn</h3>
+                            <a href="https://www.linkedin.com/in/mibmr/" target="_blank">linkedin.com/in/mibmr</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                        </div>
+                        <div class="contact-details">
+                            <h3>GitHub</h3>
+                            <a href="https://github.com/IR02" target="_blank">github.com/IR02</a>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Irfan Ramiza. Built with passion and creativity.</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/mibmr/" target="_blank" class="social-link">LinkedIn</a>
+                <a href="https://github.com/IR02" target="_blank" class="social-link">GitHub</a>
+                <a href="mailto:irfanramiza01@gmail.com" class="social-link">Email</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
