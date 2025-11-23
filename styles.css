@@ -151,8 +151,8 @@ body::after {
     .equation {
         font-size: 13px;
         opacity: 1; /* Fully visible on mobile */
-        color: rgba(255, 255, 255, 0.5); /* Much brighter for mobile visibility */
-        text-shadow: 0 0 2px rgba(255, 255, 255, 0.3); /* Add subtle glow for better visibility */
+        color: rgba(255, 255, 255, 1.0); /* Twice as bright - fully opaque */
+        text-shadow: 0 0 4px rgba(255, 255, 255, 0.6), 0 0 8px rgba(255, 255, 255, 0.4); /* Enhanced glow for better visibility */
     }
 }
 
