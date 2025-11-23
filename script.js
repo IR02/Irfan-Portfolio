@@ -1061,3 +1061,181 @@ function initializeSkillsSection() {
 // Start the skills section system
 initializeSkillsSection();
 
+// Contact Form Handler with EmailJS
+function initializeContactForm() {
+    const contactForm = document.querySelector('.contact-form');
+    
+    if (!contactForm) {
+        console.error('Contact form not found!');
+        return;
+    }
+    
+    // Wait for EmailJS to be available
+    function waitForEmailJS(callback) {
+        if (typeof emailjs !== 'undefined') {
+            callback();
+        } else {
+            console.log('Waiting for EmailJS to load...');
+            setTimeout(() => waitForEmailJS(callback), 100);
+        }
+    }
+    
+    waitForEmailJS(() => {
+        console.log('EmailJS is available', typeof emailjs);
+        
+        // Initialize EmailJS with your public key (for v4, this might be optional)
+        try {
+            if (emailjs && emailjs.init) {
+                emailjs.init('H_lGkQ4p465lDVcya');
+                console.log('EmailJS initialized successfully');
+            } else {
+                console.warn('EmailJS.init not available, trying without initialization');
+            }
+        } catch (error) {
+            console.error('Error initializing EmailJS:', error);
+            // Continue anyway - some versions don't need init
+        }
+        
+        contactForm.addEventListener('submit', async (e) => {
+            // Check if form is valid first (browser's native validation)
+            if (!contactForm.checkValidity()) {
+                console.log('Form validation failed - browser will show native error');
+                return; // Let browser show native validation errors
+            }
+            
+            e.preventDefault();
+            
+            // Get form data using form elements directly
+            const formData = new FormData(contactForm);
+            const name = formData.get('name') ? String(formData.get('name')).trim() : '';
+            const email = formData.get('email') ? String(formData.get('email')).trim() : '';
+            const message = formData.get('message') ? String(formData.get('message')).trim() : '';
+            
+            // Debug: Log everything
+            console.log('FormData values:', { name, email, message });
+            console.log('Values after trim:', {
+                nameLength: name.length,
+                emailLength: email.length,
+                messageLength: message.length
+            });
+            
+            // Validate form data
+            if (!name || !email || !message) {
+                console.error('Validation failed after trim:', {
+                    name: name || 'EMPTY',
+                    email: email || 'EMPTY',
+                    message: message ? message.substring(0, 30) + '...' : 'EMPTY'
+                });
+                alert('Please fill in all fields completely.');
+                return;
+            }
+            
+            // All fields are filled, proceed with sending
+            console.log('✅ All fields validated, proceeding to send email');
+            
+            // Debug: Log the data being sent
+            console.log('Form data captured:', { name, email, message });
+            console.log('Sending to EmailJS with:', {
+                from_name: name,
+                from_email: email,
+                message: message
+            });
+            
+            // Get the submit button
+            const submitButton = contactForm.querySelector('button[type="submit"]');
+            const originalButtonText = submitButton.textContent;
+            
+            // Disable button and show loading state
+            submitButton.disabled = true;
+            submitButton.textContent = 'Sending...';
+            
+            try {
+                // Verify EmailJS is loaded
+                if (typeof emailjs === 'undefined') {
+                    throw new Error('EmailJS library not loaded. Please check if the script is included.');
+                }
+                
+                console.log('EmailJS initialized, attempting to send...');
+                
+                // Verify EmailJS is loaded
+                if (typeof emailjs === 'undefined') {
+                    throw new Error('EmailJS library not loaded. Please check if the script is included.');
+                }
+                
+                console.log('EmailJS initialized, attempting to send...');
+                console.log('Service ID: service_y1oc0ib');
+                console.log('Template ID: template_ehz1dj4');
+                console.log('Public Key: H_lGkQ4p465lDVcya');
+                
+                // Send email using EmailJS
+                // For EmailJS v4, you can also pass public key as 4th parameter if init didn't work
+                const emailParams = {
+                    from_name: name,
+                    from_email: email,
+                    message: message
+                };
+                
+                console.log('Calling emailjs.send with:', {
+                    serviceId: 'service_y1oc0ib',
+                    templateId: 'template_ehz1dj4',
+                    params: emailParams
+                });
+                
+                const response = await emailjs.send(
+                    'service_y1oc0ib',
+                    'template_ehz1dj4',
+                    emailParams,
+                    'H_lGkQ4p465lDVcya' // Public key as 4th parameter (backup)
+                );
+                
+                console.log('✅ Email sent successfully!', response);
+                console.log('Response status:', response.status);
+                console.log('Response text:', response.text);
+                console.log('Full response:', JSON.stringify(response, null, 2));
+                
+                // Success message
+                submitButton.textContent = 'Message Sent!';
+                submitButton.style.background = 'linear-gradient(135deg, #10b981 0%, #059669 100%)';
+                
+                // Reset form
+                contactForm.reset();
+                
+                // Reset button after 3 seconds
+                setTimeout(() => {
+                    submitButton.disabled = false;
+                    submitButton.textContent = originalButtonText;
+                    submitButton.style.background = '';
+                }, 3000);
+                
+            } catch (error) {
+                console.error('❌ Error sending email:', error);
+                console.error('Error status:', error.status);
+                console.error('Error text:', error.text);
+                console.error('Full error object:', error);
+                
+                // Error message
+                submitButton.textContent = 'Error - Try Again';
+                submitButton.style.background = 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)';
+                
+                // Show detailed error alert
+                alert(`Failed to send message.\n\nError: ${error.text || error.message}\n\nCheck the browser console (F12) for more details.`);
+                
+                // Reset button after 3 seconds
+                setTimeout(() => {
+                    submitButton.disabled = false;
+                    submitButton.textContent = originalButtonText;
+                    submitButton.style.background = '';
+                }, 3000);
+            }
+        });
+    });
+}
+
+// Initialize when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeContactForm);
+} else {
+    // DOM is already ready
+    initializeContactForm();
+}
+
