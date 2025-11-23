@@ -150,7 +150,8 @@ body::after {
     
     .equation {
         font-size: 12px;
-        opacity: 0.4; /* Slightly more visible on mobile */
+        opacity: 0.7; /* Brighter on mobile but still subtle */
+        color: rgba(255, 255, 255, 0.25); /* Brighter color for better visibility */
     }
 }
 
