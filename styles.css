@@ -1968,7 +1968,7 @@ section {
     }
     
     .timeline::before {
-        left: 20px;
+        left: 10px;
         transform: translateX(-50%);
         width: 2px;
     }
@@ -1984,7 +1984,7 @@ section {
     }
 
     .timeline-item::before {
-        left: 20px;
+        left: 10px;
         transform: translate(-50%, -50%);
         width: 20px;
         height: 20px;
@@ -2005,18 +2005,27 @@ section {
     }
 
     .timeline-content {
-        padding-left: 0;
+        padding-left: 4rem;
         padding-right: 1rem;
         margin-left: 0;
         margin-right: 0;
         width: 100%;
         box-sizing: border-box;
+        position: relative;
     }
 
     .timeline-logo-wrapper {
         width: 60px;
         height: 60px;
-        left: 1rem;
+        left: 0.5rem;
+        top: 50%;
+        transform: translateY(-50%);
+        position: absolute;
+    }
+    
+    .timeline-company-logo {
+        width: 100%;
+        height: 100%;
     }
     
     .timeline-content:hover .timeline-company-logo {
