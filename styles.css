@@ -1975,7 +1975,7 @@ section {
     .timeline-item {
         grid-template-columns: 1fr;
         gap: 1rem;
-        padding-left: 3rem;
+        padding-left: 0;
         margin-left: 0;
         position: relative;
     }
@@ -1996,6 +1996,10 @@ section {
     .timeline-content {
         padding-left: 5rem;
         margin-left: 0;
+    }
+    
+    .timeline-year {
+        padding-left: 5rem;
     }
 
     .timeline-logo-wrapper {
