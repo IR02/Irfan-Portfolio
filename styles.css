@@ -152,16 +152,21 @@ body::after {
         font-size: 13px;
         opacity: 1; /* Fully visible on mobile */
         color: rgba(255, 255, 255, 0.8); /* Bright text without shadow */
-        text-shadow: none; /* Remove all shadow/halo effects */
-        filter: none; /* Remove brightness filter */
+        text-shadow: none !important; /* Remove all shadow/halo effects */
+        filter: none !important; /* Remove brightness filter */
+        box-shadow: none !important; /* Remove any box shadows */
     }
     
-    /* Hide some equations on mobile to reduce clutter - keep only every 3rd equation */
-    .equation-2, .equation-3, .equation-5, .equation-6, .equation-8, .equation-9, 
-    .equation-11, .equation-12, .equation-14, .equation-16, .equation-17, 
-    .equation-19, .equation-20, .equation-22, .equation-23, .equation-25, .equation-26 {
-        display: none;
+    /* Hide half of the equations on mobile - keep only 13 out of 27 */
+    .equation-2, .equation-3, .equation-4, .equation-5, .equation-6, .equation-7,
+    .equation-8, .equation-9, .equation-10, .equation-11, .equation-12, .equation-13,
+    .equation-14, .equation-16, .equation-17, .equation-18, .equation-19, .equation-20,
+    .equation-21, .equation-22, .equation-23, .equation-24, .equation-25, .equation-26,
+    .equation-27 {
+        display: none !important;
     }
+    
+    /* Only show: equation-1 and equation-15 */
 }
 
 .container {
@@ -1256,18 +1261,23 @@ section {
         grid-template-columns: 1fr;
         gap: 3rem;
         justify-items: center;
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        padding: 0 2rem;
     }
     
     .contact-info-new {
-        order: 2;
+        order: 1;
         width: 100%;
         max-width: 500px;
         align-items: center;
         padding-left: 0;
+        margin: 0 auto;
     }
     
     .contact-form-new {
-        order: 1;
+        order: 2;
         width: 100%;
         max-width: 500px;
         margin: 0 auto;
@@ -1276,24 +1286,33 @@ section {
 
 @media (max-width: 768px) {
     .contact-content-new {
-        padding: 0 1.5rem;
+        padding: 0 1rem;
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
     }
     
     .contact-form-new {
         padding: 1.5rem;
         width: 100%;
         max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
     }
     
     .contact-info-new {
         width: 100%;
         max-width: 100%;
         align-items: center;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 0;
     }
     
     .contact-item-new {
         justify-content: center;
         width: 100%;
+        margin: 0 auto;
     }
     
     .contact-icon-new {
