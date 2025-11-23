@@ -151,8 +151,13 @@ body::after {
     .equation {
         font-size: 13px;
         opacity: 1; /* Fully visible on mobile */
-        color: rgba(255, 255, 255, 1.0); /* Twice as bright - fully opaque */
-        text-shadow: 0 0 4px rgba(255, 255, 255, 0.6), 0 0 8px rgba(255, 255, 255, 0.4); /* Enhanced glow for better visibility */
+        color: rgba(255, 255, 255, 1.0); /* Maximum brightness */
+        text-shadow: 
+            0 0 6px rgba(255, 255, 255, 0.9),
+            0 0 12px rgba(255, 255, 255, 0.7),
+            0 0 18px rgba(255, 255, 255, 0.5),
+            0 0 24px rgba(255, 255, 255, 0.3); /* Triple brightness with multiple glow layers */
+        filter: brightness(1.5); /* Additional brightness boost */
     }
 }
 
