@@ -1965,12 +1965,14 @@ section {
         margin-left: 0;
         margin-right: 0;
         width: 100%;
+        position: relative;
     }
     
     .timeline::before {
-        left: 10px;
+        left: 150px;
         transform: translateX(-50%);
         width: 2px;
+        background: var(--border-color);
     }
 
     .timeline-item {
@@ -1984,10 +1986,15 @@ section {
     }
 
     .timeline-item::before {
-        left: 10px;
+        left: 150px;
         transform: translate(-50%, -50%);
-        width: 20px;
-        height: 20px;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: var(--gradient-ai);
+        border: 3px solid var(--bg-primary);
+        box-shadow: none;
+        z-index: 1;
     }
 
     .timeline-year {
@@ -2005,7 +2012,7 @@ section {
     }
 
     .timeline-content {
-        padding-left: 4rem;
+        padding-left: 7.5rem;
         padding-right: 1rem;
         margin-left: 0;
         margin-right: 0;
@@ -2017,7 +2024,7 @@ section {
     .timeline-logo-wrapper {
         width: 60px;
         height: 60px;
-        left: 0.5rem;
+        left: 1rem;
         top: 50%;
         transform: translateY(-50%);
         position: absolute;
@@ -2026,6 +2033,8 @@ section {
     .timeline-company-logo {
         width: 100%;
         height: 100%;
+        object-fit: cover;
+        border-radius: 8px;
     }
     
     .timeline-content:hover .timeline-company-logo {
