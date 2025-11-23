@@ -151,9 +151,9 @@ body::after {
     .equation {
         font-size: 13px;
         opacity: 1; /* Fully visible on mobile */
-        color: rgba(255, 255, 255, 0.8); /* Bright text without shadow */
+        color: rgba(255, 255, 255, 1.0); /* Triple brightness - fully opaque white */
         text-shadow: none !important; /* Remove all shadow/halo effects */
-        filter: none !important; /* Remove brightness filter */
+        filter: brightness(3) !important; /* Triple the brightness */
         box-shadow: none !important; /* Remove any box shadows */
     }
     
@@ -1304,15 +1304,16 @@ section {
         width: 100%;
         max-width: 100%;
         align-items: flex-start;
-        margin-left: auto;
-        margin-right: auto;
-        padding-left: 0;
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 1rem;
     }
     
     .contact-item-new {
         justify-content: flex-start;
         width: 100%;
         margin: 0;
+        align-items: flex-start;
     }
     
     .contact-icon-new {
