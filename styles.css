@@ -1969,7 +1969,7 @@ section {
     }
     
     .timeline::before {
-        left: 150px;
+        left: 50%;
         transform: translateX(-50%);
         width: 2px;
         background: var(--border-color);
@@ -1986,15 +1986,7 @@ section {
     }
 
     .timeline-item::before {
-        left: 150px;
-        transform: translate(-50%, -50%);
-        width: 16px;
-        height: 16px;
-        border-radius: 50%;
-        background: var(--gradient-ai);
-        border: 3px solid var(--bg-primary);
-        box-shadow: none;
-        z-index: 1;
+        display: none;
     }
 
     .timeline-year {
@@ -2012,7 +2004,7 @@ section {
     }
 
     .timeline-content {
-        padding-left: 7.5rem;
+        padding-left: 5rem;
         padding-right: 1rem;
         margin-left: 0;
         margin-right: 0;
