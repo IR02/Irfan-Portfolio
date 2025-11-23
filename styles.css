@@ -1964,6 +1964,7 @@ section {
         padding-left: 0;
         margin-left: 0;
         margin-right: 0;
+        width: 100%;
     }
     
     .timeline::before {
@@ -1977,7 +1978,9 @@ section {
         gap: 1rem;
         padding-left: 0;
         margin-left: 0;
+        margin-right: 0;
         position: relative;
+        width: 100%;
     }
 
     .timeline-item::before {
@@ -1993,15 +1996,21 @@ section {
         margin-bottom: 0.5rem;
         text-align: left;
         padding-right: 0;
+        padding-left: 0;
         max-width: 100%;
         justify-content: flex-start;
-        padding-left: 5rem;
         margin-left: 0;
+        margin-right: 0;
+        width: 100%;
     }
 
     .timeline-content {
-        padding-left: 5rem;
+        padding-left: 0;
+        padding-right: 1rem;
         margin-left: 0;
+        margin-right: 0;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .timeline-logo-wrapper {
