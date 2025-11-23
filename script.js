@@ -607,70 +607,52 @@ document.addEventListener('DOMContentLoaded', () => {
 // Comprehensive Skills Database
 const skillsDatabase = {
     designSimulation: [
-        'OpenFOAM', 'ANSYS Fluent', 'STAR-CCM+', 'SU2', 'COMSOL Multiphysics', 'FEniCS', 'Firedrake',
-        'Deal.II', 'MFEM', 'ANSYS Mechanical', 'APDL', 'Abaqus', 'LS-DYNA', 'SolidWorks', 'Fusion 360',
-        'Siemens NX', 'CATIA', 'Onshape', 'FreeCAD', 'Granta Edupack', 'Computer Vision Studio', 'Tinkercad',
-        'ParaView', 'VisIt', 'Tecplot', 'Gmsh', 'Salome Platform', 'EnergyPlus', 'eQuest', 'PVsyst',
-        'ETAP', 'PSCAD', 'Plexim', 'Creo Parametric', 'Inventor', 'Mastercam', 'KiCAD'
+        'OpenFOAM', 'ANSYS Fluent', 'ANSYS Mechanical', 'APDL', 'COMSOL Multiphysics', 
+        'STAR-CCM+', 'SU2', 'Abaqus', 'LS-DYNA', 'SolidWorks', 'Fusion 360', 
+        'Siemens NX', 'CATIA', 'Creo Parametric', 'FEniCS', 'Firedrake', 
+        'Gmsh', 'Salome Platform', 'ParaView', 'VisIt', 'Tecplot', 
+        'EnergyPlus', 'PVsyst', 'ETAP'
     ],
     programming: [
-        'Python', 'C++', 'C/C++', 'Fortran', 'Julia', 'Rust', 'MATLAB', 'Simulink', 'Mathematica',
-        'HTML', 'GoLang', 'Verilog', 'VHDL'
+        'Python', 'C++', 'Fortran', 'Julia', 'Rust', 'MATLAB', 'Simulink', 
+        'Mathematica', 'GoLang', 'Verilog', 'VHDL', 'HTML', 'CSS', 'JS'
+    ],
+    mechanicalElectrical: [
+        'Fusion 360', 'SolidWorks', 'Siemens NX', 'CATIA', 'Creo Parametric', 
+        'Onshape', 'FreeCAD', 'Granta Edupack', 'Mastercam', 
+        '3D Printing', 'FDM', 'Resin', 'CFD', 'OpenFOAM', 
+        'STAR-CCM+', 'SU2', 'FEA', 'ANSYS Mechanical', 'Abaqus', 'LS-DYNA', 
+        'Structural Analysis', 'Vibration Analysis', 'Modal Analysis', 
+        'Topology Optimization', 'Reduced-order Modelling', 'POD', 'DMD',
+        'Arduino', 'Raspberry Pi', 'FPGA', 'Verilog', 'VHDL', 'KiCAD', 
+        'PCB Design', 'Soldering', 'ROS2', 'LabVIEW', 
+        'RF Engineering', 'Microwave', 'Resonators', 'Embedded Systems',
+        'CAD'
+    ],
+    aiQuantum: [
+        'Qiskit', 'Pennylane', 'Cirq', 'TKET', 'Qiskit Pulse', 'VQE', 'QAOA', 
+        'Quantum Error Mitigation', 'TensorFlow Quantum', 'TF Quantum', 
+        'QuTiP', 'ProjectQ', 'Yao.jl',
+        'PyTorch', 'JAX', 'Flax', 'NumPy', 'SciPy', 'Pandas', 'Scikit-Learn', 
+        'Scikit-learn', 'CUDA', 'MPI', 'OpenMP', 'Git', 'GitHub', 'Docker', 
+        'Apptainer', 'SLURM', 'Linux', 'Bash', 'Conda', 'Mamba', 'JupyterLab', 'LaTeX'
     ],
     interest: [
-        'Running', 'Badminton', 'Marathon', 'Ultra-running', 'Triathlon', 'Ironman', 'Mountaineering', 'Alpinism',
-        'Rock Climbing', 'Volunteering', 'Science Outreach', 'STEM Workshops', 'Red Cross', 'Disaster Response',
-        'Environmental Cleanups', 'Amateur Radio', 'HAM', 'Photography', 'Scientific Imaging', 'Speedcubing',
-        'Rubik\'s', 'Chess', 'Piano', 'Musical Instrument', 'Meditation', 'Mindfulness', 'Yoga',
-        'First-aid', 'Wilderness Medicine', 'Scuba Diving', 'PADI', 'Sailing', 'Beekeeping',
-        'Urban Gardening', 'Hydroponics', 'Home Biotechnology', 'DIYbio', 'Open-source', 'Blogging',
-        'Scientific Writing', 'Podcasting', 'Mechanical Keyboards', 'Coffee Roasting', 'Fermentation',
-        'Sourdough', 'Microbiology', 'Home Lab Spectroscopy', 'Folding@Home', 'DreamLab',
-        'Physics', 'Quantum Mechanics', 'General Relativity', 'Energy', 'Sustainability', 
-        'Medicine', 'Finance', 'Trading', 'Valuation', 'Market Analysis'
-    ],
-    technicalLab: [
-        'Qiskit', 'Cirq', 'OpenFermion', 'Pennylane', 'Strawberry Fields', 'Xanadu', 'TKET', 'pytket',
-        'Quantum Error Correction', 'Quantum Mitigation', 'Qiskit Pulse', 'QuilC', 'VQE', 'QAOA',
-        'Quantum Technology', 'Quantum Technologies', 'Quantum Computing', 'Quantum Machine Learning',
-        'Machine Learning', 'Deep Learning',
-        'Neural Networks', 'Scikit-Learn', 'TensorFlow', 'TF Quantum', 'JAX', 'Flax', 'NumPy', 'SciPy',
-        'Pandas', 'Dask', 'Ray', 'Numba', 'CuPy', 'PyTorch', 'Git', 'GitHub', 'GitLab', 'Docker',
-        'Singularity', 'Apptainer', 'Kubernetes', 'SLURM', 'PBS', 'LSF', 'MPI', 'OpenMP', 'CUDA',
-        'LaTeX', 'Overleaf', 'BibTeX', 'Linux', 'Ubuntu', 'Rocky', 'Arch', 'Bash', 'Zsh', 'Conda',
-        'Mamba', 'Pixi', 'Poetry', 'UV', 'JupyterLab', 'VS Code', 'Remote SSH', 'Neovim', 'Vim',
-        'LabVIEW', 'RF Engineering', 'Microwave', 'Resonators', 'Cryogenics', 'Dilution Refrigerators',
-        'Superconducting Qubits', 'Trapped-ion', 'Photonic Quantum', 'Neutral-atom', 'Pasqal', 'QuEra',
-        'NV-center', 'Quantum Sensing', 'LAMMPS', 'GROMACS', 'OpenMM', 'PyBaMM', 'Cantera',
-        'OpenMC', 'Serpent', 'MOOSE', 'DAGMC', 'Reduced-order Modelling', 'POD', 'DMD',
-        'Gaussian Processes', 'Bayesian Optimization', 'BoTorch', 'Machine Learning for Physics',
-        'Inverse Design', 'Topology Optimization', 'Arduino', 'Raspberry Pi', 'FPGA', 'ROS2',
-        '3D Printing', 'Prusa', 'Bambu', 'Resin', 'PCB Design', 'Soldering', 'OriginPro',
-        'AWS', 'ParallelCluster', 'GCP', 'Azure Quantum', 'GitHub Actions', 'CI/CD', 'Terraform',
-        'QKD', 'Post-quantum Cryptography', 'Quantum Networking', 'Topological Qubits',
-        'Majorana Zero Modes', 'QuTiP', 'ProjectQ', 'Yao.jl', 'CRISPR-Cas9', 'Gene Editing',
-        'Gene-Therapy', 'microRNA', 'mRNA', 'Lipid Nanoparticles', 'AAV', 'Lentivirus',
-        'Single-cell RNA Sequencing', 'scRNA-Seq', 'Bioinformatics', 'AlphaFold', 'ESMFold',
-        'Molecular Dynamics', 'Biomolecules', 'Drug Discovery', 'Virtual Screening',
-        'Synthetic Biology', 'Organ-on-chip', 'Microfluidics', 'Biopython', 'Nextflow',
-        'Snakemake', 'Fusion Energy', 'Tokamak', 'Stellarator', 'ICF', 'Plasma Physics',
-        'MHD', 'Gyrokinetic', 'Tritium', 'Hydrogen Economy', 'Electrolysis', 'Solid-state Batteries',
-        'Flow Batteries', 'Carbon Capture', 'CCS', 'Geothermal', 'Reservoir Modelling',
-        'Grid-scale Energy Storage', 'Power Electronics', 'CFD', 'FEA', 'Finite Element Analysis',
-        'Structural Analysis', 'Vibration Analysis', 'Modal Analysis', 'Embedded Systems',
-        'Robotics', 'Control Systems', 'Simulation', 'Ansys', 'Oil & Gas'
+        'Physics', 'Ultramarathon (1)', 'Philosophy', 'Business', 'Personalised Medicine', 
+        'Volunteering', 'Badminton', 'Half-Marathon (6)', 'Reading', 
+        'Philanthropy', 'Chess'
     ],
     languages: [
         'English (Fluent)', 'Malay (Native)', 'German (CEFR B1+)'
     ]
 };
 
-// Flatten all skills for easier searching
+// Flatten all skills for easier searching (exclude interest and languages as they are static)
 const allSkills = [
     ...skillsDatabase.designSimulation,
     ...skillsDatabase.programming,
-    ...skillsDatabase.interest,
-    ...skillsDatabase.technicalLab,
+    ...skillsDatabase.mechanicalElectrical,
+    ...skillsDatabase.aiQuantum,
     ...skillsDatabase.languages
 ];
 
@@ -769,8 +751,10 @@ function fuzzyMatchSkill(content, skillName) {
 // Extract skills from content
 function extractSkillsFromContent() {
     const skillCounts = new Map();
-    // Exclude languages from extraction (they are static)
-    const skillsToExtract = allSkills.filter(skill => !skillsDatabase.languages.includes(skill));
+    // Exclude languages and interest from extraction (they are static)
+    const skillsToExtract = allSkills.filter(skill => 
+        !skillsDatabase.languages.includes(skill) && !skillsDatabase.interest.includes(skill)
+    );
     
     // Extract from Experiences (timeline descriptions)
     const timelineDescriptions = document.querySelectorAll('.timeline-description');
@@ -783,29 +767,27 @@ function extractSkillsFromContent() {
         });
     });
     
-    // Extract from Projects (descriptions and tags)
-    const projectDescriptions = document.querySelectorAll('.project-description');
-    projectDescriptions.forEach(desc => {
-        const text = desc.textContent || '';
+    // Extract from Projects (descriptions and tags) - combined to avoid double counting
+    const projectCards = document.querySelectorAll('.project-card');
+    projectCards.forEach(projectCard => {
+        // Get description text
+        const descElem = projectCard.querySelector('.project-description');
+        let projectText = descElem ? (descElem.textContent || '') : '';
+        
+        // Get tags and add to text
+        const tagElems = projectCard.querySelectorAll('.project-tag');
+        tagElems.forEach(tag => {
+            projectText += ' ' + (tag.textContent || '');
+        });
+        
+        // Extract skills from combined text (only once per project)
+        const projectSkillsFound = new Set(); // Track skills found in this project
         skillsToExtract.forEach(skill => {
-            if (fuzzyMatchSkill(text, skill)) {
+            if (fuzzyMatchSkill(projectText, skill) && !projectSkillsFound.has(skill)) {
                 skillCounts.set(skill, (skillCounts.get(skill) || 0) + 1);
+                projectSkillsFound.add(skill); // Mark as found for this project
             }
         });
-    });
-    
-    const projectTags = document.querySelectorAll('.project-tag');
-    projectTags.forEach(tag => {
-        const text = tag.textContent.trim();
-        // Direct match first (exact or case-insensitive)
-        let matched = false;
-        for (const skill of skillsToExtract) {
-            if (text.toLowerCase() === skill.toLowerCase() || fuzzyMatchSkill(text, skill)) {
-                skillCounts.set(skill, (skillCounts.get(skill) || 0) + 1);
-                matched = true;
-                break; // Only count once per tag
-            }
-        }
     });
     
     // Extract from Certifications (tags)
@@ -849,15 +831,16 @@ function renderSkillsSection() {
     const categorizedSkills = {
         designSimulation: [],
         programming: [],
+        mechanicalElectrical: [],
+        aiQuantum: [],
         interest: [],
-        technicalLab: [],
         languages: []
     };
     
     skillCounts.forEach((count, skill) => {
         const category = getSkillCategory(skill);
-        // Skip languages - they will be added statically
-        if (category && categorizedSkills[category] && category !== 'languages') {
+        // Skip languages and interest - they will be added statically
+        if (category && categorizedSkills[category] && category !== 'languages' && category !== 'interest') {
             categorizedSkills[category].push({ skill, count });
         }
     });
@@ -867,15 +850,25 @@ function renderSkillsSection() {
         categorizedSkills.languages.push({ skill: lang, count: 1 });
     });
     
+    // Add interest statically (not extracted from content)
+    skillsDatabase.interest.forEach(interest => {
+        categorizedSkills.interest.push({ skill: interest, count: 1 });
+    });
+    
     // Sort by count (descending), then alphabetically
     Object.keys(categorizedSkills).forEach(category => {
         if (category === 'interest') {
-            // Special sorting for interest: Running first, then by count, then alphabetically
+            // Interest: maintain order as specified
+            const interestOrder = ['Physics', 'Ultramarathon (1)', 'Medicine', 'Business', 'Philosophy', 
+                'Volunteering', 'Badminton', 'Half-Marathon (6)', 'Reading', 
+                'Philanthropy', 'Chess'];
             categorizedSkills[category].sort((a, b) => {
-                if (a.skill.toLowerCase() === 'running') return -1;
-                if (b.skill.toLowerCase() === 'running') return 1;
-                if (b.count !== a.count) return b.count - a.count;
-                return a.skill.localeCompare(b.skill);
+                const aIndex = interestOrder.indexOf(a.skill);
+                const bIndex = interestOrder.indexOf(b.skill);
+                if (aIndex === -1 && bIndex === -1) return 0;
+                if (aIndex === -1) return 1;
+                if (bIndex === -1) return -1;
+                return aIndex - bIndex;
             });
         } else if (category === 'languages') {
             // Languages: maintain order (English, Malay, German)
@@ -900,8 +893,9 @@ function renderSkillsSection() {
     const categoryNames = {
         designSimulation: 'Design/Simulation Software',
         programming: 'Programming Languages',
-        interest: 'Interest',
-        technicalLab: 'Technical',
+        mechanicalElectrical: 'Mechanical & Electrical',
+        aiQuantum: 'AI and Quantum',
+        interest: 'Interests & Sports',
         languages: 'Languages'
     };
     
@@ -909,8 +903,8 @@ function renderSkillsSection() {
     let html = '';
     Object.keys(categorizedSkills).forEach(category => {
         const skills = categorizedSkills[category];
-        // Always show languages, skip other empty categories
-        if (skills.length === 0 && category !== 'languages') return;
+        // Always show languages and interest, skip other empty categories
+        if (skills.length === 0 && category !== 'languages' && category !== 'interest') return;
         
         const categoryName = categoryNames[category];
         const visibleSkills = skills.slice(0, 5);
@@ -927,8 +921,8 @@ function renderSkillsSection() {
         
         // Visible skills
         visibleSkills.forEach(({ skill, count }) => {
-            // Languages don't show counts
-            if (category === 'languages') {
+            // Languages and Interest don't show counts
+            if (category === 'languages' || category === 'interest') {
                 html += `<span class="skill-tag">${skill}</span>`;
             } else {
                 html += `<span class="skill-tag">${skill}${count > 1 ? ` (${count})` : ''}</span>`;
@@ -938,8 +932,8 @@ function renderSkillsSection() {
         // Hidden skills
         if (hasMore) {
             hiddenSkills.forEach(({ skill, count }) => {
-                // Languages don't show counts
-                if (category === 'languages') {
+                // Languages and Interest don't show counts
+                if (category === 'languages' || category === 'interest') {
                     html += `<span class="skill-tag skill-tag-hidden">${skill}</span>`;
                 } else {
                     html += `<span class="skill-tag skill-tag-hidden">${skill}${count > 1 ? ` (${count})` : ''}</span>`;
@@ -972,7 +966,7 @@ function renderSkillsSection() {
 
 // Attach Show More/Less event listeners
 function attachSkillsMoreLessListeners() {
-    const categories = ['designSimulation', 'programming', 'interest', 'technicalLab', 'languages'];
+    const categories = ['designSimulation', 'programming', 'mechanicalElectrical', 'aiQuantum', 'interest', 'languages'];
     
     categories.forEach(category => {
         // Convert camelCase to kebab-case for IDs
