@@ -732,6 +732,63 @@ section {
     display: block;
 }
 
+/* Resume Section */
+.resume {
+    background: transparent;
+    position: relative;
+}
+
+.resume-content {
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 2.5rem 2.5rem 2rem;
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.resume-text p {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+.resume-text p:last-child {
+    margin-bottom: 0;
+}
+
+.resume-note {
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+.resume-note span {
+    font-weight: 600;
+    color: var(--neon-blue);
+}
+
+.resume-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+}
+
+.resume-download {
+    text-align: center;
+}
+
+@media (max-width: 640px) {
+    .resume-content {
+        padding: 2rem 1.5rem 1.5rem;
+    }
+}
+
 /* Skills Section */
 .skills {
     background: transparent;
