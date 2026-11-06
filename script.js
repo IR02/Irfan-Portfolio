@@ -637,7 +637,7 @@ const skillsDatabase = {
         'CAD',
         'Siemens TIA Portal', 'PLC Programming', 'Ladder Logic', 'WinCC HMI',
         'PID Control', 'Industrial Automation', 'Sensors & Actuators',
-        'PicoScope', 'FFT', 'CFRP', 'Data Acquisition'
+        'PicoScope', 'FFT', 'Carbon Fibre Reinforced Polymer', 'Data Acquisition'
     ],
     aiQuantum: [
         'Qiskit', 'Pennylane', 'Cirq', 'TKET', 'Qiskit Pulse', 'VQE', 'QAOA', 
