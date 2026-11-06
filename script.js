@@ -293,12 +293,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const showMoreAwardsBtn = document.getElementById('showMoreAwards');
     const showLessAwardsBtn = document.getElementById('showLessAwards');
     const hiddenAwards = document.querySelectorAll('.award-hidden');
+    const compactAwards = document.querySelectorAll('.award-compact-hidden');
     
-    if (showMoreAwardsBtn && showLessAwardsBtn && hiddenAwards.length > 0) {
+    if (showMoreAwardsBtn && showLessAwardsBtn && (hiddenAwards.length > 0 || compactAwards.length > 0)) {
         showMoreAwardsBtn.addEventListener('click', () => {
             hiddenAwards.forEach(award => {
                 award.classList.remove('award-hidden');
                 award.classList.add('fade-in-up');
+            });
+            compactAwards.forEach(award => {
+                award.classList.add('award-revealed');
             });
             showMoreAwardsBtn.style.display = 'none';
             showLessAwardsBtn.style.display = 'inline-block';
@@ -311,6 +315,9 @@ document.addEventListener('DOMContentLoaded', () => {
             hiddenAwards.forEach(award => {
                 award.classList.add('award-hidden');
                 award.classList.remove('fade-in-up');
+            });
+            compactAwards.forEach(award => {
+                award.classList.remove('award-revealed');
             });
             showMoreAwardsBtn.style.display = 'inline-block';
             showLessAwardsBtn.style.display = 'none';
