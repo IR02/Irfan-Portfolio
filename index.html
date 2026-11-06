@@ -367,6 +367,80 @@
             <div class="projects-grid">
                 <div class="project-card">
                     <div class="project-image">
+                        <img src="fyp/fyp-dual-channel.png" alt="CFRP coupon with a piezoelectric disc and reference accelerometer connected to a PicoScope and Arduino" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Low-Cost Acoustic Sensing &amp; Data Acquisition for Cryogenic CFRP</h3>
+                        <div class="project-highlights">
+                            <div class="project-highlight">
+                                <span class="project-highlight-value">£26</span>
+                                <span class="project-highlight-label">prototype sensing channel</span>
+                            </div>
+                            <div class="project-highlight">
+                                <span class="project-highlight-value">22</span>
+                                <span class="project-highlight-label">manufactured CFRP specimens</span>
+                            </div>
+                            <div class="project-highlight">
+                                <span class="project-highlight-value">5/5</span>
+                                <span class="project-highlight-label">controlled impacts detected by both sensing systems</span>
+                            </div>
+                        </div>
+                        <div class="project-description">
+                            <p>Compared a £26 piezoelectric disc and Arduino Uno R3 with a laboratory IEPE accelerometer, PCB 482A22 conditioner and PicoScope 4824A on woven CFRP coupons. Twenty-two specimens were made and a motorised liquid-nitrogen dipping rig was built. Both channels detected five out of five controlled mechanical taps. The low-cost channel is a proof of concept for envelope-level event detection, not a substitute for commercial acoustic-emission equipment.</p>
+                            <p class="project-description-extra" style="display: none;"><strong>Hardware.</strong> The reference channel was a PCB Piezotronics ICP accelerometer, wax-mounted, powered by a PCB 482A22 conditioner at 4 mA and digitised on a PicoScope 4824A (12-bit, ±5 V, 25 kHz on the ambient test). The prototype channel was a 27 mm piezoelectric disc, Araldite-bonded at the opposite end and read on Arduino Uno R3 pin A3 (10-bit, 0–5 V) at about 500 Hz. A TL072 chain, with AC coupling, a 2.5 V bias, a gain of 101 and a diode clamp, was built on breadboard and then bypassed: the bias rail drifted and the high-impedance input picked up mains. The disc was connected straight to the ADC, so negative half-cycles clip to zero.</p>
+                            <p class="project-description-extra" style="display: none;"><strong>CFRP manufacture.</strong> Two 380 × 380 mm panels were laid up by hand from eight plies of woven 0/90 carbon/epoxy prepreg and cured to 1.75 mm. They were machined into 22 coupons, 350 × 25 × 1.75 mm, sized for later flexural and tensile geometries. This was an 8-ply woven layup, not a quasi-isotropic laminate.</p>
+                            <p class="project-description-extra" style="display: none;"><strong>Automated LN₂ rig.</strong> An MDF frame carried a brushed DC motor, a 40 mm spool and a nylon cord. An L298N H-bridge drove the motor. An HC-SR04 measured hook position to about ±3 mm, and a DHT11 logged ambient temperature and humidity. Arduino firmware lowered the coupon, held the dwell, then raised it. One pilot dip was completed: about 100 mm submerged for five minutes in a 5 L Dewar. That was not a thermal-fatigue campaign.</p>
+                            <p class="project-description-extra" style="display: none;"><strong>Data processing.</strong> Both records were processed in Python with NumPy, pandas and Matplotlib: mean removal, a Hann window, a one-sided FFT, magnitude scaling by 2/Σw, then magnitude averaging across the five PicoScope captures. Frequency resolution on the reference captures was about 19.9 Hz per bin.</p>
+                            <p class="project-description-extra" style="display: none;"><strong>Quantitative results.</strong> All five screwdriver taps were detected on both channels. Reference signal-to-noise ratio at the peak was above 30 dB; the Arduino was above 20 dB. These were controlled mechanical taps, not five confirmed damage events. Peak-amplitude coefficient of variation was 29% on the reference and 43% on the low-cost channel. The averaged spectrum had a dominant peak near 3.3 kHz (about 3349 Hz), with smaller peaks near 1.7 kHz and 2.2 kHz. That peak is the specimen–sensor mechanical response, not a confirmed damage frequency. Acoustic-emission damage bands for CFRP sit far higher. At about 500 Hz the Arduino Nyquist limit is 250 Hz, so it records the envelope rather than the 3.3 kHz oscillation.</p>
+                            <p class="project-description-extra" style="display: none;"><strong>Pilot cryogenic dip.</strong> The PicoScope, triggered at 0.4 V, recorded no window during the five-minute dwell. The Arduino trace contained two bursts, with peaks of 801 and 576 counts against a quiet baseline scatter of about 0.75 counts. Those two events were not identified as CFRP damage: boil-off, rig motion and a partial wire detachment are also plausible, and no cracking was visible afterwards. During this test the Arduino rate fell to about 48 Hz because extra sensor columns were logged on the serial line.</p>
+                            <p class="project-description-extra" style="display: none;"><strong>Limitations and next steps.</strong> Only one cryogenic dip was run, on one coupon. The tap source was uncalibrated. The TL072 chain was not in the measurement path. The reference sensor is a general-purpose accelerometer, not a wideband acoustic-emission transducer, so neither channel reached the 50–600 kHz damage band. Machine-learning classification, transfer learning and a multi-cycle cryogenic fatigue series were proposed future work. They were not completed.</p>
+                            <div class="project-description-extra" style="display: none;">
+                                <p><strong>Figures.</strong> Photographs and plots from the dissertation.</p>
+                                <div class="project-gallery">
+                                    <figure class="project-figure">
+                                        <img src="fyp/fyp-rig.png" alt="Motorised liquid-nitrogen dipping rig with the Dewar inside a clear enclosure">
+                                        <figcaption>Dipping rig: Dewar in an enclosure, with the motor drive, ultrasonic positioning and the acquisition laptop.</figcaption>
+                                    </figure>
+                                    <figure class="project-figure">
+                                        <img src="fyp/fyp-dual-channel.png" alt="CFRP strip with a piezoelectric disc at one end and the reference sensor lead at the other">
+                                        <figcaption>Dual-channel coupon. The piezoelectric disc and the reference accelerometer sit at opposite ends, with the tap applied at mid-span.</figcaption>
+                                    </figure>
+                                    <figure class="project-figure">
+                                        <img src="fyp/fyp-time-domain.png" alt="PicoScope time-domain plot of five sequential taps">
+                                        <figcaption>PicoScope record of five controlled taps. Each impact rings down for about 50 ms. These are mechanical taps, not confirmed material-damage events.</figcaption>
+                                    </figure>
+                                    <figure class="project-figure">
+                                        <img src="fyp/fyp-tap-comparison.png" alt="Tap 4 compared on the Arduino and PicoScope">
+                                        <figcaption>Tap 4 on both channels. The PicoScope resolves the bipolar ring-down. The Arduino, sampled at about 500 Hz through a unipolar ADC, keeps the positive envelope and clips the negative half-cycles.</figcaption>
+                                    </figure>
+                                    <figure class="project-figure">
+                                        <img src="fyp/fyp-fft.png" alt="Averaged FFT of the five PicoScope captures with a peak near 3.3 kilohertz">
+                                        <figcaption>Averaged Hann-window FFT of the five PicoScope captures. The peak near 3.3 kHz is the specimen–sensor mechanical response, not a confirmed damage frequency. It sits well above the Arduino Nyquist limit of about 250 Hz.</figcaption>
+                                    </figure>
+                                    <figure class="project-figure">
+                                        <img src="fyp/fyp-ln2-dip.jpeg" alt="CFRP coupon lowered into a Dewar of liquid nitrogen">
+                                        <figcaption>The single pilot immersion, about 100 mm into liquid nitrogen for five minutes. This was not a cryogenic fatigue series.</figcaption>
+                                    </figure>
+                                </div>
+                            </div>
+                            <button class="project-more-btn">More</button>
+                            <button class="project-less-btn" style="display: none;">Less</button>
+                        </div>
+                        <div class="project-tags">
+                            <span class="project-tag">Arduino</span>
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">PicoScope</span>
+                            <span class="project-tag">FFT</span>
+                            <span class="project-tag">NumPy</span>
+                            <span class="project-tag">Pandas</span>
+                            <span class="project-tag">Matplotlib</span>
+                            <span class="project-tag">CFRP</span>
+                            <span class="project-tag">Data Acquisition</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
                         <img src="Bytronic.png" alt="Bytronic industrial training rig" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
                     </div>
                     <div class="project-content">
@@ -444,7 +518,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="project-card">
+                <div class="project-card project-hidden">
                     <div class="project-image">
                         <img src="epuck.png" alt="E-Puck2 Robot" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
                         <div class="project-overlay">
@@ -924,6 +998,14 @@
             </div>
         </div>
     </footer>
+
+    <div class="figure-modal" id="figureModal" hidden>
+        <button class="figure-modal-close" type="button">Close</button>
+        <figure>
+            <img alt="">
+            <figcaption></figcaption>
+        </figure>
+    </div>
 
     <!-- EmailJS SDK -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>

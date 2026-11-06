@@ -629,13 +629,14 @@ const skillsDatabase = {
         'RF Engineering', 'Microwave', 'Resonators', 'Embedded Systems',
         'CAD',
         'Siemens TIA Portal', 'PLC Programming', 'Ladder Logic', 'WinCC HMI',
-        'PID Control', 'Industrial Automation', 'Sensors & Actuators'
+        'PID Control', 'Industrial Automation', 'Sensors & Actuators',
+        'PicoScope', 'FFT', 'CFRP', 'Data Acquisition'
     ],
     aiQuantum: [
         'Qiskit', 'Pennylane', 'Cirq', 'TKET', 'Qiskit Pulse', 'VQE', 'QAOA', 
         'Quantum Error Mitigation', 'TensorFlow Quantum', 'TF Quantum', 
         'QuTiP', 'ProjectQ', 'Yao.jl',
-        'PyTorch', 'JAX', 'Flax', 'NumPy', 'SciPy', 'Pandas', 'Scikit-Learn', 
+        'PyTorch', 'JAX', 'Flax', 'NumPy', 'SciPy', 'Pandas', 'Matplotlib', 'Scikit-Learn', 
         'Scikit-learn', 'CUDA', 'MPI', 'OpenMP', 'Git', 'GitHub', 'Docker', 
         'Apptainer', 'SLURM', 'Linux', 'Bash', 'Conda', 'Mamba', 'JupyterLab', 'LaTeX'
     ],
@@ -1062,6 +1063,36 @@ function initializeSkillsSection() {
 
 // Start the skills section system
 initializeSkillsSection();
+
+// Figure lightbox for project galleries
+document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('figureModal');
+    if (!modal) return;
+    const modalImage = modal.querySelector('img');
+    const modalCaption = modal.querySelector('figcaption');
+    const closeModal = () => {
+        modal.classList.remove('open');
+        modal.hidden = true;
+    };
+    document.querySelectorAll('.project-figure img').forEach((image) => {
+        image.addEventListener('click', () => {
+            const figure = image.closest('figure');
+            const caption = figure ? figure.querySelector('figcaption') : null;
+            modalImage.src = image.src;
+            modalImage.alt = image.alt;
+            modalCaption.textContent = caption ? caption.textContent : '';
+            modal.hidden = false;
+            modal.classList.add('open');
+        });
+    });
+    modal.querySelector('.figure-modal-close').addEventListener('click', closeModal);
+    modal.addEventListener('click', (event) => {
+        if (event.target === modal) closeModal();
+    });
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') closeModal();
+    });
+});
 
 // Contact Form Handler with EmailJS
 // Contact Form Handler with EmailJS (New Design)
