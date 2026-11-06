@@ -356,10 +356,15 @@ body::after {
 }
 
 .hero-subtitle {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     color: var(--text-secondary);
     margin-bottom: 1rem;
     font-weight: 500;
+    line-height: 1.45;
+}
+
+.hero-degree {
+    display: block;
 }
 
 .hero-description {
@@ -1002,6 +1007,26 @@ section {
     color: var(--text-primary);
 }
 
+.project-subtitle {
+    color: var(--neon-blue);
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+}
+
+.project-image-label {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    text-align: center;
+    color: var(--text-primary);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+}
+
 .project-description {
     color: var(--text-secondary);
     margin-bottom: 1rem;
@@ -1497,6 +1522,18 @@ section {
 @media (max-width: 640px) {
     .hero-title {
         font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .hero-degree-sep {
+        display: none;
+    }
+
+    .hero-degree-place {
+        display: block;
     }
 
     .section-title {

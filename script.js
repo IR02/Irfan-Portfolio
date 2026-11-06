@@ -627,7 +627,9 @@ const skillsDatabase = {
         'Arduino', 'Raspberry Pi', 'FPGA', 'Verilog', 'VHDL', 'KiCAD', 
         'PCB Design', 'Soldering', 'ROS2', 'LabVIEW', 
         'RF Engineering', 'Microwave', 'Resonators', 'Embedded Systems',
-        'CAD'
+        'CAD',
+        'Siemens TIA Portal', 'PLC Programming', 'Ladder Logic', 'WinCC HMI',
+        'PID Control', 'Industrial Automation', 'Sensors & Actuators'
     ],
     aiQuantum: [
         'Qiskit', 'Pennylane', 'Cirq', 'TKET', 'Qiskit Pulse', 'VQE', 'QAOA', 

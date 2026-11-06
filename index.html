@@ -154,9 +154,12 @@
                     <span class="gradient-text">Hello, I'm</span>
                     <span class="hero-name">Irfan</span>
                 </h1>
-                <p class="hero-subtitle">Final year MEng Mechanical Engineer</p>
+                <p class="hero-subtitle">
+                    <span class="hero-degree">MSc Optics &amp; Photonics<span class="hero-degree-sep">, </span><span class="hero-degree-place">Imperial College London</span></span>
+                    <span class="hero-degree">MEng Mechanical Engineering (2:1)<span class="hero-degree-sep">, </span><span class="hero-degree-place">University of Sheffield</span></span>
+                </p>
                 <p class="hero-description">
-                    I love turning tough engineering problems into real solutions – whether it's simulating turbulent flows in CFD to match lab results, analyzing vibrations on turbine blades, or diving into quantum algorithms like VQE to tackle optimization challenges. With a mix of hands-on experience in structural analysis, AI-driven systems, and even coding robots that navigate unknown spaces, I'm excited to bring fresh ideas to high-stakes roles in simulation, quantum tech, or R&D. I've Co-founded the RWBI Foundation to get more kids into STEM, because I believe engineering is the best method for poverty alleviation and a key step in making a functional logical society. Let's connect and build something big, I'm ready to hit the ground running!
+                    I am an experimental engineer with a background in mechanical engineering, instrumentation and automation, now specialising in optics and photonics at Imperial College London.<br><br>My work spans sensing systems, numerical modelling, industrial controls and experimental validation. I am particularly interested in bringing photonic integrated circuits from device-level design into reliable, testable and manufacturable optical systems.
                 </p>
                 <div class="hero-buttons">
                     <a href="#contact" class="btn btn-primary">Get In Touch</a>
@@ -188,7 +191,7 @@
                 <div class="about-left">
                     <div class="about-image">
                         <div class="image-wrapper">
-                            <img src="Me Linkedin.jpeg" alt="Irfan Ramiza - Final year MEng Mechanical Engineer" class="profile-image">
+                            <img src="Me Linkedin.jpeg" alt="Irfan Ramiza, MSc Optics and Photonics student at Imperial College London" class="profile-image">
                         </div>
                     </div>
                     <div class="about-stats">
@@ -208,13 +211,16 @@
                 </div>
                 <div class="about-text">
                     <p class="about-intro">
-                        I'm a final-year MEng Mechanical Engineering student at the University of Sheffield, where I've spent my time tackling complex problems from the ground up and turning ideas into something tangible. As co-founder of the RWBI Foundation, I've seen firsthand how engineering can inspire, like organizing workshops that got high school kids excited about circuits and code. I'm also proud of winning Sheffield's Most Creative Sustainable Solution in the 2025 Data and Design Hackathon with Team EcoLogic, where we identify and utilized 'hidden' data using LSTM to provide appropriate recommendations for a postive economical growth while being environmentally conscious to the local authorities and Yorkshire & Humber Office for Data Analytics (YHODA).
+                        I completed an MEng in Mechanical Engineering at the University of Sheffield, where I developed a foundation in experimental mechanics, numerical simulation, structural dynamics, control systems and industrial automation. My projects involved building test equipment, validating models and programming hardware to solve practical engineering problems.
                     </p>
                     <p>
-                        My engineering foundation comes from roles like technician at RWNA Engineering, where I tested valves and honed precision grinding skills, and business development in ESG projects for oil & gas. But what really drives me is blending disciplines: I've dabbled in CFD for fluid dynamics, FEA for structural reliability, control systems for robotics, and AI/ML for intelligent predictions. Outside class, I'm self-teaching quantum computing and AI through courses and projects, while feeding my curiosity with books on philosophy, neuroscience, biographies, and self-mastery. They remind me that the best breakthroughs come from thinking across boundaries.
+                        I am now pursuing an MSc in Optics and Photonics at Imperial College London, building on specialist training at AIM Photonics and ePIXfab. I am particularly interested in photonic integrated circuits, optical characterisation, fibre-to-chip coupling, heterogeneous integration and high-speed optical interconnects.
                     </p>
                     <p>
-                        Looking ahead, I see myself as the engineer who bridges gaps: using quantum sims to optimize designs or AI to make systems smarter, all while building teams and initiatives that last. I'm here to make bold moves, learn from every challenge, and create positive change, one breakthrough at a time.
+                        Alongside engineering, I have worked on multidisciplinary technical projects, participated in international technical programmes and competitions, and led educational initiatives through RWBI Foundation. I enjoy working across disciplines and turning technical concepts into practical, measurable solutions.
+                    </p>
+                    <p>
+                        My long-term interest is in building scalable optical hardware and translating photonics research into manufacturable technologies, with a particular interest in the development of deep-tech capabilities in Malaysia.
                     </p>
                 </div>
             </div>
@@ -359,6 +365,37 @@
                 <div class="title-underline"></div>
             </div>
             <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-image-label">ELE426 · Siemens TIA Portal</div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">PLC-Controlled Industrial Sorting, Monitoring and Temperature Regulation</h3>
+                        <p class="project-subtitle">University of Sheffield | ELE426 Industrial Automation</p>
+                        <div class="project-description">
+                            <p>This was a Group 4 assignment on the University of Sheffield ELE426 Industrial Automation course. We programmed a Bytronic training system in Siemens TIA Portal, using PLC ladder logic and a WinCC HMI, to sort metal pegs and plastic rings, count components and finished assemblies, stop the conveyor when the line was idle, raise production and rejection alerts, and regulate an oven with a manually tuned PID controller.</p>
+                            <p class="project-description-extra" style="display: none;"><strong>Problem and objective.</strong> The rig sorts metal pegs and plastic rings, moves them on a belt and feeds an oven. The task was to extend the PLC program so the line could count parts, stop an empty conveyor, tell the operator when production or rejection targets were reached, and hold oven temperature with a commissioned PID loop.</p>
+                            <p class="project-description-extra" style="display: none;"><strong>Hardware and software.</strong> The program was written in Siemens TIA Portal as ladder logic, with counting logic in the function block Counting [FB4] and operator screens in WinCC. The Bytronic training system provided the inductive and capacitive sensors, sort and reject solenoids, belt conveyor outputs and the industrial training oven.</p>
+                            <p class="project-description-extra" style="display: none;"><strong>Counting.</strong> Three CTU count-up counters sit inside Counting [FB4]. The plastic-ring counter is triggered by the sort-solenoid output, the metal-peg counter by the inductive sensor, and the assembled-product counter by the capacitive sensor. Presets were 5, 5 and 3. Live values were bound to three fields on the System Control HMI, with one shared reset. Triggering each counter from the signal that actually marks that event avoids counting a part twice, or counting a part that has only passed a different station.</p>
+                            <p class="project-description-extra" style="display: none;"><strong>Idle conveyor.</strong> A 25-second on-delay timer interlocks the belt. If no new component is detected in that interval, the conveyor stops. Detecting another component resets the timer and lets the belt start again. This is idle-time, energy-conscious automation. The report does not measure an energy saving, so none is claimed.</p>
+                            <p class="project-description-extra" style="display: none;"><strong>HMI alerts.</strong> The alarm screen reports two conditions: the production target of 3 assembled products, and the rejection-counter threshold of 3. The rejection counter watches reject-solenoid activations, whatever the component type. It is not a validated inventory check. One combined reject count is a weak way to judge remaining usable stock, because a rejected ring and a rejected peg do not change the two part stocks in the same way. Separate rejected-ring and rejected-peg counters would make that logic sound.</p>
+                            <p class="project-description-extra" style="display: none;"><strong>PID control.</strong> A PID_Compact controller was tuned by hand in TIA Portal: proportional gain Kp = 20, integral time Ti = 50 s, derivative time Td = 10 s, derivative delay coefficient = 0.2, and a sampling time of 1 s. The commissioning trend tracked a 35°C setpoint with residual oscillations of about ±2°C. Raising proportional gain speeds the response and also increases overshoot and oscillation. Integral action removes a steady offset, and too much of it prolongs that oscillation. Derivative action damps how fast the error is changing, but on a temperature measurement it has to be limited, which is the role of the delay coefficient. The loop followed the setpoint. It was not perfect temperature control.</p>
+                            <p class="project-description-extra" style="display: none;"><strong>Oven arrival interlock.</strong> The capacitive sensor detects an assembled part. A 1.5-second timer represents the travel delay to the oven, and when it expires the PLC inhibits both conveyor outputs so the part is not carried past the oven. This conveyor inhibit was implemented and tested.</p>
+                            <p class="project-description-extra" style="display: none;"><strong>Limitations and next steps.</strong> Siemens automatic PID pretuning and fine-tuning did not finish, which is why the gains above were entered manually. A three-stage programme of 35°C, 50°C and 40°C, each held for 300 seconds, was proposed and was not built or tested. A 45°C heat-up with a 10-second soak before the conveyor restarted was also not implemented. HMI data logging, simpler TOF/TP timer logic, and extra diagnostic alarms were recorded as improvements only.</p>
+                            <button class="project-more-btn">More</button>
+                            <button class="project-less-btn" style="display: none;">Less</button>
+                        </div>
+                        <div class="project-tags">
+                            <span class="project-tag">Siemens TIA Portal</span>
+                            <span class="project-tag">PLC Programming</span>
+                            <span class="project-tag">Ladder Logic</span>
+                            <span class="project-tag">WinCC HMI</span>
+                            <span class="project-tag">Sensors &amp; Actuators</span>
+                            <span class="project-tag">PID Control</span>
+                            <span class="project-tag">Industrial Automation</span>
+                        </div>
+                    </div>
+                </div>
                 <div class="project-card">
                     <div class="project-image">
                         <img src="QHack Bristol.png" alt="Quantum Heist" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
