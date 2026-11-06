@@ -367,13 +367,12 @@
             <div class="projects-grid">
                 <div class="project-card">
                     <div class="project-image">
-                        <div class="project-image-label">ELE426 · Siemens TIA Portal</div>
+                        <img src="Bytronic.png" alt="Bytronic industrial training rig" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">PLC-Controlled Industrial Sorting, Monitoring and Temperature Regulation</h3>
-                        <p class="project-subtitle">University of Sheffield | ELE426 Industrial Automation</p>
                         <div class="project-description">
-                            <p>This was a Group 4 assignment on the University of Sheffield ELE426 Industrial Automation course. We programmed a Bytronic training system in Siemens TIA Portal, using PLC ladder logic and a WinCC HMI, to sort metal pegs and plastic rings, count components and finished assemblies, stop the conveyor when the line was idle, raise production and rejection alerts, and regulate an oven with a manually tuned PID controller.</p>
+                            <p>Programmed a Bytronic training system in Siemens TIA Portal, using PLC ladder logic and a WinCC HMI, to sort metal pegs and plastic rings, count components and finished assemblies, stop the conveyor when the line was idle, raise production and rejection alerts, and regulate an oven with a manually tuned PID controller.</p>
                             <p class="project-description-extra" style="display: none;"><strong>Problem and objective.</strong> The rig sorts metal pegs and plastic rings, moves them on a belt and feeds an oven. The task was to extend the PLC program so the line could count parts, stop an empty conveyor, tell the operator when production or rejection targets were reached, and hold oven temperature with a commissioned PID loop.</p>
                             <p class="project-description-extra" style="display: none;"><strong>Hardware and software.</strong> The program was written in Siemens TIA Portal as ladder logic, with counting logic in the function block Counting [FB4] and operator screens in WinCC. The Bytronic training system provided the inductive and capacitive sensors, sort and reject solenoids, belt conveyor outputs and the industrial training oven.</p>
                             <p class="project-description-extra" style="display: none;"><strong>Counting.</strong> Three CTU count-up counters sit inside Counting [FB4]. The plastic-ring counter is triggered by the sort-solenoid output, the metal-peg counter by the inductive sensor, and the assembled-product counter by the capacitive sensor. Presets were 5, 5 and 3. Live values were bound to three fields on the System Control HMI, with one shared reset. Triggering each counter from the signal that actually marks that event avoids counting a part twice, or counting a part that has only passed a different station.</p>
@@ -470,7 +469,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="project-card">
+                <div class="project-card project-hidden">
                     <div class="project-image">
                         <img src="Clevis.png" alt="Clevis Assembly" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
                     </div>
