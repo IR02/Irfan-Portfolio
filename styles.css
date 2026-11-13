@@ -945,36 +945,58 @@ section {
     color: #0a0a0a;
 }
 
+.projects-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.85rem 1.25rem;
+    margin-bottom: 1.75rem;
+}
+
 .project-filter-desc {
     color: var(--text-secondary);
-    font-size: 0.9rem;
-    margin-bottom: 1.75rem;
+    font-size: 0.95rem;
+    margin: 0;
     min-height: 1.4em;
+}
+
+.projects-more {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    align-items: center;
+}
+
+.projects-more .btn {
+    min-width: 10.5rem;
+}
+
+.projects-more[hidden] {
+    display: none !important;
 }
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 2rem;
-    align-items: stretch; /* Make all cards in the same row the same height */
+    align-items: stretch;
 }
 
-.project-filtered-out {
+.project-filtered-out,
+.project-hidden,
+.projects-grid .project-card[hidden] {
     display: none !important;
 }
 
-.project-hidden {
-    display: none !important;
-}
-
-.projects-more {
-    text-align: center;
-    margin-top: 2rem;
-}
-
-@media (max-width: 768px) {
+@media (max-width: 900px) {
     .projects-grid {
         grid-template-columns: 1fr;
+    }
+
+    .projects-toolbar {
+        flex-direction: column;
+        align-items: flex-start;
     }
 }
 

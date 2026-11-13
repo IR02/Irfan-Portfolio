@@ -373,7 +373,13 @@
                 <button type="button" class="project-filter-btn" data-filter="competition" role="tab" aria-selected="false">Competitions &amp; Hackathons</button>
                 <button type="button" class="project-filter-btn" data-filter="independent" role="tab" aria-selected="false">Independent Projects</button>
             </div>
-            <p class="project-filter-desc" id="projectFilterDesc">25 projects shown</p>
+            <div class="projects-toolbar">
+                <p class="project-filter-desc" id="projectFilterDesc">Showing 4 of 25 projects</p>
+                <div class="projects-more">
+                    <button type="button" id="showMoreProjects" class="btn btn-primary">Show More Projects</button>
+                    <button type="button" id="showLessProjects" class="btn btn-secondary" hidden>Show Less Projects</button>
+                </div>
+            </div>
             <div class="projects-grid">
                 <div class="project-card" data-category="research">
                                         <div class="project-image">
@@ -972,10 +978,6 @@
                                                         </div>
                                                     </div>
                                                 </div>
-            </div>
-            <div class="projects-more">
-                <button id="showMoreProjects" class="btn btn-secondary">Show More Projects</button>
-                <button id="showLessProjects" class="btn btn-secondary" style="display: none;">Show Less Projects</button>
             </div>
         </div>
     </section>

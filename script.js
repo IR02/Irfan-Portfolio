@@ -404,52 +404,62 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     
-    // Project category filters + Show More / Less (first 4 per category)
+    // Project category filters + Show More / Less (first 4 per active category)
     const PROJECT_PREVIEW_COUNT = 4;
     const projectFilterBtns = document.querySelectorAll('.project-filter-btn');
     const projectFilterDesc = document.getElementById('projectFilterDesc');
     const showMoreProjectsBtn = document.getElementById('showMoreProjects');
     const showLessProjectsBtn = document.getElementById('showLessProjects');
+    const projectsMoreWrap = document.querySelector('.projects-more');
     let currentProjectFilter = 'all';
     let projectsExpanded = false;
 
+    function getAllProjectCards() {
+        return Array.from(document.querySelectorAll('#projects .projects-grid .project-card'));
+    }
+
     function getMatchingProjectCards(filter) {
-        return Array.from(document.querySelectorAll('.projects-grid > .project-card')).filter(card => {
+        return getAllProjectCards().filter(card => {
             const category = card.getAttribute('data-category');
             return filter === 'all' || category === filter;
         });
     }
 
-    function applyProjectFilter(filter, { resetExpanded = true } = {}) {
+    function refreshProjectsView(filter = currentProjectFilter, { resetExpanded = false } = {}) {
         if (resetExpanded) {
             projectsExpanded = false;
         }
         currentProjectFilter = filter;
 
-        const allCards = Array.from(document.querySelectorAll('.projects-grid > .project-card'));
+        const allCards = getAllProjectCards();
         const matching = getMatchingProjectCards(filter);
+        const total = matching.length;
+        const needsToggle = total > PROJECT_PREVIEW_COUNT;
+        const shown = projectsExpanded || !needsToggle
+            ? total
+            : Math.min(PROJECT_PREVIEW_COUNT, total);
 
         allCards.forEach(card => {
+            card.hidden = true;
             card.classList.add('project-filtered-out');
             card.classList.remove('project-hidden');
         });
 
         matching.forEach((card, index) => {
-            card.classList.remove('project-filtered-out');
-            if (!projectsExpanded && index >= PROJECT_PREVIEW_COUNT) {
-                card.classList.add('project-hidden');
-            }
+            const isVisible = projectsExpanded || index < PROJECT_PREVIEW_COUNT;
+            card.hidden = !isVisible;
+            card.classList.toggle('project-filtered-out', !isVisible);
+            card.classList.toggle('project-hidden', !isVisible && index >= PROJECT_PREVIEW_COUNT);
         });
 
-        const total = matching.length;
-        const shown = projectsExpanded ? total : Math.min(PROJECT_PREVIEW_COUNT, total);
-        const needsToggle = total > PROJECT_PREVIEW_COUNT;
-
         if (showMoreProjectsBtn) {
-            showMoreProjectsBtn.style.display = needsToggle && !projectsExpanded ? 'inline-block' : 'none';
+            showMoreProjectsBtn.hidden = !(needsToggle && !projectsExpanded);
         }
         if (showLessProjectsBtn) {
-            showLessProjectsBtn.style.display = needsToggle && projectsExpanded ? 'inline-block' : 'none';
+            showLessProjectsBtn.hidden = !(needsToggle && projectsExpanded);
+        }
+        if (projectsMoreWrap) {
+            projectsMoreWrap.hidden = !needsToggle;
         }
 
         if (projectFilterDesc) {
@@ -473,36 +483,29 @@ document.addEventListener('DOMContentLoaded', () => {
                 other.classList.toggle('active', isActive);
                 other.setAttribute('aria-selected', isActive ? 'true' : 'false');
             });
-            applyProjectFilter(filter, { resetExpanded: true });
+            refreshProjectsView(filter, { resetExpanded: true });
         });
     });
 
     if (showMoreProjectsBtn) {
         showMoreProjectsBtn.addEventListener('click', () => {
             projectsExpanded = true;
-            applyProjectFilter(currentProjectFilter, { resetExpanded: false });
-            setTimeout(() => {
-                if (showLessProjectsBtn) {
-                    showLessProjectsBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                }
-            }, 200);
+            refreshProjectsView(currentProjectFilter);
         });
     }
 
     if (showLessProjectsBtn) {
         showLessProjectsBtn.addEventListener('click', () => {
             projectsExpanded = false;
-            applyProjectFilter(currentProjectFilter, { resetExpanded: false });
-            setTimeout(() => {
-                const projectsSection = document.getElementById('projects');
-                if (projectsSection) {
-                    projectsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            }, 200);
+            refreshProjectsView(currentProjectFilter);
+            const projectsSection = document.getElementById('projects');
+            if (projectsSection) {
+                projectsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
         });
     }
 
-    applyProjectFilter('all');
+    refreshProjectsView('all', { resetExpanded: true });
     
     // Update certificate count on page load
     updateCertificateCount();
