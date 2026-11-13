@@ -364,138 +364,7 @@
                 <h2 class="section-title">Projects</h2>
                 <div class="title-underline"></div>
             </div>
-            <div class="featured-projects">
-                <h3 class="featured-title">Featured</h3>
-                <div class="featured-grid">
-                    <div class="project-card" data-category="research">
-                        <div class="project-image">
-                                            <img src="fyp/fyp-coupons.png" alt="Twenty-two machined woven carbon fibre reinforced polymer test coupons" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
-                                        </div>
-                                        <div class="project-content">
-                                            <h3 class="project-title">Low-Cost Acoustic Sensing &amp; Data Acquisition for Cryogenic Carbon Fibre Reinforced Polymer</h3>
-                                            <div class="project-description">
-                                                <p>Compared a £26 piezoelectric disc and Arduino Uno R3 with a laboratory IEPE accelerometer, PCB 482A22 conditioner and PicoScope 4824A on woven carbon fibre reinforced polymer coupons. Twenty-two specimens were made and a motorised liquid-nitrogen dipping rig was built. Both channels detected five out of five controlled mechanical taps. The low-cost channel is a proof of concept for envelope-level event detection, not a substitute for commercial acoustic-emission equipment.</p>
-                                                <p class="project-description-extra" style="display: none;"><strong>Hardware.</strong> The reference channel was a PCB Piezotronics ICP accelerometer, wax-mounted, powered by a PCB 482A22 conditioner at 4 mA and digitised on a PicoScope 4824A (12-bit, ±5 V, 25 kHz on the ambient test). The prototype channel was a 27 mm piezoelectric disc, Araldite-bonded at the opposite end and read on Arduino Uno R3 pin A3 (10-bit, 0–5 V) at about 500 Hz. A TL072 chain, with AC coupling, a 2.5 V bias, a gain of 101 and a diode clamp, was built on breadboard and then bypassed: the bias rail drifted and the high-impedance input picked up mains. The disc was connected straight to the ADC, so negative half-cycles clip to zero.</p>
-                                                <p class="project-description-extra" style="display: none;"><strong>Carbon fibre reinforced polymer manufacture.</strong> Two 380 × 380 mm panels were laid up by hand from eight plies of woven 0/90 carbon/epoxy prepreg and cured to 1.75 mm. They were machined into 22 coupons, 350 × 25 × 1.75 mm, sized for later flexural and tensile geometries. This was an 8-ply woven layup, not a quasi-isotropic laminate.</p>
-                                                <p class="project-description-extra" style="display: none;"><strong>Automated LN₂ rig.</strong> An MDF frame carried a brushed DC motor, a 40 mm spool and a nylon cord. An L298N H-bridge drove the motor. An HC-SR04 measured hook position to about ±3 mm, and a DHT11 logged ambient temperature and humidity. Arduino firmware lowered the coupon, held the dwell, then raised it. One pilot dip was completed: about 100 mm submerged for five minutes in a 5 L Dewar. That was not a thermal-fatigue campaign.</p>
-                                                <p class="project-description-extra" style="display: none;"><strong>Data processing.</strong> Both records were processed in Python with NumPy, pandas and Matplotlib: mean removal, a Hann window, a one-sided FFT, magnitude scaling by 2/Σw, then magnitude averaging across the five PicoScope captures. Frequency resolution on the reference captures was about 19.9 Hz per bin.</p>
-                                                <p class="project-description-extra" style="display: none;"><strong>Quantitative results.</strong> All five screwdriver taps were detected on both channels. Reference signal-to-noise ratio at the peak was above 30 dB; the Arduino was above 20 dB. These were controlled mechanical taps, not five confirmed damage events. Peak-amplitude coefficient of variation was 29% on the reference and 43% on the low-cost channel. The averaged spectrum had a dominant peak near 3.3 kHz (about 3349 Hz), with smaller peaks near 1.7 kHz and 2.2 kHz. That peak is the specimen–sensor mechanical response, not a confirmed damage frequency. Acoustic-emission damage bands for carbon fibre reinforced polymer sit far higher. At about 500 Hz the Arduino Nyquist limit is 250 Hz, so it records the envelope rather than the 3.3 kHz oscillation.</p>
-                                                <p class="project-description-extra" style="display: none;"><strong>Pilot cryogenic dip.</strong> The PicoScope, triggered at 0.4 V, recorded no window during the five-minute dwell. The Arduino trace contained two bursts, with peaks of 801 and 576 counts against a quiet baseline scatter of about 0.75 counts. Those two events were not identified as carbon fibre reinforced polymer damage: boil-off, rig motion and a partial wire detachment are also plausible, and no cracking was visible afterwards. During this test the Arduino rate fell to about 48 Hz because extra sensor columns were logged on the serial line.</p>
-                                                <div class="project-description-extra" style="display: none;">
-                                                    <p><strong>Figures.</strong> Photographs and plots from the dissertation.</p>
-                                                    <div class="project-gallery">
-                                                        <figure class="project-figure">
-                                                            <img src="fyp/fyp-rig.png" alt="Motorised liquid-nitrogen dipping rig with the Dewar inside a clear enclosure">
-                                                            <figcaption>Dipping rig: Dewar in an enclosure, with the motor drive, ultrasonic positioning and the acquisition laptop.</figcaption>
-                                                        </figure>
-                                                        <figure class="project-figure">
-                                                            <img src="fyp/fyp-dual-channel.png" alt="Carbon fibre reinforced polymer strip with a piezoelectric disc at one end and the reference sensor lead at the other">
-                                                            <figcaption>Dual-channel coupon. The piezoelectric disc and the reference accelerometer sit at opposite ends, with the tap applied at mid-span.</figcaption>
-                                                        </figure>
-                                                        <figure class="project-figure">
-                                                            <img src="fyp/fyp-time-domain.png" alt="PicoScope time-domain plot of five sequential taps">
-                                                            <figcaption>PicoScope record of five controlled taps. Each impact rings down for about 50 ms. These are mechanical taps, not confirmed material-damage events.</figcaption>
-                                                        </figure>
-                                                        <figure class="project-figure">
-                                                            <img src="fyp/fyp-tap-comparison.png" alt="Tap 4 compared on the Arduino and PicoScope">
-                                                            <figcaption>Tap 4 on both channels. The PicoScope resolves the bipolar ring-down. The Arduino, sampled at about 500 Hz through a unipolar ADC, keeps the positive envelope and clips the negative half-cycles.</figcaption>
-                                                        </figure>
-                                                        <figure class="project-figure">
-                                                            <img src="fyp/fyp-fft.png" alt="Averaged FFT of the five PicoScope captures with a peak near 3.3 kilohertz">
-                                                            <figcaption>Averaged Hann-window FFT of the five PicoScope captures. The peak near 3.3 kHz is the specimen–sensor mechanical response, not a confirmed damage frequency. It sits well above the Arduino Nyquist limit of about 250 Hz.</figcaption>
-                                                        </figure>
-                                                        <figure class="project-figure">
-                                                            <img src="fyp/fyp-ln2-dip.jpeg" alt="Carbon fibre reinforced polymer coupon lowered into a Dewar of liquid nitrogen">
-                                                            <figcaption>The single pilot immersion, about 100 mm into liquid nitrogen for five minutes. This was not a cryogenic fatigue series.</figcaption>
-                                                        </figure>
-                                                    </div>
-                                                </div>
-                                                <button class="project-more-btn">More</button>
-                                                <button class="project-less-btn" style="display: none;">Less</button>
-                                            </div>
-                                            <div class="project-tags">
-                                                <span class="project-tag">Arduino</span>
-                                                <span class="project-tag">Python</span>
-                                                <span class="project-tag">PicoScope</span>
-                                                <span class="project-tag">FFT</span>
-                                                <span class="project-tag">NumPy</span>
-                                                <span class="project-tag">Pandas</span>
-                                                <span class="project-tag">Matplotlib</span>
-                                                <span class="project-tag">Carbon Fibre Reinforced Polymer</span>
-                                                <span class="project-tag">Data Acquisition</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                    <div class="project-card" data-category="laboratory">
-                                        <div class="project-image">
-                                            <img src="optics/fibres.jpg" alt="Orange optical fibre on an alignment stage with a Thorlabs camera and white viewing screen" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
-                                        </div>
-                                        <div class="project-content">
-                                            <h3 class="project-title">Optical Fibre Alignment &amp; Guided-Mode Characterisation</h3>
-                                            <div class="project-description">
-                                                <p>Investigated how efficiently a focused laser beam can be launched into an optical fibre and how the output depends on the fibre’s supported modes. Using an aspheric coupling lens on a translation stage and a precision X–Y fibre chuck, I aligned the laser with multimode and single-mode fibre end faces, showing how sensitive coupling is to small mechanical misalignments.</p>
-                                                <p class="project-description-extra" style="display: none;">The multimode fibre produced a spatially irregular output with bright and dark speckle-like features that changed with launch alignment and fibre bending, consistent with changes in the relative amplitudes and phases of excited guided modes. The single-mode fibre produced a more concentrated, approximately Gaussian profile and required more careful alignment. A Thorlabs camera and Python image displays were used to examine the intensity distributions.</p>
-                                                <p class="project-description-extra" style="display: none;">The work connected numerical aperture, modal behaviour, beam focusing and fibre handling to practical optical transmission, with relevance to optical test benches and fibre-to-chip assembly. The recorded experiment supports qualitative mode and alignment comparisons; it does not yet establish a calibrated coupling-efficiency or mode-field-diameter measurement.</p>
-                                                <button class="project-more-btn">More</button>
-                                                <button class="project-less-btn" style="display: none;">Less</button>
-                                            </div>
-                                            <div class="project-tags">
-                                                <span class="project-tag">Optical Fibre Alignment</span>
-                                                <span class="project-tag">Optical Coupling</span>
-                                                <span class="project-tag">Python</span>
-                                                <span class="project-tag">Image Processing</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                    <div class="project-card" data-category="laboratory">
-                                        <div class="project-image">
-                                            <img src="optics/semiconductor-sources.jpg" alt="OptoSci fibre optic communications trainer with LED and laser diode transmitters beside a Rohde and Schwarz oscilloscope" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
-                                        </div>
-                                        <div class="project-content">
-                                            <h3 class="project-title">Semiconductor LED &amp; Laser-Diode Characterisation</h3>
-                                            <div class="project-description">
-                                                <p>Investigated how semiconductor light sources convert drive current into optical output and why an LED and a laser diode behave differently. Using an optical communications training system with an approximately 850 nm LED, a 790 nm laser diode, a fibre patchcord and a silicon PIN photodiode, I varied drive current, recorded detected optical power and fitted light-output-versus-current curves in Python.</p>
-                                                <p class="project-description-extra" style="display: none;">The laser-diode measurements showed a sharp increase in optical output near 26 mA, consistent with the onset of stimulated emission. Linear extrapolation of a selected above-threshold region gave an initial threshold estimate of 25.36 mA, although the value changed when the fitting interval was altered. Measured powers were also converted to dBm to relate the source measurements to optical link budgets.</p>
-                                                <p class="project-description-extra" style="display: none;">The LED data required more caution: the entered readings were nonlinear and showed a nonzero value even at a stated zero drive current. Rather than forcing an ideal linear model, I considered possible offsets, saturation, changing coupling and data-recording inconsistencies. The project developed understanding of source biasing, laser threshold extraction, photodiode measurements and scrutinising unexpected experimental results.</p>
-                                                <button class="project-more-btn">More</button>
-                                                <button class="project-less-btn" style="display: none;">Less</button>
-                                            </div>
-                                            <div class="project-tags">
-                                                <span class="project-tag">Optical Communications</span>
-                                                <span class="project-tag">Optical Testing</span>
-                                                <span class="project-tag">Python</span>
-                                                <span class="project-tag">Data Acquisition</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                    <div class="project-card" data-category="competition">
-                                        <div class="project-image">
-                                            <img src="QHack Bristol.png" alt="Quantum Heist" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
-                                            <div class="project-overlay">
-                                                <div class="project-links">
-                                                    <a href="https://github.com/IR02/QAOA-Maxcut-Solver" class="project-link-secondary" target="_blank">GitHub</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="project-content">
-                                            <h3 class="project-title">Quantum Heist</h3>
-                                            <div class="project-description">
-                                                <p>A creative and engaging quantum hackathon project that transforms the weighted Max-Cut problem into a realistic bank robbery scenario. The bank's vault network is modeled as a 5-node graph where nodes represent vaults and edges represent guarded pathways or critical alarm triggers.</p>
-                                                <p class="project-description-extra" style="display: none;">By assigning an extremely high weight of 10,000 to the alarm edge between nodes 3 and 4, we ensure QAOA always includes this edge in the cut, forcing the decoy team to pass through and silently disable the main alarm system. High weights on other edges (such as 1-2) mark the locations of elite security guards that must be neutralized first, allowing the main robbery crew to reach the vaults undetected.</p>
-                                                <p class="project-description-extra" style="display: none;">Running QAOA produces a clear sampling histogram with four dominant bitstrings (10010, 01101, 10101, 01010). Although the global maximum cut creates two balanced partitions, we discovered that the near-optimal solutions with exactly two 1s naturally divide the bank into three disconnected regions. This enables three simultaneous strike teams to enter and clear multiple vaults in parallel, significantly reducing total heist time. Our detailed post-processing, strategic insight, and clear visualizations of both the weighted graph and final partition elevate a standard QAOA implementation into a compelling, mission-optimized quantum-powered heist plan.</p>
-                                                <button class="project-more-btn">More</button>
-                                                <button class="project-less-btn" style="display: none;">Less</button>
-                                            </div>
-                                            <div class="project-tags">
-                                                <span class="project-tag">Python</span>
-                                                <span class="project-tag">Qiskit</span>
-                                                <span class="project-tag">Cirq</span>
-                                                <span class="project-tag">Quantum Technology</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                </div>
-            </div>
+            <p class="project-filters-label">Project type</p>
             <div class="project-filters" role="tablist" aria-label="Project categories">
                 <button type="button" class="project-filter-btn active" data-filter="all" role="tab" aria-selected="true">All</button>
                 <button type="button" class="project-filter-btn" data-filter="research" role="tab" aria-selected="false">Research &amp; Thesis</button>
@@ -504,479 +373,606 @@
                 <button type="button" class="project-filter-btn" data-filter="competition" role="tab" aria-selected="false">Competitions &amp; Hackathons</button>
                 <button type="button" class="project-filter-btn" data-filter="independent" role="tab" aria-selected="false">Independent Projects</button>
             </div>
-            <p class="project-filter-desc" id="projectFilterDesc">Browse all projects by category.</p>
+            <p class="project-filter-desc" id="projectFilterDesc">25 projects shown</p>
             <div class="projects-grid">
+                <div class="project-card" data-category="research">
+                                        <div class="project-image">
+                                                            <img src="fyp/fyp-coupons.png" alt="Twenty-two machined woven carbon fibre reinforced polymer test coupons" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
+                                                        </div>
+                                                        <div class="project-content">
+                                                            <h3 class="project-title">Low-Cost Acoustic Sensing &amp; Data Acquisition for Cryogenic Carbon Fibre Reinforced Polymer</h3>
+                                                            <div class="project-description">
+                                                                <p>Compared a £26 piezoelectric disc and Arduino Uno R3 with a laboratory IEPE accelerometer, PCB 482A22 conditioner and PicoScope 4824A on woven carbon fibre reinforced polymer coupons. Twenty-two specimens were made and a motorised liquid-nitrogen dipping rig was built. Both channels detected five out of five controlled mechanical taps. The low-cost channel is a proof of concept for envelope-level event detection, not a substitute for commercial acoustic-emission equipment.</p>
+                                                                <p class="project-description-extra" style="display: none;"><strong>Hardware.</strong> The reference channel was a PCB Piezotronics ICP accelerometer, wax-mounted, powered by a PCB 482A22 conditioner at 4 mA and digitised on a PicoScope 4824A (12-bit, ±5 V, 25 kHz on the ambient test). The prototype channel was a 27 mm piezoelectric disc, Araldite-bonded at the opposite end and read on Arduino Uno R3 pin A3 (10-bit, 0–5 V) at about 500 Hz. A TL072 chain, with AC coupling, a 2.5 V bias, a gain of 101 and a diode clamp, was built on breadboard and then bypassed: the bias rail drifted and the high-impedance input picked up mains. The disc was connected straight to the ADC, so negative half-cycles clip to zero.</p>
+                                                                <p class="project-description-extra" style="display: none;"><strong>Carbon fibre reinforced polymer manufacture.</strong> Two 380 × 380 mm panels were laid up by hand from eight plies of woven 0/90 carbon/epoxy prepreg and cured to 1.75 mm. They were machined into 22 coupons, 350 × 25 × 1.75 mm, sized for later flexural and tensile geometries. This was an 8-ply woven layup, not a quasi-isotropic laminate.</p>
+                                                                <p class="project-description-extra" style="display: none;"><strong>Automated LN₂ rig.</strong> An MDF frame carried a brushed DC motor, a 40 mm spool and a nylon cord. An L298N H-bridge drove the motor. An HC-SR04 measured hook position to about ±3 mm, and a DHT11 logged ambient temperature and humidity. Arduino firmware lowered the coupon, held the dwell, then raised it. One pilot dip was completed: about 100 mm submerged for five minutes in a 5 L Dewar. That was not a thermal-fatigue campaign.</p>
+                                                                <p class="project-description-extra" style="display: none;"><strong>Data processing.</strong> Both records were processed in Python with NumPy, pandas and Matplotlib: mean removal, a Hann window, a one-sided FFT, magnitude scaling by 2/Σw, then magnitude averaging across the five PicoScope captures. Frequency resolution on the reference captures was about 19.9 Hz per bin.</p>
+                                                                <p class="project-description-extra" style="display: none;"><strong>Quantitative results.</strong> All five screwdriver taps were detected on both channels. Reference signal-to-noise ratio at the peak was above 30 dB; the Arduino was above 20 dB. These were controlled mechanical taps, not five confirmed damage events. Peak-amplitude coefficient of variation was 29% on the reference and 43% on the low-cost channel. The averaged spectrum had a dominant peak near 3.3 kHz (about 3349 Hz), with smaller peaks near 1.7 kHz and 2.2 kHz. That peak is the specimen–sensor mechanical response, not a confirmed damage frequency. Acoustic-emission damage bands for carbon fibre reinforced polymer sit far higher. At about 500 Hz the Arduino Nyquist limit is 250 Hz, so it records the envelope rather than the 3.3 kHz oscillation.</p>
+                                                                <p class="project-description-extra" style="display: none;"><strong>Pilot cryogenic dip.</strong> The PicoScope, triggered at 0.4 V, recorded no window during the five-minute dwell. The Arduino trace contained two bursts, with peaks of 801 and 576 counts against a quiet baseline scatter of about 0.75 counts. Those two events were not identified as carbon fibre reinforced polymer damage: boil-off, rig motion and a partial wire detachment are also plausible, and no cracking was visible afterwards. During this test the Arduino rate fell to about 48 Hz because extra sensor columns were logged on the serial line.</p>
+                                                                <div class="project-description-extra" style="display: none;">
+                                                                    <p><strong>Figures.</strong> Photographs and plots from the dissertation.</p>
+                                                                    <div class="project-gallery">
+                                                                        <figure class="project-figure">
+                                                                            <img src="fyp/fyp-rig.png" alt="Motorised liquid-nitrogen dipping rig with the Dewar inside a clear enclosure">
+                                                                            <figcaption>Dipping rig: Dewar in an enclosure, with the motor drive, ultrasonic positioning and the acquisition laptop.</figcaption>
+                                                                        </figure>
+                                                                        <figure class="project-figure">
+                                                                            <img src="fyp/fyp-dual-channel.png" alt="Carbon fibre reinforced polymer strip with a piezoelectric disc at one end and the reference sensor lead at the other">
+                                                                            <figcaption>Dual-channel coupon. The piezoelectric disc and the reference accelerometer sit at opposite ends, with the tap applied at mid-span.</figcaption>
+                                                                        </figure>
+                                                                        <figure class="project-figure">
+                                                                            <img src="fyp/fyp-time-domain.png" alt="PicoScope time-domain plot of five sequential taps">
+                                                                            <figcaption>PicoScope record of five controlled taps. Each impact rings down for about 50 ms. These are mechanical taps, not confirmed material-damage events.</figcaption>
+                                                                        </figure>
+                                                                        <figure class="project-figure">
+                                                                            <img src="fyp/fyp-tap-comparison.png" alt="Tap 4 compared on the Arduino and PicoScope">
+                                                                            <figcaption>Tap 4 on both channels. The PicoScope resolves the bipolar ring-down. The Arduino, sampled at about 500 Hz through a unipolar ADC, keeps the positive envelope and clips the negative half-cycles.</figcaption>
+                                                                        </figure>
+                                                                        <figure class="project-figure">
+                                                                            <img src="fyp/fyp-fft.png" alt="Averaged FFT of the five PicoScope captures with a peak near 3.3 kilohertz">
+                                                                            <figcaption>Averaged Hann-window FFT of the five PicoScope captures. The peak near 3.3 kHz is the specimen–sensor mechanical response, not a confirmed damage frequency. It sits well above the Arduino Nyquist limit of about 250 Hz.</figcaption>
+                                                                        </figure>
+                                                                        <figure class="project-figure">
+                                                                            <img src="fyp/fyp-ln2-dip.jpeg" alt="Carbon fibre reinforced polymer coupon lowered into a Dewar of liquid nitrogen">
+                                                                            <figcaption>The single pilot immersion, about 100 mm into liquid nitrogen for five minutes. This was not a cryogenic fatigue series.</figcaption>
+                                                                        </figure>
+                                                                    </div>
+                                                                </div>
+                                                                <button class="project-more-btn">More</button>
+                                                                <button class="project-less-btn" style="display: none;">Less</button>
+                                                            </div>
+                                                            <div class="project-tags">
+                                                                <span class="project-tag">Arduino</span>
+                                                                <span class="project-tag">Python</span>
+                                                                <span class="project-tag">PicoScope</span>
+                                                                <span class="project-tag">FFT</span>
+                                                                <span class="project-tag">NumPy</span>
+                                                                <span class="project-tag">Pandas</span>
+                                                                <span class="project-tag">Matplotlib</span>
+                                                                <span class="project-tag">Carbon Fibre Reinforced Polymer</span>
+                                                                <span class="project-tag">Data Acquisition</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                 <div class="project-card" data-category="laboratory">
-                                    <div class="project-image">
-                                        <img src="optics/twyman-green.jpg" alt="Twyman-Green interferometer with green filter housing, camera and precision mirror mounts on an optical table" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
-                                    </div>
-                                    <div class="project-content">
-                                        <h3 class="project-title">Twyman–Green Interferometry &amp; Aberration Analysis</h3>
-                                        <div class="project-description">
-                                            <p>Used a Twyman–Green interferometer to reveal wavefront aberrations through interference between a test beam and a reference beam. Relative mirror tilt, optical-path matching and defocus were adjusted while a Thorlabs camera captured the resulting interference patterns, with fringe curvature, spacing and orientation used to interpret departures from a plane wavefront.</p>
-                                            <p class="project-description-extra" style="display: none;">In parallel, I modelled the wavefront using a fourth-order spherical-aberration term, a quadratic defocus term and linear tilt. For an illustrative spherical aberration of 4 wavelengths, numerical optimisation showed that a negative defocus of −4 wavelengths reduced the calculated peak-to-valley variation from 4 to 1 wavelength—a 75% reduction in the modelled wavefront variation, not a measured improvement to the physical lens.</p>
-                                            <p class="project-description-extra" style="display: none;">Recorded camera images contained broadly concentric fringes with non-uniform contrast and closer spacing towards the pupil edge. Their qualitative appearance was compatible with a radially varying wavefront, but the saved focus settings and fringe counts were insufficient for a calibrated aberration amplitude. The project strengthened understanding of phase-sensitive metrology, optical alignment and the distinction between fringe interpretation and quantitative wavefront reconstruction.</p>
-                                            <button class="project-more-btn">More</button>
-                                            <button class="project-less-btn" style="display: none;">Less</button>
-                                        </div>
-                                        <div class="project-tags">
-                                            <span class="project-tag">Interferometry</span>
-                                            <span class="project-tag">Optical Testing</span>
-                                            <span class="project-tag">Python</span>
-                                        </div>
-                                    </div>
-                                </div>
+                                                        <div class="project-image">
+                                                            <img src="optics/fibres.jpg" alt="Orange optical fibre on an alignment stage with a Thorlabs camera and white viewing screen" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
+                                                        </div>
+                                                        <div class="project-content">
+                                                            <h3 class="project-title">Optical Fibre Alignment &amp; Guided-Mode Characterisation</h3>
+                                                            <div class="project-description">
+                                                                <p>Investigated how efficiently a focused laser beam can be launched into an optical fibre and how the output depends on the fibre’s supported modes. Using an aspheric coupling lens on a translation stage and a precision X–Y fibre chuck, I aligned the laser with multimode and single-mode fibre end faces, showing how sensitive coupling is to small mechanical misalignments.</p>
+                                                                <p class="project-description-extra" style="display: none;">The multimode fibre produced a spatially irregular output with bright and dark speckle-like features that changed with launch alignment and fibre bending, consistent with changes in the relative amplitudes and phases of excited guided modes. The single-mode fibre produced a more concentrated, approximately Gaussian profile and required more careful alignment. A Thorlabs camera and Python image displays were used to examine the intensity distributions.</p>
+                                                                <p class="project-description-extra" style="display: none;">The work connected numerical aperture, modal behaviour, beam focusing and fibre handling to practical optical transmission, with relevance to optical test benches and fibre-to-chip assembly. The recorded experiment supports qualitative mode and alignment comparisons; it does not yet establish a calibrated coupling-efficiency or mode-field-diameter measurement.</p>
+                                                                <button class="project-more-btn">More</button>
+                                                                <button class="project-less-btn" style="display: none;">Less</button>
+                                                            </div>
+                                                            <div class="project-tags">
+                                                                <span class="project-tag">Optical Fibre Alignment</span>
+                                                                <span class="project-tag">Optical Coupling</span>
+                                                                <span class="project-tag">Python</span>
+                                                                <span class="project-tag">Image Processing</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                 <div class="project-card" data-category="laboratory">
-                                    <div class="project-image">
-                                        <img src="optics/filters.jpg" alt="Optical breadboard setup used for spectroscopy and optical filter characterisation" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
-                                    </div>
-                                    <div class="project-content">
-                                        <h3 class="project-title">Optical Spectroscopy &amp; Filter Characterisation</h3>
-                                        <div class="project-description">
-                                            <p>Investigated how the spectrum of a light source and the transmission properties of optical filters affect an optical measurement. Using a fibre-coupled Ocean Optics HR4000 spectrometer, I acquired spectra from a cadmium discharge lamp and a broadband white-light source, and examined coloured and interference-based optical filters.</p>
-                                            <p class="project-description-extra" style="display: none;">Python analysis identified cadmium emission features near 467.77, 479.96, 508.68 and 643.67 nm. Relative to listed reference lines, the largest absolute peak-position difference was approximately 0.13 nm. Coloured filters showed distinct transmission characteristics, including red cut-on behaviour and a green-centred response. The work also examined why interference filters can exhibit narrow passbands and why their central wavelength shifts with incidence angle.</p>
-                                            <p class="project-description-extra" style="display: none;">A major lesson was that a detector’s raw recorded spectrum is not automatically an accurate filter-transmission curve. Dark-background subtraction and normalisation against an unfiltered source are needed, and a wide fitted spectral peak should not be misreported as a narrowband-filter linewidth.</p>
-                                            <button class="project-more-btn">More</button>
-                                            <button class="project-less-btn" style="display: none;">Less</button>
-                                        </div>
-                                        <div class="project-tags">
-                                            <span class="project-tag">Optical Spectroscopy</span>
-                                            <span class="project-tag">Python</span>
-                                            <span class="project-tag">SciPy</span>
-                                            <span class="project-tag">Optical Testing</span>
-                                        </div>
-                                    </div>
-                                </div>
+                                                        <div class="project-image">
+                                                            <img src="optics/semiconductor-sources.jpg" alt="OptoSci fibre optic communications trainer with LED and laser diode transmitters beside a Rohde and Schwarz oscilloscope" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
+                                                        </div>
+                                                        <div class="project-content">
+                                                            <h3 class="project-title">Semiconductor LED &amp; Laser-Diode Characterisation</h3>
+                                                            <div class="project-description">
+                                                                <p>Investigated how semiconductor light sources convert drive current into optical output and why an LED and a laser diode behave differently. Using an optical communications training system with an approximately 850 nm LED, a 790 nm laser diode, a fibre patchcord and a silicon PIN photodiode, I varied drive current, recorded detected optical power and fitted light-output-versus-current curves in Python.</p>
+                                                                <p class="project-description-extra" style="display: none;">The laser-diode measurements showed a sharp increase in optical output near 26 mA, consistent with the onset of stimulated emission. Linear extrapolation of a selected above-threshold region gave an initial threshold estimate of 25.36 mA, although the value changed when the fitting interval was altered. Measured powers were also converted to dBm to relate the source measurements to optical link budgets.</p>
+                                                                <p class="project-description-extra" style="display: none;">The LED data required more caution: the entered readings were nonlinear and showed a nonzero value even at a stated zero drive current. Rather than forcing an ideal linear model, I considered possible offsets, saturation, changing coupling and data-recording inconsistencies. The project developed understanding of source biasing, laser threshold extraction, photodiode measurements and scrutinising unexpected experimental results.</p>
+                                                                <button class="project-more-btn">More</button>
+                                                                <button class="project-less-btn" style="display: none;">Less</button>
+                                                            </div>
+                                                            <div class="project-tags">
+                                                                <span class="project-tag">Optical Communications</span>
+                                                                <span class="project-tag">Optical Testing</span>
+                                                                <span class="project-tag">Python</span>
+                                                                <span class="project-tag">Data Acquisition</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                <div class="project-card" data-category="competition">
+                                                        <div class="project-image">
+                                                            <img src="QHack Bristol.png" alt="Quantum Heist" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
+                                                            <div class="project-overlay">
+                                                                <div class="project-links">
+                                                                    <a href="https://github.com/IR02/QAOA-Maxcut-Solver" class="project-link-secondary" target="_blank">GitHub</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="project-content">
+                                                            <h3 class="project-title">Quantum Heist</h3>
+                                                            <div class="project-description">
+                                                                <p>A creative and engaging quantum hackathon project that transforms the weighted Max-Cut problem into a realistic bank robbery scenario. The bank's vault network is modeled as a 5-node graph where nodes represent vaults and edges represent guarded pathways or critical alarm triggers.</p>
+                                                                <p class="project-description-extra" style="display: none;">By assigning an extremely high weight of 10,000 to the alarm edge between nodes 3 and 4, we ensure QAOA always includes this edge in the cut, forcing the decoy team to pass through and silently disable the main alarm system. High weights on other edges (such as 1-2) mark the locations of elite security guards that must be neutralized first, allowing the main robbery crew to reach the vaults undetected.</p>
+                                                                <p class="project-description-extra" style="display: none;">Running QAOA produces a clear sampling histogram with four dominant bitstrings (10010, 01101, 10101, 01010). Although the global maximum cut creates two balanced partitions, we discovered that the near-optimal solutions with exactly two 1s naturally divide the bank into three disconnected regions. This enables three simultaneous strike teams to enter and clear multiple vaults in parallel, significantly reducing total heist time. Our detailed post-processing, strategic insight, and clear visualizations of both the weighted graph and final partition elevate a standard QAOA implementation into a compelling, mission-optimized quantum-powered heist plan.</p>
+                                                                <button class="project-more-btn">More</button>
+                                                                <button class="project-less-btn" style="display: none;">Less</button>
+                                                            </div>
+                                                            <div class="project-tags">
+                                                                <span class="project-tag">Python</span>
+                                                                <span class="project-tag">Qiskit</span>
+                                                                <span class="project-tag">Cirq</span>
+                                                                <span class="project-tag">Quantum Technology</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                 <div class="project-card" data-category="laboratory">
-                                    <div class="project-image">
-                                        <img src="optics/feco.jpg" alt="Imperial College applied optics FECO bench with green housing on an optical table under blue laboratory cabinets" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
-                                    </div>
-                                    <div class="project-content">
-                                        <h3 class="project-title">Thin-Film Step-Height Analysis Using FECO</h3>
-                                        <div class="project-description">
-                                            <p>Used fringes of equal chromatic order (FECO) to investigate a small surface step through wavelength-dependent interference. The sample consisted of two partially reflecting aluminium-coated surfaces separated by a transparent adhesive layer, with a thin-film step changing the optical separation over part of the field.</p>
-                                            <p class="project-description-extra" style="display: none;">Three recorded wavelength triplets from different regions of the visible spectrum were analysed using the supplied adhesive refractive index of 1.56. Calculated nominal step heights were 72.95, 71.79 and 73.29 nm, giving an arithmetic mean of 72.68 nm and a between-region sample standard deviation of 0.78 nm. Derivative-based uncertainty propagation showed how small wavelength-reading errors can substantially influence a nanometre-scale result.</p>
-                                            <p class="project-description-extra" style="display: none;">The main conclusion was that measurement repeatability and absolute uncertainty are different quantities. Assuming independent 0.5 nm wavelength errors gives a modelled uncertainty of roughly 8.7 nm on the mean, rather than 0.78 nm. An alternative alignment-based fringe method remained a prediction rather than a second verified measurement.</p>
-                                            <button class="project-more-btn">More</button>
-                                            <button class="project-less-btn" style="display: none;">Less</button>
-                                        </div>
-                                        <div class="project-tags">
-                                            <span class="project-tag">Optical Metrology</span>
-                                            <span class="project-tag">Interferometry</span>
-                                            <span class="project-tag">Optical Spectroscopy</span>
-                                            <span class="project-tag">Python</span>
-                                        </div>
-                                    </div>
-                                </div>
+                                                    <div class="project-image">
+                                                        <img src="optics/twyman-green.jpg" alt="Twyman-Green interferometer with green filter housing, camera and precision mirror mounts on an optical table" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
+                                                    </div>
+                                                    <div class="project-content">
+                                                        <h3 class="project-title">Twyman–Green Interferometry &amp; Aberration Analysis</h3>
+                                                        <div class="project-description">
+                                                            <p>Used a Twyman–Green interferometer to reveal wavefront aberrations through interference between a test beam and a reference beam. Relative mirror tilt, optical-path matching and defocus were adjusted while a Thorlabs camera captured the resulting interference patterns, with fringe curvature, spacing and orientation used to interpret departures from a plane wavefront.</p>
+                                                            <p class="project-description-extra" style="display: none;">In parallel, I modelled the wavefront using a fourth-order spherical-aberration term, a quadratic defocus term and linear tilt. For an illustrative spherical aberration of 4 wavelengths, numerical optimisation showed that a negative defocus of −4 wavelengths reduced the calculated peak-to-valley variation from 4 to 1 wavelength—a 75% reduction in the modelled wavefront variation, not a measured improvement to the physical lens.</p>
+                                                            <p class="project-description-extra" style="display: none;">Recorded camera images contained broadly concentric fringes with non-uniform contrast and closer spacing towards the pupil edge. Their qualitative appearance was compatible with a radially varying wavefront, but the saved focus settings and fringe counts were insufficient for a calibrated aberration amplitude. The project strengthened understanding of phase-sensitive metrology, optical alignment and the distinction between fringe interpretation and quantitative wavefront reconstruction.</p>
+                                                            <button class="project-more-btn">More</button>
+                                                            <button class="project-less-btn" style="display: none;">Less</button>
+                                                        </div>
+                                                        <div class="project-tags">
+                                                            <span class="project-tag">Interferometry</span>
+                                                            <span class="project-tag">Optical Testing</span>
+                                                            <span class="project-tag">Python</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
                 <div class="project-card" data-category="laboratory">
-                                    <div class="project-image">
-                                        <img src="optics/speckle.jpg" alt="Optical rail setup used for laser speckle statistics and image correlation measurements" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
-                                    </div>
-                                    <div class="project-content">
-                                        <h3 class="project-title">Laser Speckle Statistics &amp; Image Correlation</h3>
-                                        <div class="project-description">
-                                            <p>Examined the granular bright and dark patterns produced when coherent laser light is scattered by a diffuser. Using a 632.8 nm helium–neon laser, an adjustable aperture and a Thorlabs CCD camera, I studied how the illuminated aperture affects speckle size and how recorded intensity varies across an image, and simulated a random-phase scattering surface in Python using a two-dimensional Fourier transform.</p>
-                                            <p class="project-description-extra" style="display: none;">Analysis compared measured camera histograms with the exponential intensity distribution predicted for fully developed speckle. The recorded image had a mean intensity of 272.36 digital counts and standard deviation of 227.27, giving a speckle contrast of 0.834 against an ideal value of 1. Spatial autocorrelation yielded approximate widths of 26.08 µm horizontally and 29.12 µm vertically.</p>
-                                            <p class="project-description-extra" style="display: none;">Reasons why real camera data may depart from the ideal model were examined, including background signals, finite pixel size, spatial averaging and saturation. The experiment linked coherent scattering physics to image statistics and practical metrology.</p>
-                                            <button class="project-more-btn">More</button>
-                                            <button class="project-less-btn" style="display: none;">Less</button>
-                                        </div>
-                                        <div class="project-tags">
-                                            <span class="project-tag">Optical Metrology</span>
-                                            <span class="project-tag">Image Processing</span>
-                                            <span class="project-tag">FFT</span>
-                                            <span class="project-tag">Python</span>
-                                            <span class="project-tag">NumPy</span>
-                                        </div>
-                                    </div>
-                                </div>
+                                                    <div class="project-image">
+                                                        <img src="optics/filters.jpg" alt="Optical breadboard setup used for spectroscopy and optical filter characterisation" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
+                                                    </div>
+                                                    <div class="project-content">
+                                                        <h3 class="project-title">Optical Spectroscopy &amp; Filter Characterisation</h3>
+                                                        <div class="project-description">
+                                                            <p>Investigated how the spectrum of a light source and the transmission properties of optical filters affect an optical measurement. Using a fibre-coupled Ocean Optics HR4000 spectrometer, I acquired spectra from a cadmium discharge lamp and a broadband white-light source, and examined coloured and interference-based optical filters.</p>
+                                                            <p class="project-description-extra" style="display: none;">Python analysis identified cadmium emission features near 467.77, 479.96, 508.68 and 643.67 nm. Relative to listed reference lines, the largest absolute peak-position difference was approximately 0.13 nm. Coloured filters showed distinct transmission characteristics, including red cut-on behaviour and a green-centred response. The work also examined why interference filters can exhibit narrow passbands and why their central wavelength shifts with incidence angle.</p>
+                                                            <p class="project-description-extra" style="display: none;">A major lesson was that a detector’s raw recorded spectrum is not automatically an accurate filter-transmission curve. Dark-background subtraction and normalisation against an unfiltered source are needed, and a wide fitted spectral peak should not be misreported as a narrowband-filter linewidth.</p>
+                                                            <button class="project-more-btn">More</button>
+                                                            <button class="project-less-btn" style="display: none;">Less</button>
+                                                        </div>
+                                                        <div class="project-tags">
+                                                            <span class="project-tag">Optical Spectroscopy</span>
+                                                            <span class="project-tag">Python</span>
+                                                            <span class="project-tag">SciPy</span>
+                                                            <span class="project-tag">Optical Testing</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
                 <div class="project-card" data-category="laboratory">
-                                    <div class="project-image">
-                                        <img src="optics/fibre-link-modelling.jpg" alt="Illustration of optical pulse peak decay with fibre length and source linewidth under chromatic dispersion" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
-                                    </div>
-                                    <div class="project-content">
-                                        <h3 class="project-title">Optical Fibre Link &amp; Pulse Propagation Modelling</h3>
-                                        <div class="project-description">
-                                            <p>Computational project investigating how optical attenuation and chromatic dispersion degrade signals travelling through fibre communication links. Python/Jupyter calculations represented Gaussian optical pulses, assembled an optical power budget and compared received signal shapes across multi-section fibre links.</p>
-                                            <p class="project-description-extra" style="display: none;">The first model combined three fibre sections of 10, 15 and 5 km with their attenuation coefficients, plus two connector-coupling losses and two fibre splices. The 30 km example produced a calculated total attenuation of 7.60 dB, corresponding to approximately 0.17378 mW at the receiver for a 1 mW optical input. Pulse broadening was then modelled over 10, 50 and 100 km.</p>
-                                            <p class="project-description-extra" style="display: none;">A final comparison examined all eight possible three-bit sequences across source linewidths of 0.1, 1, 2 and 4 nm. Broader sources produced greater pulse overlap and reduced simulated separation between logical levels at the sampling point, illustrating inter-symbol interference. The calculated signal-quality trends are numerical predictions, not experimentally measured BER or hardware performance.</p>
-                                            <button class="project-more-btn">More</button>
-                                            <button class="project-less-btn" style="display: none;">Less</button>
-                                        </div>
-                                        <div class="project-tags">
-                                            <span class="project-tag">Python</span>
-                                            <span class="project-tag">NumPy</span>
-                                            <span class="project-tag">Matplotlib</span>
-                                            <span class="project-tag">Optical Communications</span>
-                                        </div>
-                                    </div>
-                                </div>
+                                                    <div class="project-image">
+                                                        <img src="optics/feco.jpg" alt="Imperial College applied optics FECO bench with green housing on an optical table under blue laboratory cabinets" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
+                                                    </div>
+                                                    <div class="project-content">
+                                                        <h3 class="project-title">Thin-Film Step-Height Analysis Using FECO</h3>
+                                                        <div class="project-description">
+                                                            <p>Used fringes of equal chromatic order (FECO) to investigate a small surface step through wavelength-dependent interference. The sample consisted of two partially reflecting aluminium-coated surfaces separated by a transparent adhesive layer, with a thin-film step changing the optical separation over part of the field.</p>
+                                                            <p class="project-description-extra" style="display: none;">Three recorded wavelength triplets from different regions of the visible spectrum were analysed using the supplied adhesive refractive index of 1.56. Calculated nominal step heights were 72.95, 71.79 and 73.29 nm, giving an arithmetic mean of 72.68 nm and a between-region sample standard deviation of 0.78 nm. Derivative-based uncertainty propagation showed how small wavelength-reading errors can substantially influence a nanometre-scale result.</p>
+                                                            <p class="project-description-extra" style="display: none;">The main conclusion was that measurement repeatability and absolute uncertainty are different quantities. Assuming independent 0.5 nm wavelength errors gives a modelled uncertainty of roughly 8.7 nm on the mean, rather than 0.78 nm. An alternative alignment-based fringe method remained a prediction rather than a second verified measurement.</p>
+                                                            <button class="project-more-btn">More</button>
+                                                            <button class="project-less-btn" style="display: none;">Less</button>
+                                                        </div>
+                                                        <div class="project-tags">
+                                                            <span class="project-tag">Optical Metrology</span>
+                                                            <span class="project-tag">Interferometry</span>
+                                                            <span class="project-tag">Optical Spectroscopy</span>
+                                                            <span class="project-tag">Python</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
                 <div class="project-card" data-category="laboratory">
-                                    <div class="project-image">
-                                        <img src="optics/interferometer-modelling.jpg" alt="Synthetic interferogram showing fringe patterns from spherical aberration combined with reference-beam tilt" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
-                                    </div>
-                                    <div class="project-content">
-                                        <h3 class="project-title">Interferometer Modelling with Zernike Aberrations</h3>
-                                        <div class="project-description">
-                                            <p>Python-based computational optics project exploring how wavefront phase errors appear as measurable interferometer intensity patterns. Starting with two coherent optical fields, I represented a circular test pupil and a reference wavefront, then calculated the observed intensity from the squared magnitude of their combined electric fields.</p>
-                                            <p class="project-description-extra" style="display: none;">I implemented and examined eleven Zernike aberration modes from the laboratory exercise, including piston, tip/tilt, defocus, astigmatism, coma, trefoil and primary spherical aberration. Two-dimensional grids were used to display each mode, check approximate RMS normalisation and compare pairwise inner products to test expected orthogonality over a circular pupil.</p>
-                                            <p class="project-description-extra" style="display: none;">Wavefront deviations were converted into phase to generate synthetic interferograms under different aberration strengths and reference-beam tilts. All interferograms in this project are numerical simulations; they are not images recorded with a physical interferometer.</p>
-                                            <button class="project-more-btn">More</button>
-                                            <button class="project-less-btn" style="display: none;">Less</button>
-                                        </div>
-                                        <div class="project-tags">
-                                            <span class="project-tag">Python</span>
-                                            <span class="project-tag">NumPy</span>
-                                            <span class="project-tag">Matplotlib</span>
-                                            <span class="project-tag">Interferometry</span>
-                                            <span class="project-tag">Fourier Optics</span>
-                                            <span class="project-tag">Optical Metrology</span>
-                                        </div>
-                                    </div>
-                                </div>
+                                                    <div class="project-image">
+                                                        <img src="optics/speckle.jpg" alt="Optical rail setup used for laser speckle statistics and image correlation measurements" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
+                                                    </div>
+                                                    <div class="project-content">
+                                                        <h3 class="project-title">Laser Speckle Statistics &amp; Image Correlation</h3>
+                                                        <div class="project-description">
+                                                            <p>Examined the granular bright and dark patterns produced when coherent laser light is scattered by a diffuser. Using a 632.8 nm helium–neon laser, an adjustable aperture and a Thorlabs CCD camera, I studied how the illuminated aperture affects speckle size and how recorded intensity varies across an image, and simulated a random-phase scattering surface in Python using a two-dimensional Fourier transform.</p>
+                                                            <p class="project-description-extra" style="display: none;">Analysis compared measured camera histograms with the exponential intensity distribution predicted for fully developed speckle. The recorded image had a mean intensity of 272.36 digital counts and standard deviation of 227.27, giving a speckle contrast of 0.834 against an ideal value of 1. Spatial autocorrelation yielded approximate widths of 26.08 µm horizontally and 29.12 µm vertically.</p>
+                                                            <p class="project-description-extra" style="display: none;">Reasons why real camera data may depart from the ideal model were examined, including background signals, finite pixel size, spatial averaging and saturation. The experiment linked coherent scattering physics to image statistics and practical metrology.</p>
+                                                            <button class="project-more-btn">More</button>
+                                                            <button class="project-less-btn" style="display: none;">Less</button>
+                                                        </div>
+                                                        <div class="project-tags">
+                                                            <span class="project-tag">Optical Metrology</span>
+                                                            <span class="project-tag">Image Processing</span>
+                                                            <span class="project-tag">FFT</span>
+                                                            <span class="project-tag">Python</span>
+                                                            <span class="project-tag">NumPy</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
                 <div class="project-card" data-category="laboratory">
-                                    <div class="project-image">
-                                        <img src="optics/polarisation.jpg" alt="Long optical rail polarisation experiment with blue source housing and precision translation stages" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
-                                    </div>
-                                    <div class="project-content">
-                                        <h3 class="project-title">Optical Polarisation &amp; Waveplate Characterisation</h3>
-                                        <div class="project-description">
-                                            <p>Examined how light polarisation can be generated, altered and measured using optical components. A measurement path comprising an LED, a linear polariser, an analyser, a silicon photodiode and interchangeable half-wave and quarter-wave plates was assembled and investigated against Malus’ law.</p>
-                                            <p class="project-description-extra" style="display: none;">Thirteen measurements across 0–360° showed a strong periodic cosine-squared response, with measured maxima near 1.94 V and minima close to zero. SciPy fitting and orthogonal-distance regression produced a fitted maximum of approximately 1.9320 ± 0.0075 V and an angular offset of −0.916 ± 0.264°.</p>
-                                            <p class="project-description-extra" style="display: none;">Half-wave and quarter-wave retardation plates were examined for their effect on transmitted intensity and apparent polarisation state. Several fit residuals exceeded the stated uncertainties, and the quarter-wave-plate results did not demonstrate an ideally circularly polarised state without further alignment checks.</p>
-                                            <button class="project-more-btn">More</button>
-                                            <button class="project-less-btn" style="display: none;">Less</button>
-                                        </div>
-                                        <div class="project-tags">
-                                            <span class="project-tag">Optical Polarisation</span>
-                                            <span class="project-tag">SciPy</span>
-                                            <span class="project-tag">Optical Testing</span>
-                                            <span class="project-tag">Python</span>
-                                        </div>
-                                    </div>
-                                </div>
+                                                    <div class="project-image">
+                                                        <img src="optics/fibre-link-modelling.jpg" alt="Illustration of optical pulse peak decay with fibre length and source linewidth under chromatic dispersion" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
+                                                    </div>
+                                                    <div class="project-content">
+                                                        <h3 class="project-title">Optical Fibre Link &amp; Pulse Propagation Modelling</h3>
+                                                        <div class="project-description">
+                                                            <p>Computational project investigating how optical attenuation and chromatic dispersion degrade signals travelling through fibre communication links. Python/Jupyter calculations represented Gaussian optical pulses, assembled an optical power budget and compared received signal shapes across multi-section fibre links.</p>
+                                                            <p class="project-description-extra" style="display: none;">The first model combined three fibre sections of 10, 15 and 5 km with their attenuation coefficients, plus two connector-coupling losses and two fibre splices. The 30 km example produced a calculated total attenuation of 7.60 dB, corresponding to approximately 0.17378 mW at the receiver for a 1 mW optical input. Pulse broadening was then modelled over 10, 50 and 100 km.</p>
+                                                            <p class="project-description-extra" style="display: none;">A final comparison examined all eight possible three-bit sequences across source linewidths of 0.1, 1, 2 and 4 nm. Broader sources produced greater pulse overlap and reduced simulated separation between logical levels at the sampling point, illustrating inter-symbol interference. The calculated signal-quality trends are numerical predictions, not experimentally measured BER or hardware performance.</p>
+                                                            <button class="project-more-btn">More</button>
+                                                            <button class="project-less-btn" style="display: none;">Less</button>
+                                                        </div>
+                                                        <div class="project-tags">
+                                                            <span class="project-tag">Python</span>
+                                                            <span class="project-tag">NumPy</span>
+                                                            <span class="project-tag">Matplotlib</span>
+                                                            <span class="project-tag">Optical Communications</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
                 <div class="project-card" data-category="laboratory">
-                                    <div class="project-image">
-                                        <img src="optics/diffraction.jpg" alt="Laser diffraction setup on an optical rail with adjustable aperture, viewing screen and digital calipers" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
-                                    </div>
-                                    <div class="project-content">
-                                        <h3 class="project-title">Near- and Far-Field Diffraction</h3>
-                                        <div class="project-description">
-                                            <p>Combined numerical diffraction theory with optical-bench measurements to investigate how light spreads after passing through a narrow slit. Fresnel and Fraunhofer regimes were compared in Python using Fresnel integrals and Cornu-spiral representations, alongside measurements with a nominal 520 nm laser and an adjustable slit.</p>
-                                            <p class="project-description-extra" style="display: none;">As the slit setting increased, the measured separation between the first diffraction minima decreased from approximately 3.69 mm to 0.62 mm, consistent with the inverse dependence of diffraction spread on aperture width. A linear fit produced a wavelength estimate of roughly 522 nm, close to the nominal source wavelength. Pattern evolution was also recorded at objective-to-screen distances spanning about 17.5 to 62.5 cm.</p>
-                                            <p class="project-description-extra" style="display: none;">The estimated wavelength depends on the assumed slit calibration, and the transition between the Fresnel and Fraunhofer regimes was not established with a rigorous uncertainty threshold. The project developed confidence with wave propagation, numerical integration and experiment–theory comparison.</p>
-                                            <button class="project-more-btn">More</button>
-                                            <button class="project-less-btn" style="display: none;">Less</button>
-                                        </div>
-                                        <div class="project-tags">
-                                            <span class="project-tag">Diffraction</span>
-                                            <span class="project-tag">Fourier Optics</span>
-                                            <span class="project-tag">Python</span>
-                                            <span class="project-tag">NumPy</span>
-                                            <span class="project-tag">SciPy</span>
-                                        </div>
-                                    </div>
-                                </div>
+                                                    <div class="project-image">
+                                                        <img src="optics/interferometer-modelling.jpg" alt="Synthetic interferogram showing fringe patterns from spherical aberration combined with reference-beam tilt" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
+                                                    </div>
+                                                    <div class="project-content">
+                                                        <h3 class="project-title">Interferometer Modelling with Zernike Aberrations</h3>
+                                                        <div class="project-description">
+                                                            <p>Python-based computational optics project exploring how wavefront phase errors appear as measurable interferometer intensity patterns. Starting with two coherent optical fields, I represented a circular test pupil and a reference wavefront, then calculated the observed intensity from the squared magnitude of their combined electric fields.</p>
+                                                            <p class="project-description-extra" style="display: none;">I implemented and examined eleven Zernike aberration modes from the laboratory exercise, including piston, tip/tilt, defocus, astigmatism, coma, trefoil and primary spherical aberration. Two-dimensional grids were used to display each mode, check approximate RMS normalisation and compare pairwise inner products to test expected orthogonality over a circular pupil.</p>
+                                                            <p class="project-description-extra" style="display: none;">Wavefront deviations were converted into phase to generate synthetic interferograms under different aberration strengths and reference-beam tilts. All interferograms in this project are numerical simulations; they are not images recorded with a physical interferometer.</p>
+                                                            <button class="project-more-btn">More</button>
+                                                            <button class="project-less-btn" style="display: none;">Less</button>
+                                                        </div>
+                                                        <div class="project-tags">
+                                                            <span class="project-tag">Python</span>
+                                                            <span class="project-tag">NumPy</span>
+                                                            <span class="project-tag">Matplotlib</span>
+                                                            <span class="project-tag">Interferometry</span>
+                                                            <span class="project-tag">Fourier Optics</span>
+                                                            <span class="project-tag">Optical Metrology</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
                 <div class="project-card" data-category="laboratory">
-                                    <div class="project-image">
-                                        <img src="optics/astigmatism.jpg" alt="Vintage Troughton and Simms nodal-slide optical bench used for astigmatism and field-curvature measurements" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
-                                    </div>
-                                    <div class="project-content">
-                                        <h3 class="project-title">Astigmatism &amp; Field-Curvature Measurements</h3>
-                                        <div class="project-description">
-                                            <p>Investigated why a lens can focus an off-axis point differently in perpendicular directions. A nodal-slide test apparatus was used to rotate a nominal 100 mm focal-length lens relative to a fixed optical bench, measuring the axial positions of the tangential focal line, sagittal or radial focal line and circle of least confusion.</p>
-                                            <p class="project-description-extra" style="display: none;">Measurements covered field angles from −25° to +25° in 5° steps. At zero field angle, both line foci coincided at the recorded 34.00 mm datum. At +25°, the tangential position was 30.15 mm and the radial position 34.24 mm, corresponding to an axial separation of approximately 4.09 mm.</p>
-                                            <p class="project-description-extra" style="display: none;">Although the worksheet asked for an off-axis angle at which the lens becomes anastigmatic, the saved data did not show an off-axis crossing of the two measured focal curves. That conclusion was therefore treated as unverified rather than claimed as a successful demonstration.</p>
-                                            <button class="project-more-btn">More</button>
-                                            <button class="project-less-btn" style="display: none;">Less</button>
-                                        </div>
-                                        <div class="project-tags">
-                                            <span class="project-tag">Optical Testing</span>
-                                            <span class="project-tag">Optical Metrology</span>
-                                            <span class="project-tag">Python</span>
-                                        </div>
-                                    </div>
-                                </div>
+                                                    <div class="project-image">
+                                                        <img src="optics/polarisation.jpg" alt="Long optical rail polarisation experiment with blue source housing and precision translation stages" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
+                                                    </div>
+                                                    <div class="project-content">
+                                                        <h3 class="project-title">Optical Polarisation &amp; Waveplate Characterisation</h3>
+                                                        <div class="project-description">
+                                                            <p>Examined how light polarisation can be generated, altered and measured using optical components. A measurement path comprising an LED, a linear polariser, an analyser, a silicon photodiode and interchangeable half-wave and quarter-wave plates was assembled and investigated against Malus’ law.</p>
+                                                            <p class="project-description-extra" style="display: none;">Thirteen measurements across 0–360° showed a strong periodic cosine-squared response, with measured maxima near 1.94 V and minima close to zero. SciPy fitting and orthogonal-distance regression produced a fitted maximum of approximately 1.9320 ± 0.0075 V and an angular offset of −0.916 ± 0.264°.</p>
+                                                            <p class="project-description-extra" style="display: none;">Half-wave and quarter-wave retardation plates were examined for their effect on transmitted intensity and apparent polarisation state. Several fit residuals exceeded the stated uncertainties, and the quarter-wave-plate results did not demonstrate an ideally circularly polarised state without further alignment checks.</p>
+                                                            <button class="project-more-btn">More</button>
+                                                            <button class="project-less-btn" style="display: none;">Less</button>
+                                                        </div>
+                                                        <div class="project-tags">
+                                                            <span class="project-tag">Optical Polarisation</span>
+                                                            <span class="project-tag">SciPy</span>
+                                                            <span class="project-tag">Optical Testing</span>
+                                                            <span class="project-tag">Python</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
                 <div class="project-card" data-category="laboratory">
-                                    <div class="project-image">
-                                        <img src="optics/microscope-illumination.jpg" alt="Black laboratory microscope on an optical breadboard used to compare critical and Köhler illumination" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
-                                    </div>
-                                    <div class="project-content">
-                                        <h3 class="project-title">Critical vs Köhler Microscope Illumination</h3>
-                                        <div class="project-description">
-                                            <p>Compared two methods of delivering light to a specimen: critical illumination and Köhler illumination. Using a Beck microscope, an LED illuminator, a substage condenser and a razor blade as a high-contrast test object, I adjusted the source, mirror and condenser to investigate how the apparent image depends on where the illumination source is optically imaged.</p>
-                                            <p class="project-description-extra" style="display: none;">In critical illumination, the condenser forms an image of the LED source near the specimen plane, and the recorded razor-edge field showed uneven illumination and visible structure behind the dark edge. The Köhler arrangement separates the images of the source and field diaphragm, allowing the illuminated area to be controlled with the field iris while the condenser iris changes the angular range of incident light.</p>
-                                            <p class="project-description-extra" style="display: none;">The experiment also considered partial spatial coherence, diffraction-related edge effects and the trade-off between brightness, resolution and apparent depth of field as the condenser aperture is varied. The saved Köhler photograph contained a partly saturated region, so uniformity was explained theoretically rather than proven quantitatively from that image.</p>
-                                            <button class="project-more-btn">More</button>
-                                            <button class="project-less-btn" style="display: none;">Less</button>
-                                        </div>
-                                        <div class="project-tags">
-                                            <span class="project-tag">Microscopy</span>
-                                            <span class="project-tag">Optical Testing</span>
-                                            <span class="project-tag">Optical Coupling</span>
-                                        </div>
-                                    </div>
-                                </div>
+                                                    <div class="project-image">
+                                                        <img src="optics/diffraction.jpg" alt="Laser diffraction setup on an optical rail with adjustable aperture, viewing screen and digital calipers" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
+                                                    </div>
+                                                    <div class="project-content">
+                                                        <h3 class="project-title">Near- and Far-Field Diffraction</h3>
+                                                        <div class="project-description">
+                                                            <p>Combined numerical diffraction theory with optical-bench measurements to investigate how light spreads after passing through a narrow slit. Fresnel and Fraunhofer regimes were compared in Python using Fresnel integrals and Cornu-spiral representations, alongside measurements with a nominal 520 nm laser and an adjustable slit.</p>
+                                                            <p class="project-description-extra" style="display: none;">As the slit setting increased, the measured separation between the first diffraction minima decreased from approximately 3.69 mm to 0.62 mm, consistent with the inverse dependence of diffraction spread on aperture width. A linear fit produced a wavelength estimate of roughly 522 nm, close to the nominal source wavelength. Pattern evolution was also recorded at objective-to-screen distances spanning about 17.5 to 62.5 cm.</p>
+                                                            <p class="project-description-extra" style="display: none;">The estimated wavelength depends on the assumed slit calibration, and the transition between the Fresnel and Fraunhofer regimes was not established with a rigorous uncertainty threshold. The project developed confidence with wave propagation, numerical integration and experiment–theory comparison.</p>
+                                                            <button class="project-more-btn">More</button>
+                                                            <button class="project-less-btn" style="display: none;">Less</button>
+                                                        </div>
+                                                        <div class="project-tags">
+                                                            <span class="project-tag">Diffraction</span>
+                                                            <span class="project-tag">Fourier Optics</span>
+                                                            <span class="project-tag">Python</span>
+                                                            <span class="project-tag">NumPy</span>
+                                                            <span class="project-tag">SciPy</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
                 <div class="project-card" data-category="laboratory">
-                                    <div class="project-image">
-                                        <img src="optics/holography.jpg" alt="Optical breadboard holography setup with laser, spatial filter and lab sheet labelled Holography" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
-                                    </div>
-                                    <div class="project-content">
-                                        <h3 class="project-title">Two-Beam Holography &amp; Laser Spatial Filtering</h3>
-                                        <div class="project-description">
-                                            <p>Examined two techniques used in coherent optical imaging: interference between two laser beams and spatial filtering of an expanded beam. A beamsplitter and steering mirrors divided a laser into two paths that were recombined near a microscope objective, forming a visible interference pattern sensitive to relative beam direction and mechanical disturbances.</p>
-                                            <p class="project-description-extra" style="display: none;">A striped calibration mask was introduced to relate the magnified projected pattern to physical spacing, while inserting transparent tape into one path demonstrated how local phase variations can distort the interference pattern. The recorded work was primarily qualitative; a final calibrated fringe-spacing comparison was not established.</p>
-                                            <p class="project-description-extra" style="display: none;">In the second part, a 10× microscope objective and a 25 µm pinhole formed a spatial filter for an expanded laser beam. Adjusting axial focus and transverse pinhole position investigated rejection of scattered or off-axis light. The recorded summary describes improved beam uniformity after alignment, supported by numerical Fourier-optics illustrations.</p>
-                                            <button class="project-more-btn">More</button>
-                                            <button class="project-less-btn" style="display: none;">Less</button>
-                                        </div>
-                                        <div class="project-tags">
-                                            <span class="project-tag">Holography</span>
-                                            <span class="project-tag">Fourier Optics</span>
-                                            <span class="project-tag">Optical Testing</span>
-                                            <span class="project-tag">Optical Coupling</span>
-                                        </div>
-                                    </div>
-                                </div>
+                                                    <div class="project-image">
+                                                        <img src="optics/astigmatism.jpg" alt="Vintage Troughton and Simms nodal-slide optical bench used for astigmatism and field-curvature measurements" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
+                                                    </div>
+                                                    <div class="project-content">
+                                                        <h3 class="project-title">Astigmatism &amp; Field-Curvature Measurements</h3>
+                                                        <div class="project-description">
+                                                            <p>Investigated why a lens can focus an off-axis point differently in perpendicular directions. A nodal-slide test apparatus was used to rotate a nominal 100 mm focal-length lens relative to a fixed optical bench, measuring the axial positions of the tangential focal line, sagittal or radial focal line and circle of least confusion.</p>
+                                                            <p class="project-description-extra" style="display: none;">Measurements covered field angles from −25° to +25° in 5° steps. At zero field angle, both line foci coincided at the recorded 34.00 mm datum. At +25°, the tangential position was 30.15 mm and the radial position 34.24 mm, corresponding to an axial separation of approximately 4.09 mm.</p>
+                                                            <p class="project-description-extra" style="display: none;">Although the worksheet asked for an off-axis angle at which the lens becomes anastigmatic, the saved data did not show an off-axis crossing of the two measured focal curves. That conclusion was therefore treated as unverified rather than claimed as a successful demonstration.</p>
+                                                            <button class="project-more-btn">More</button>
+                                                            <button class="project-less-btn" style="display: none;">Less</button>
+                                                        </div>
+                                                        <div class="project-tags">
+                                                            <span class="project-tag">Optical Testing</span>
+                                                            <span class="project-tag">Optical Metrology</span>
+                                                            <span class="project-tag">Python</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
                 <div class="project-card" data-category="laboratory">
-                                    <div class="project-image">
-                                        <img src="optics/fourier-optics.jpg" alt="Optical rail labelled Fourier Optics with lenses, fibre-coupled source and viewing screen" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
-                                    </div>
-                                    <div class="project-content">
-                                        <h3 class="project-title">Fourier Optics — Diffraction, Wave Propagation &amp; Optical Image Formation</h3>
-                                        <div class="project-description">
-                                            <p>Computational optics project investigating how Fourier-transform techniques describe the propagation, diffraction and focusing of light. Using Python, NumPy, SciPy and Matplotlib, I explored the relationship between the spatial distribution of an optical field and its diffraction pattern, combining Fresnel and Fraunhofer models, pupil functions and point-spread functions.</p>
-                                            <p class="project-description-extra" style="display: none;">Two-dimensional FFTs and SciPy’s ZoomFFT were used to simulate the image formed by a circular-aperture lens, reproducing the Airy pattern. For a model lens with a 300 mm focal length, 30 mm aperture diameter and 500 nm illumination wavelength, the calculated first three dark-ring radii were approximately 6.10, 11.17 and 16.19 µm. Numerical aperture, defocus, spherical aberration, coma and astigmatism were examined for their effects on the PSF and Strehl ratio.</p>
-                                            <p class="project-description-extra" style="display: none;">Near-field and far-field diffraction were also examined using Fresnel integrals, Cornu spirals and numerical propagation models. The work developed understanding of computational wave optics and optical system performance relevant to beam propagation, focusing tolerances, mode matching and optical coupling in integrated photonic systems.</p>
-                                            <button class="project-more-btn">More</button>
-                                            <button class="project-less-btn" style="display: none;">Less</button>
-                                        </div>
-                                        <div class="project-tags">
-                                            <span class="project-tag">Fourier Optics</span>
-                                            <span class="project-tag">Diffraction</span>
-                                            <span class="project-tag">Python</span>
-                                            <span class="project-tag">NumPy</span>
-                                            <span class="project-tag">SciPy</span>
-                                            <span class="project-tag">Matplotlib</span>
-                                            <span class="project-tag">FFT</span>
-                                        </div>
-                                    </div>
-                                </div>
+                                                    <div class="project-image">
+                                                        <img src="optics/microscope-illumination.jpg" alt="Black laboratory microscope on an optical breadboard used to compare critical and Köhler illumination" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
+                                                    </div>
+                                                    <div class="project-content">
+                                                        <h3 class="project-title">Critical vs Köhler Microscope Illumination</h3>
+                                                        <div class="project-description">
+                                                            <p>Compared two methods of delivering light to a specimen: critical illumination and Köhler illumination. Using a Beck microscope, an LED illuminator, a substage condenser and a razor blade as a high-contrast test object, I adjusted the source, mirror and condenser to investigate how the apparent image depends on where the illumination source is optically imaged.</p>
+                                                            <p class="project-description-extra" style="display: none;">In critical illumination, the condenser forms an image of the LED source near the specimen plane, and the recorded razor-edge field showed uneven illumination and visible structure behind the dark edge. The Köhler arrangement separates the images of the source and field diaphragm, allowing the illuminated area to be controlled with the field iris while the condenser iris changes the angular range of incident light.</p>
+                                                            <p class="project-description-extra" style="display: none;">The experiment also considered partial spatial coherence, diffraction-related edge effects and the trade-off between brightness, resolution and apparent depth of field as the condenser aperture is varied. The saved Köhler photograph contained a partly saturated region, so uniformity was explained theoretically rather than proven quantitatively from that image.</p>
+                                                            <button class="project-more-btn">More</button>
+                                                            <button class="project-less-btn" style="display: none;">Less</button>
+                                                        </div>
+                                                        <div class="project-tags">
+                                                            <span class="project-tag">Microscopy</span>
+                                                            <span class="project-tag">Optical Testing</span>
+                                                            <span class="project-tag">Optical Coupling</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
                 <div class="project-card" data-category="laboratory">
-                                    <div class="project-image">
-                                        <img src="optics/star-test.jpg" alt="Computed Airy point-spread function showing a bright central disc surrounded by diffraction rings" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
-                                    </div>
-                                    <div class="project-content">
-                                        <h3 class="project-title">Star Test &amp; Point-Spread-Function Modelling</h3>
-                                        <div class="project-description">
-                                            <p>Computational imaging project investigating how a lens forms the image of a point source and how that image changes when the optical system is defocused or aberrated. Fourier-transform methods were used to calculate the point-spread function of a circular pupil, reproducing the expected Airy pattern.</p>
-                                            <p class="project-description-extra" style="display: none;">For an illustrative 300 mm focal-length system with a pupil radius of 15 mm and 0.5 µm illumination wavelength, the calculated radii of the first three dark rings were 6.10, 11.17 and 16.19 µm. Enlarging the pupil narrowed the central spot, showing the relationship between numerical aperture and lateral resolution. The model also predicted an approximately 400 µm separation between successive on-axis intensity zeros as defocus was varied.</p>
-                                            <p class="project-description-extra" style="display: none;">Spherical aberration, coma and astigmatism were added to the wavefront model and observed for their distinct effects on the simulated image. All results were calculated, not measured using a physical star-test bench.</p>
-                                            <button class="project-more-btn">More</button>
-                                            <button class="project-less-btn" style="display: none;">Less</button>
-                                        </div>
-                                        <div class="project-tags">
-                                            <span class="project-tag">Fourier Optics</span>
-                                            <span class="project-tag">Python</span>
-                                            <span class="project-tag">SciPy</span>
-                                            <span class="project-tag">FFT</span>
-                                            <span class="project-tag">Optical Metrology</span>
-                                        </div>
-                                    </div>
-                                </div>
+                                                    <div class="project-image">
+                                                        <img src="optics/holography.jpg" alt="Optical breadboard holography setup with laser, spatial filter and lab sheet labelled Holography" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
+                                                    </div>
+                                                    <div class="project-content">
+                                                        <h3 class="project-title">Two-Beam Holography &amp; Laser Spatial Filtering</h3>
+                                                        <div class="project-description">
+                                                            <p>Examined two techniques used in coherent optical imaging: interference between two laser beams and spatial filtering of an expanded beam. A beamsplitter and steering mirrors divided a laser into two paths that were recombined near a microscope objective, forming a visible interference pattern sensitive to relative beam direction and mechanical disturbances.</p>
+                                                            <p class="project-description-extra" style="display: none;">A striped calibration mask was introduced to relate the magnified projected pattern to physical spacing, while inserting transparent tape into one path demonstrated how local phase variations can distort the interference pattern. The recorded work was primarily qualitative; a final calibrated fringe-spacing comparison was not established.</p>
+                                                            <p class="project-description-extra" style="display: none;">In the second part, a 10× microscope objective and a 25 µm pinhole formed a spatial filter for an expanded laser beam. Adjusting axial focus and transverse pinhole position investigated rejection of scattered or off-axis light. The recorded summary describes improved beam uniformity after alignment, supported by numerical Fourier-optics illustrations.</p>
+                                                            <button class="project-more-btn">More</button>
+                                                            <button class="project-less-btn" style="display: none;">Less</button>
+                                                        </div>
+                                                        <div class="project-tags">
+                                                            <span class="project-tag">Holography</span>
+                                                            <span class="project-tag">Fourier Optics</span>
+                                                            <span class="project-tag">Optical Testing</span>
+                                                            <span class="project-tag">Optical Coupling</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
                 <div class="project-card" data-category="laboratory">
-                                    <div class="project-image">
-                                        <img src="optics/spectral-characteristics.jpg" alt="Spectral plot illustrating a broadband source, fibre Bragg grating reflection and through-path response" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
-                                    </div>
-                                    <div class="project-content">
-                                        <h3 class="project-title">Spectral Characteristics of Sources &amp; Fibre Devices</h3>
-                                        <div class="project-description">
-                                            <p>Examined how the spectral properties of sources and fibre-optic components determine their suitability for optical characterisation. The investigation covered a tunable laser, a broadband superluminescent diode, a fibre coupler and a fibre Bragg grating, using an optical spectrum analyser.</p>
-                                            <p class="project-description-extra" style="display: none;">Using Python and PyVISA, I identified the analyser on a GPIB connection, queried its configured 600–1700 nm wavelength span, and executed trace acquisition and plotting. The procedure also covered comparing tunable-laser and SLD spectral characteristics, investigating how a fibre coupler divides optical power and examining the wavelength-selective reflection of a fibre Bragg grating.</p>
-                                            <p class="project-description-extra" style="display: none;">Although the laboratory activity has been completed, the uploaded notebook preserves only a general acquired trace and not a fully labelled set of quantitative component results. I therefore avoid claiming a particular laser linewidth, coupler splitting ratio or Bragg wavelength until those original readings are available.</p>
-                                            <button class="project-more-btn">More</button>
-                                            <button class="project-less-btn" style="display: none;">Less</button>
-                                        </div>
-                                        <div class="project-tags">
-                                            <span class="project-tag">Optical Spectroscopy</span>
-                                            <span class="project-tag">Optical Communications</span>
-                                            <span class="project-tag">Python</span>
-                                            <span class="project-tag">Optical Testing</span>
-                                        </div>
-                                    </div>
-                                </div>
+                                                    <div class="project-image">
+                                                        <img src="optics/fourier-optics.jpg" alt="Optical rail labelled Fourier Optics with lenses, fibre-coupled source and viewing screen" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
+                                                    </div>
+                                                    <div class="project-content">
+                                                        <h3 class="project-title">Fourier Optics — Diffraction, Wave Propagation &amp; Optical Image Formation</h3>
+                                                        <div class="project-description">
+                                                            <p>Computational optics project investigating how Fourier-transform techniques describe the propagation, diffraction and focusing of light. Using Python, NumPy, SciPy and Matplotlib, I explored the relationship between the spatial distribution of an optical field and its diffraction pattern, combining Fresnel and Fraunhofer models, pupil functions and point-spread functions.</p>
+                                                            <p class="project-description-extra" style="display: none;">Two-dimensional FFTs and SciPy’s ZoomFFT were used to simulate the image formed by a circular-aperture lens, reproducing the Airy pattern. For a model lens with a 300 mm focal length, 30 mm aperture diameter and 500 nm illumination wavelength, the calculated first three dark-ring radii were approximately 6.10, 11.17 and 16.19 µm. Numerical aperture, defocus, spherical aberration, coma and astigmatism were examined for their effects on the PSF and Strehl ratio.</p>
+                                                            <p class="project-description-extra" style="display: none;">Near-field and far-field diffraction were also examined using Fresnel integrals, Cornu spirals and numerical propagation models. The work developed understanding of computational wave optics and optical system performance relevant to beam propagation, focusing tolerances, mode matching and optical coupling in integrated photonic systems.</p>
+                                                            <button class="project-more-btn">More</button>
+                                                            <button class="project-less-btn" style="display: none;">Less</button>
+                                                        </div>
+                                                        <div class="project-tags">
+                                                            <span class="project-tag">Fourier Optics</span>
+                                                            <span class="project-tag">Diffraction</span>
+                                                            <span class="project-tag">Python</span>
+                                                            <span class="project-tag">NumPy</span>
+                                                            <span class="project-tag">SciPy</span>
+                                                            <span class="project-tag">Matplotlib</span>
+                                                            <span class="project-tag">FFT</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                <div class="project-card" data-category="laboratory">
+                                                    <div class="project-image">
+                                                        <img src="optics/star-test.jpg" alt="Computed Airy point-spread function showing a bright central disc surrounded by diffraction rings" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
+                                                    </div>
+                                                    <div class="project-content">
+                                                        <h3 class="project-title">Star Test &amp; Point-Spread-Function Modelling</h3>
+                                                        <div class="project-description">
+                                                            <p>Computational imaging project investigating how a lens forms the image of a point source and how that image changes when the optical system is defocused or aberrated. Fourier-transform methods were used to calculate the point-spread function of a circular pupil, reproducing the expected Airy pattern.</p>
+                                                            <p class="project-description-extra" style="display: none;">For an illustrative 300 mm focal-length system with a pupil radius of 15 mm and 0.5 µm illumination wavelength, the calculated radii of the first three dark rings were 6.10, 11.17 and 16.19 µm. Enlarging the pupil narrowed the central spot, showing the relationship between numerical aperture and lateral resolution. The model also predicted an approximately 400 µm separation between successive on-axis intensity zeros as defocus was varied.</p>
+                                                            <p class="project-description-extra" style="display: none;">Spherical aberration, coma and astigmatism were added to the wavefront model and observed for their distinct effects on the simulated image. All results were calculated, not measured using a physical star-test bench.</p>
+                                                            <button class="project-more-btn">More</button>
+                                                            <button class="project-less-btn" style="display: none;">Less</button>
+                                                        </div>
+                                                        <div class="project-tags">
+                                                            <span class="project-tag">Fourier Optics</span>
+                                                            <span class="project-tag">Python</span>
+                                                            <span class="project-tag">SciPy</span>
+                                                            <span class="project-tag">FFT</span>
+                                                            <span class="project-tag">Optical Metrology</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                <div class="project-card" data-category="laboratory">
+                                                    <div class="project-image">
+                                                        <img src="optics/spectral-characteristics.jpg" alt="Spectral plot illustrating a broadband source, fibre Bragg grating reflection and through-path response" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
+                                                    </div>
+                                                    <div class="project-content">
+                                                        <h3 class="project-title">Spectral Characteristics of Sources &amp; Fibre Devices</h3>
+                                                        <div class="project-description">
+                                                            <p>Examined how the spectral properties of sources and fibre-optic components determine their suitability for optical characterisation. The investigation covered a tunable laser, a broadband superluminescent diode, a fibre coupler and a fibre Bragg grating, using an optical spectrum analyser.</p>
+                                                            <p class="project-description-extra" style="display: none;">Using Python and PyVISA, I identified the analyser on a GPIB connection, queried its configured 600–1700 nm wavelength span, and executed trace acquisition and plotting. The procedure also covered comparing tunable-laser and SLD spectral characteristics, investigating how a fibre coupler divides optical power and examining the wavelength-selective reflection of a fibre Bragg grating.</p>
+                                                            <p class="project-description-extra" style="display: none;">Although the laboratory activity has been completed, the uploaded notebook preserves only a general acquired trace and not a fully labelled set of quantitative component results. I therefore avoid claiming a particular laser linewidth, coupler splitting ratio or Bragg wavelength until those original readings are available.</p>
+                                                            <button class="project-more-btn">More</button>
+                                                            <button class="project-less-btn" style="display: none;">Less</button>
+                                                        </div>
+                                                        <div class="project-tags">
+                                                            <span class="project-tag">Optical Spectroscopy</span>
+                                                            <span class="project-tag">Optical Communications</span>
+                                                            <span class="project-tag">Python</span>
+                                                            <span class="project-tag">Optical Testing</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
                 <div class="project-card" data-category="engineering">
-                                    <div class="project-image">
-                                        <img src="Bytronic.png" alt="Bytronic industrial training rig" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
-                                    </div>
-                                    <div class="project-content">
-                                        <h3 class="project-title">PLC-Controlled Industrial Sorting, Monitoring and Temperature Regulation</h3>
-                                        <div class="project-description">
-                                            <p>Programmed a Bytronic training system in Siemens TIA Portal, using PLC ladder logic and a WinCC HMI, to sort metal pegs and plastic rings, count components and finished assemblies, stop the conveyor when the line was idle, raise production and rejection alerts, and regulate an oven with a manually tuned PID controller.</p>
-                                            <p class="project-description-extra" style="display: none;"><strong>Problem and objective.</strong> The rig sorts metal pegs and plastic rings, moves them on a belt and feeds an oven. The task was to extend the PLC program so the line could count parts, stop an empty conveyor, tell the operator when production or rejection targets were reached, and hold oven temperature with a commissioned PID loop.</p>
-                                            <p class="project-description-extra" style="display: none;"><strong>Hardware and software.</strong> The program was written in Siemens TIA Portal as ladder logic, with counting logic in the function block Counting [FB4] and operator screens in WinCC. The Bytronic training system provided the inductive and capacitive sensors, sort and reject solenoids, belt conveyor outputs and the industrial training oven.</p>
-                                            <p class="project-description-extra" style="display: none;"><strong>Counting.</strong> Three CTU count-up counters sit inside Counting [FB4]. The plastic-ring counter is triggered by the sort-solenoid output, the metal-peg counter by the inductive sensor, and the assembled-product counter by the capacitive sensor. Presets were 5, 5 and 3. Live values were bound to three fields on the System Control HMI, with one shared reset. Triggering each counter from the signal that actually marks that event avoids counting a part twice, or counting a part that has only passed a different station.</p>
-                                            <p class="project-description-extra" style="display: none;"><strong>Idle conveyor.</strong> A 25-second on-delay timer interlocks the belt. If no new component is detected in that interval, the conveyor stops. Detecting another component resets the timer and lets the belt start again. This is idle-time, energy-conscious automation. The report does not measure an energy saving, so none is claimed.</p>
-                                            <p class="project-description-extra" style="display: none;"><strong>HMI alerts.</strong> The alarm screen reports two conditions: the production target of 3 assembled products, and the rejection-counter threshold of 3. The rejection counter watches reject-solenoid activations, whatever the component type. It is not a validated inventory check. One combined reject count is a weak way to judge remaining usable stock, because a rejected ring and a rejected peg do not change the two part stocks in the same way. Separate rejected-ring and rejected-peg counters would make that logic sound.</p>
-                                            <p class="project-description-extra" style="display: none;"><strong>PID control.</strong> A PID_Compact controller was tuned by hand in TIA Portal: proportional gain Kp = 20, integral time Ti = 50 s, derivative time Td = 10 s, derivative delay coefficient = 0.2, and a sampling time of 1 s. The commissioning trend tracked a 35°C setpoint with residual oscillations of about ±2°C. Raising proportional gain speeds the response and also increases overshoot and oscillation. Integral action removes a steady offset, and too much of it prolongs that oscillation. Derivative action damps how fast the error is changing, but on a temperature measurement it has to be limited, which is the role of the delay coefficient. The loop followed the setpoint. It was not perfect temperature control.</p>
-                                            <p class="project-description-extra" style="display: none;"><strong>Oven arrival interlock.</strong> The capacitive sensor detects an assembled part. A 1.5-second timer represents the travel delay to the oven, and when it expires the PLC inhibits both conveyor outputs so the part is not carried past the oven. This conveyor inhibit was implemented and tested.</p>
-                                            <p class="project-description-extra" style="display: none;"><strong>Limitations and next steps.</strong> Siemens automatic PID pretuning and fine-tuning did not finish, which is why the gains above were entered manually. A three-stage programme of 35°C, 50°C and 40°C, each held for 300 seconds, was proposed and was not built or tested. A 45°C heat-up with a 10-second soak before the conveyor restarted was also not implemented. HMI data logging, simpler TOF/TP timer logic, and extra diagnostic alarms were recorded as improvements only.</p>
-                                            <button class="project-more-btn">More</button>
-                                            <button class="project-less-btn" style="display: none;">Less</button>
-                                        </div>
-                                        <div class="project-tags">
-                                            <span class="project-tag">Siemens TIA Portal</span>
-                                            <span class="project-tag">PLC Programming</span>
-                                            <span class="project-tag">Ladder Logic</span>
-                                            <span class="project-tag">WinCC HMI</span>
-                                            <span class="project-tag">Sensors &amp; Actuators</span>
-                                            <span class="project-tag">PID Control</span>
-                                            <span class="project-tag">Industrial Automation</span>
-                                        </div>
-                                    </div>
-                                </div>
+                                                    <div class="project-image">
+                                                        <img src="Bytronic.png" alt="Bytronic industrial training rig" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
+                                                    </div>
+                                                    <div class="project-content">
+                                                        <h3 class="project-title">PLC-Controlled Industrial Sorting, Monitoring and Temperature Regulation</h3>
+                                                        <div class="project-description">
+                                                            <p>Programmed a Bytronic training system in Siemens TIA Portal, using PLC ladder logic and a WinCC HMI, to sort metal pegs and plastic rings, count components and finished assemblies, stop the conveyor when the line was idle, raise production and rejection alerts, and regulate an oven with a manually tuned PID controller.</p>
+                                                            <p class="project-description-extra" style="display: none;"><strong>Problem and objective.</strong> The rig sorts metal pegs and plastic rings, moves them on a belt and feeds an oven. The task was to extend the PLC program so the line could count parts, stop an empty conveyor, tell the operator when production or rejection targets were reached, and hold oven temperature with a commissioned PID loop.</p>
+                                                            <p class="project-description-extra" style="display: none;"><strong>Hardware and software.</strong> The program was written in Siemens TIA Portal as ladder logic, with counting logic in the function block Counting [FB4] and operator screens in WinCC. The Bytronic training system provided the inductive and capacitive sensors, sort and reject solenoids, belt conveyor outputs and the industrial training oven.</p>
+                                                            <p class="project-description-extra" style="display: none;"><strong>Counting.</strong> Three CTU count-up counters sit inside Counting [FB4]. The plastic-ring counter is triggered by the sort-solenoid output, the metal-peg counter by the inductive sensor, and the assembled-product counter by the capacitive sensor. Presets were 5, 5 and 3. Live values were bound to three fields on the System Control HMI, with one shared reset. Triggering each counter from the signal that actually marks that event avoids counting a part twice, or counting a part that has only passed a different station.</p>
+                                                            <p class="project-description-extra" style="display: none;"><strong>Idle conveyor.</strong> A 25-second on-delay timer interlocks the belt. If no new component is detected in that interval, the conveyor stops. Detecting another component resets the timer and lets the belt start again. This is idle-time, energy-conscious automation. The report does not measure an energy saving, so none is claimed.</p>
+                                                            <p class="project-description-extra" style="display: none;"><strong>HMI alerts.</strong> The alarm screen reports two conditions: the production target of 3 assembled products, and the rejection-counter threshold of 3. The rejection counter watches reject-solenoid activations, whatever the component type. It is not a validated inventory check. One combined reject count is a weak way to judge remaining usable stock, because a rejected ring and a rejected peg do not change the two part stocks in the same way. Separate rejected-ring and rejected-peg counters would make that logic sound.</p>
+                                                            <p class="project-description-extra" style="display: none;"><strong>PID control.</strong> A PID_Compact controller was tuned by hand in TIA Portal: proportional gain Kp = 20, integral time Ti = 50 s, derivative time Td = 10 s, derivative delay coefficient = 0.2, and a sampling time of 1 s. The commissioning trend tracked a 35°C setpoint with residual oscillations of about ±2°C. Raising proportional gain speeds the response and also increases overshoot and oscillation. Integral action removes a steady offset, and too much of it prolongs that oscillation. Derivative action damps how fast the error is changing, but on a temperature measurement it has to be limited, which is the role of the delay coefficient. The loop followed the setpoint. It was not perfect temperature control.</p>
+                                                            <p class="project-description-extra" style="display: none;"><strong>Oven arrival interlock.</strong> The capacitive sensor detects an assembled part. A 1.5-second timer represents the travel delay to the oven, and when it expires the PLC inhibits both conveyor outputs so the part is not carried past the oven. This conveyor inhibit was implemented and tested.</p>
+                                                            <p class="project-description-extra" style="display: none;"><strong>Limitations and next steps.</strong> Siemens automatic PID pretuning and fine-tuning did not finish, which is why the gains above were entered manually. A three-stage programme of 35°C, 50°C and 40°C, each held for 300 seconds, was proposed and was not built or tested. A 45°C heat-up with a 10-second soak before the conveyor restarted was also not implemented. HMI data logging, simpler TOF/TP timer logic, and extra diagnostic alarms were recorded as improvements only.</p>
+                                                            <button class="project-more-btn">More</button>
+                                                            <button class="project-less-btn" style="display: none;">Less</button>
+                                                        </div>
+                                                        <div class="project-tags">
+                                                            <span class="project-tag">Siemens TIA Portal</span>
+                                                            <span class="project-tag">PLC Programming</span>
+                                                            <span class="project-tag">Ladder Logic</span>
+                                                            <span class="project-tag">WinCC HMI</span>
+                                                            <span class="project-tag">Sensors &amp; Actuators</span>
+                                                            <span class="project-tag">PID Control</span>
+                                                            <span class="project-tag">Industrial Automation</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
                 <div class="project-card" data-category="engineering">
-                                    <div class="project-image">
-                                        <img src="CFD VProfile.jpg" alt="CFD Analysis" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
-                                    </div>
-                                    <div class="project-content">
-                                        <h3 class="project-title">CFD Analysis of Turbulent Flow over a Backward-Facing Step</h3>
-                                        <div class="project-description">
-                                            <p>A high-fidelity 2D CFD investigation of incompressible turbulent flow over a classic backward-facing step benchmark (Driver & Seegmiller, 1985) was performed using ANSYS Fluent. The computational domain was carefully designed with an optimized inlet length of 0.76 m to develop a fully turbulent boundary layer matching the experimental thickness of 19 mm at 4 step heights upstream of the expansion.</p>
-                                            <p class="project-description-extra" style="display: none;">A structured mesh with 20 inflation layers (first cell height ensuring y⁺ < 1 everywhere), growth rate 1.36, and localized face sizing delivered excellent near-wall resolution and mesh quality (average aspect ratio 1.11).</p>
-                                            <p class="project-description-extra" style="display: none;">The k-ω Shear Stress Transport (SST) model with Low-Reynolds correction and production limiter was selected for its proven superiority in predicting separation and reattachment under adverse pressure gradients. A pressure-based coupled solver with second-order discretization for all equations ensured fast, stable convergence (82 iterations to residuals < 10⁻⁵, further stabilized to 500 iterations). Hybrid initialization and monitoring of turbulent kinetic energy at key wall locations confirmed both numerical and physical convergence.</p>
-                                            <p class="project-description-extra" style="display: none;">Quantitative validation against experimental skin-friction coefficient data showed outstanding agreement: predicted reattachment length at x/H = 6.18 versus experimental 6.28 (error only 1.59%). Velocity contours, vectors, pressure fields, and turbulent kinetic energy distributions accurately captured the separation bubble, clockwise recirculation vortex, shear-layer growth, and downstream recovery, demonstrating that the SST model, combined with wall-resolved meshing and high-order numerics, reliably reproduces this canonical separated-flow benchmark.</p>
-                                            <button class="project-more-btn">More</button>
-                                            <button class="project-less-btn" style="display: none;">Less</button>
-                                        </div>
-                                        <div class="project-tags">
-                                            <span class="project-tag">CFD</span>
-                                            <span class="project-tag">ANSYS Fluent</span>
-                                            <span class="project-tag">Simulation</span>
-                                            <span class="project-tag">Fusion 360</span>
-                                            <span class="project-tag">CAD</span>
-                                        </div>
-                                    </div>
-                                </div>
+                                                    <div class="project-image">
+                                                        <img src="CFD VProfile.jpg" alt="CFD Analysis" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
+                                                    </div>
+                                                    <div class="project-content">
+                                                        <h3 class="project-title">CFD Analysis of Turbulent Flow over a Backward-Facing Step</h3>
+                                                        <div class="project-description">
+                                                            <p>A high-fidelity 2D CFD investigation of incompressible turbulent flow over a classic backward-facing step benchmark (Driver & Seegmiller, 1985) was performed using ANSYS Fluent. The computational domain was carefully designed with an optimized inlet length of 0.76 m to develop a fully turbulent boundary layer matching the experimental thickness of 19 mm at 4 step heights upstream of the expansion.</p>
+                                                            <p class="project-description-extra" style="display: none;">A structured mesh with 20 inflation layers (first cell height ensuring y⁺ < 1 everywhere), growth rate 1.36, and localized face sizing delivered excellent near-wall resolution and mesh quality (average aspect ratio 1.11).</p>
+                                                            <p class="project-description-extra" style="display: none;">The k-ω Shear Stress Transport (SST) model with Low-Reynolds correction and production limiter was selected for its proven superiority in predicting separation and reattachment under adverse pressure gradients. A pressure-based coupled solver with second-order discretization for all equations ensured fast, stable convergence (82 iterations to residuals < 10⁻⁵, further stabilized to 500 iterations). Hybrid initialization and monitoring of turbulent kinetic energy at key wall locations confirmed both numerical and physical convergence.</p>
+                                                            <p class="project-description-extra" style="display: none;">Quantitative validation against experimental skin-friction coefficient data showed outstanding agreement: predicted reattachment length at x/H = 6.18 versus experimental 6.28 (error only 1.59%). Velocity contours, vectors, pressure fields, and turbulent kinetic energy distributions accurately captured the separation bubble, clockwise recirculation vortex, shear-layer growth, and downstream recovery, demonstrating that the SST model, combined with wall-resolved meshing and high-order numerics, reliably reproduces this canonical separated-flow benchmark.</p>
+                                                            <button class="project-more-btn">More</button>
+                                                            <button class="project-less-btn" style="display: none;">Less</button>
+                                                        </div>
+                                                        <div class="project-tags">
+                                                            <span class="project-tag">CFD</span>
+                                                            <span class="project-tag">ANSYS Fluent</span>
+                                                            <span class="project-tag">Simulation</span>
+                                                            <span class="project-tag">Fusion 360</span>
+                                                            <span class="project-tag">CAD</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
                 <div class="project-card" data-category="engineering">
-                                    <div class="project-image">
-                                        <img src="epuck.png" alt="E-Puck2 Robot" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
-                                        <div class="project-overlay">
-                                            <div class="project-links">
-                                                <a href="https://github.com/IR02/Exploration-of-a-Finite-Area-Object-Tracking-with-Using-a-2-DOF-Miniature-Robot" class="project-link-secondary" target="_blank">GitHub</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="project-content">
-                                        <h3 class="project-title">Exploration of a Finite Area & Object Tracking Using a 2 DOF E-Puck2 Robot</h3>
-                                        <div class="project-description">
-                                            <p>An embedded robotics project using the E-Puck2 miniature robot to solve two distinct real-time control challenges. Task 1 required full exploration of an unknown obstacle-filled arena without collisions or trapping.</p>
-                                            <p class="project-description-extra" style="display: none;">A lightweight reactive strategy using only the front ToF sensor and four infrared proximity sensors, combined with simple threshold-based rules and randomised escape turns, achieved a perfect 100% assessment score with smooth, efficient coverage. Task 2 demanded detection, approach, and continuous non-contact tracking of a moving 10 cm cylindrical object. A clean three-state finite state machine (Search → Approach → Chase) was implemented: 360° proximity sensors locate the object and estimate angle, proportional control smoothly aligns the robot, and the front ToF sensor maintains a safe 20–50 mm distance band while following straight and curved trajectories. The system scored 75% officially (full marks for detection, approach, chasing, and speed control) with minor deductions only for rare close-start collisions, demonstrating robust real-world performance on resource-constrained hardware.</p>
-                                            <button class="project-more-btn">More</button>
-                                            <button class="project-less-btn" style="display: none;">Less</button>
-                                        </div>
-                                        <div class="project-tags">
-                                            <span class="project-tag">Embedded Systems</span>
-                                            <span class="project-tag">Robotics</span>
-                                            <span class="project-tag">Control Systems</span>
-                                            <span class="project-tag">C/C++</span>
-                                        </div>
-                                    </div>
-                                </div>
+                                                    <div class="project-image">
+                                                        <img src="epuck.png" alt="E-Puck2 Robot" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
+                                                        <div class="project-overlay">
+                                                            <div class="project-links">
+                                                                <a href="https://github.com/IR02/Exploration-of-a-Finite-Area-Object-Tracking-with-Using-a-2-DOF-Miniature-Robot" class="project-link-secondary" target="_blank">GitHub</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="project-content">
+                                                        <h3 class="project-title">Exploration of a Finite Area & Object Tracking Using a 2 DOF E-Puck2 Robot</h3>
+                                                        <div class="project-description">
+                                                            <p>An embedded robotics project using the E-Puck2 miniature robot to solve two distinct real-time control challenges. Task 1 required full exploration of an unknown obstacle-filled arena without collisions or trapping.</p>
+                                                            <p class="project-description-extra" style="display: none;">A lightweight reactive strategy using only the front ToF sensor and four infrared proximity sensors, combined with simple threshold-based rules and randomised escape turns, achieved a perfect 100% assessment score with smooth, efficient coverage. Task 2 demanded detection, approach, and continuous non-contact tracking of a moving 10 cm cylindrical object. A clean three-state finite state machine (Search → Approach → Chase) was implemented: 360° proximity sensors locate the object and estimate angle, proportional control smoothly aligns the robot, and the front ToF sensor maintains a safe 20–50 mm distance band while following straight and curved trajectories. The system scored 75% officially (full marks for detection, approach, chasing, and speed control) with minor deductions only for rare close-start collisions, demonstrating robust real-world performance on resource-constrained hardware.</p>
+                                                            <button class="project-more-btn">More</button>
+                                                            <button class="project-less-btn" style="display: none;">Less</button>
+                                                        </div>
+                                                        <div class="project-tags">
+                                                            <span class="project-tag">Embedded Systems</span>
+                                                            <span class="project-tag">Robotics</span>
+                                                            <span class="project-tag">Control Systems</span>
+                                                            <span class="project-tag">C/C++</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
                 <div class="project-card" data-category="engineering">
-                                    <div class="project-image">
-                                        <img src="Clevis.png" alt="Clevis Assembly" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
-                                    </div>
-                                    <div class="project-content">
-                                        <h3 class="project-title">Finite Element Analysis of Clevis Assembly Under Tensile Load</h3>
-                                        <div class="project-description">
-                                            <p>Constructed a computationally efficient quarter-symmetry 3D FEA model of a clevis assembly, simplifying geometry while preserving stress-critical features; reduced simulation time by 75% using Hex-dominant quadratic meshing and achieved <1% stress convergence at 2 mm element size. Performed rigorous verification and validation, including reaction force equilibrium checks and Digital Image Correlation (DIC) comparison; validated normal and shear strain fields with <1.5% error in X-direction strain and <0.2 μm residual displacement at fixed end.</p>
-                                            <p class="project-description-extra" style="display: none;">Evaluated stress distribution and failure risk using Von Mises criteria, identifying local peak stress of 217.94 MPa with a factor of safety ≈ 1.2; conducted sensitivity study comparing quarter vs full assembly, confirming <10% deviation and model robustness under 12.5 kN loading.</p>
-                                            <button class="project-more-btn">More</button>
-                                            <button class="project-less-btn" style="display: none;">Less</button>
-                                        </div>
-                                        <div class="project-tags">
-                                            <span class="project-tag">FEA</span>
-                                            <span class="project-tag">Structural Analysis</span>
-                                            <span class="project-tag">Fusion 360</span>
-                                            <span class="project-tag">CAD</span>
-                                        </div>
-                                    </div>
-                                </div>
+                                                    <div class="project-image">
+                                                        <img src="Clevis.png" alt="Clevis Assembly" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
+                                                    </div>
+                                                    <div class="project-content">
+                                                        <h3 class="project-title">Finite Element Analysis of Clevis Assembly Under Tensile Load</h3>
+                                                        <div class="project-description">
+                                                            <p>Constructed a computationally efficient quarter-symmetry 3D FEA model of a clevis assembly, simplifying geometry while preserving stress-critical features; reduced simulation time by 75% using Hex-dominant quadratic meshing and achieved <1% stress convergence at 2 mm element size. Performed rigorous verification and validation, including reaction force equilibrium checks and Digital Image Correlation (DIC) comparison; validated normal and shear strain fields with <1.5% error in X-direction strain and <0.2 μm residual displacement at fixed end.</p>
+                                                            <p class="project-description-extra" style="display: none;">Evaluated stress distribution and failure risk using Von Mises criteria, identifying local peak stress of 217.94 MPa with a factor of safety ≈ 1.2; conducted sensitivity study comparing quarter vs full assembly, confirming <10% deviation and model robustness under 12.5 kN loading.</p>
+                                                            <button class="project-more-btn">More</button>
+                                                            <button class="project-less-btn" style="display: none;">Less</button>
+                                                        </div>
+                                                        <div class="project-tags">
+                                                            <span class="project-tag">FEA</span>
+                                                            <span class="project-tag">Structural Analysis</span>
+                                                            <span class="project-tag">Fusion 360</span>
+                                                            <span class="project-tag">CAD</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
                 <div class="project-card" data-category="engineering">
-                                    <div class="project-image">
-                                        <img src="Vib.png" alt="Vibrational Analysis" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
-                                    </div>
-                                    <div class="project-content">
-                                        <h3 class="project-title">A Comparative Vibrational Analysis on Three Different Steam Turbine Blades</h3>
-                                        <div class="project-description">
-                                            <p>Modal analysis was performed on three steam turbine blades using tap tests at ten points arranged in a 5×2 grid. Frequency response functions were computed from five averaged impacts per point.</p>
-                                            <p class="project-description-extra" style="display: none;">The first five natural frequencies were extracted as follows: Blade 1 (120.25–644.5 Hz), Blade 2 (116.75–645.75 Hz), and Blade 3 (112.00–650.75 Hz), confirming Blade 1 was stiffest and Blade 3 most flexible. Blade 2 was intermediate, with a first-mode frequency ~7% below Blade 1. Modes were consistent in shape, but Blade 2 and 3 showed slightly lower frequency integrity.</p>
-                                            <p class="project-description-extra" style="display: none;"><br>Damping ratios, determined via the half-power method, ranged from 0.025 to 0.0021 for Blade 1 and showed similar trends in Blades 2 and 3. Blade 2 exhibited the highest damping and greater root motion, indicating potential wear, softer boundary conditions, or friction-related energy dissipation. MAC values exceeded 0.9 in modes 1–3, confirming good mode shape agreement. No processing errors were evident; observed variations are attributed to physical differences in structure, support, or operational wear.</p>
-                                            <p class="project-description-extra" style="display: none;"><br>Low damping (ζ ~0.002–0.003) implies high Q-factors (~20–40), enabling resonance to amplify vibratory strain by up to 40×. This poses a significant fatigue risk, as a 2× increase in stress amplitude can reduce life by 10×. Detuning from resonance particularly near Blade 3's first mode at 112 Hz is essential. These results inform blade selection, quality control (e.g. MAC < 0.9 or >5% frequency deviation), finite element model validation, and structural monitoring for recommissioning.</p>
-                                            <button class="project-more-btn">More</button>
-                                            <button class="project-less-btn" style="display: none;">Less</button>
-                                        </div>
-                                        <div class="project-tags">
-                                            <span class="project-tag">Vibration Analysis</span>
-                                            <span class="project-tag">Modal Analysis</span>
-                                            <span class="project-tag">Structural Analysis</span>
-                                            <span class="project-tag">MATLAB</span>
-                                        </div>
-                                    </div>
-                                </div>
+                                                    <div class="project-image">
+                                                        <img src="Vib.png" alt="Vibrational Analysis" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
+                                                    </div>
+                                                    <div class="project-content">
+                                                        <h3 class="project-title">A Comparative Vibrational Analysis on Three Different Steam Turbine Blades</h3>
+                                                        <div class="project-description">
+                                                            <p>Modal analysis was performed on three steam turbine blades using tap tests at ten points arranged in a 5×2 grid. Frequency response functions were computed from five averaged impacts per point.</p>
+                                                            <p class="project-description-extra" style="display: none;">The first five natural frequencies were extracted as follows: Blade 1 (120.25–644.5 Hz), Blade 2 (116.75–645.75 Hz), and Blade 3 (112.00–650.75 Hz), confirming Blade 1 was stiffest and Blade 3 most flexible. Blade 2 was intermediate, with a first-mode frequency ~7% below Blade 1. Modes were consistent in shape, but Blade 2 and 3 showed slightly lower frequency integrity.</p>
+                                                            <p class="project-description-extra" style="display: none;"><br>Damping ratios, determined via the half-power method, ranged from 0.025 to 0.0021 for Blade 1 and showed similar trends in Blades 2 and 3. Blade 2 exhibited the highest damping and greater root motion, indicating potential wear, softer boundary conditions, or friction-related energy dissipation. MAC values exceeded 0.9 in modes 1–3, confirming good mode shape agreement. No processing errors were evident; observed variations are attributed to physical differences in structure, support, or operational wear.</p>
+                                                            <p class="project-description-extra" style="display: none;"><br>Low damping (ζ ~0.002–0.003) implies high Q-factors (~20–40), enabling resonance to amplify vibratory strain by up to 40×. This poses a significant fatigue risk, as a 2× increase in stress amplitude can reduce life by 10×. Detuning from resonance particularly near Blade 3's first mode at 112 Hz is essential. These results inform blade selection, quality control (e.g. MAC < 0.9 or >5% frequency deviation), finite element model validation, and structural monitoring for recommissioning.</p>
+                                                            <button class="project-more-btn">More</button>
+                                                            <button class="project-less-btn" style="display: none;">Less</button>
+                                                        </div>
+                                                        <div class="project-tags">
+                                                            <span class="project-tag">Vibration Analysis</span>
+                                                            <span class="project-tag">Modal Analysis</span>
+                                                            <span class="project-tag">Structural Analysis</span>
+                                                            <span class="project-tag">MATLAB</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
                 <div class="project-card" data-category="engineering">
-                                    <div class="project-image">
-                                        <img src="EAPC.png" alt="250 W Electric Pedal-Assist Gearbox" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
-                                    </div>
-                                    <div class="project-content">
-                                        <h3 class="project-title">250 W Electric Pedal-Assist Gearbox</h3>
-                                        <div class="project-description">
-                                            <p>A fully enclosed, laser-cut acrylic gearbox that turns a 270 Kv outrunner brushless motor into a road-legal 250 W pedal-assist system for a tandem bike. 17:1 reduction via a three-stage compound gear train (all acrylic gears, 3–4 sheets laminated, thicknesses calculated from Lewis form factor and Shigley Eq. 14-8). Final stage drives a 16 T chain sprocket. Everything runs on 608 bearings and M8 shafts, side plates 3 mm acrylic, total envelope roughly 200 × 120 × 80 mm.</p>
-                                            <p class="project-description-extra" style="display: none;">We hit minimum FoS 2.84 on the large idler gears and 3.06 on the pinions under 50 N tooth load (worst-case single-tooth contact). Sprocket spline interface cleared FoS 8+ with 20 N per face. Motor mount and main side plates survived simulated 800 N chain tension and 100 N vibration loading from the motor with plenty of margin. Arduino Nano handles cadence sensing, 20 A current limit, and cuts power dead above 24.9 km/h to stay UK EAPC-legal.</p>
-                                            <p class="project-description-extra" style="display: none;">Fully enclosed except for chain exit slot plus acrylic safety barriers, with no exposed nip points. Designed in Fusion 360, sized in MATLAB, validated in Ansys, laser-cut, hand-assembled, and actually bolted to a tandem rig and ridden.</p>
-                                            <button class="project-more-btn">More</button>
-                                            <button class="project-less-btn" style="display: none;">Less</button>
-                                        </div>
-                                        <div class="project-tags">
-                                            <span class="project-tag">Mechanical Design</span>
-                                            <span class="project-tag">Gearbox Design</span>
-                                            <span class="project-tag">Fusion 360</span>
-                                            <span class="project-tag">MATLAB</span>
-                                            <span class="project-tag">CAD</span>
-                                            <span class="project-tag">Arduino</span>
-                                        </div>
-                                    </div>
-                                </div>
+                                                    <div class="project-image">
+                                                        <img src="EAPC.png" alt="250 W Electric Pedal-Assist Gearbox" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
+                                                    </div>
+                                                    <div class="project-content">
+                                                        <h3 class="project-title">250 W Electric Pedal-Assist Gearbox</h3>
+                                                        <div class="project-description">
+                                                            <p>A fully enclosed, laser-cut acrylic gearbox that turns a 270 Kv outrunner brushless motor into a road-legal 250 W pedal-assist system for a tandem bike. 17:1 reduction via a three-stage compound gear train (all acrylic gears, 3–4 sheets laminated, thicknesses calculated from Lewis form factor and Shigley Eq. 14-8). Final stage drives a 16 T chain sprocket. Everything runs on 608 bearings and M8 shafts, side plates 3 mm acrylic, total envelope roughly 200 × 120 × 80 mm.</p>
+                                                            <p class="project-description-extra" style="display: none;">We hit minimum FoS 2.84 on the large idler gears and 3.06 on the pinions under 50 N tooth load (worst-case single-tooth contact). Sprocket spline interface cleared FoS 8+ with 20 N per face. Motor mount and main side plates survived simulated 800 N chain tension and 100 N vibration loading from the motor with plenty of margin. Arduino Nano handles cadence sensing, 20 A current limit, and cuts power dead above 24.9 km/h to stay UK EAPC-legal.</p>
+                                                            <p class="project-description-extra" style="display: none;">Fully enclosed except for chain exit slot plus acrylic safety barriers, with no exposed nip points. Designed in Fusion 360, sized in MATLAB, validated in Ansys, laser-cut, hand-assembled, and actually bolted to a tandem rig and ridden.</p>
+                                                            <button class="project-more-btn">More</button>
+                                                            <button class="project-less-btn" style="display: none;">Less</button>
+                                                        </div>
+                                                        <div class="project-tags">
+                                                            <span class="project-tag">Mechanical Design</span>
+                                                            <span class="project-tag">Gearbox Design</span>
+                                                            <span class="project-tag">Fusion 360</span>
+                                                            <span class="project-tag">MATLAB</span>
+                                                            <span class="project-tag">CAD</span>
+                                                            <span class="project-tag">Arduino</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
                 <div class="project-card" data-category="independent">
-                                    <div class="project-image">
-                                        <img src="Port.png" alt="Portfolio Website" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
-                                        <div class="project-overlay">
-                                            <div class="project-links">
-                                                <a href="https://ir02.github.io/Irfan-Portfolio/" class="project-link-secondary" target="_blank">GitHub</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="project-content">
-                                        <h3 class="project-title">Portfolio Website</h3>
-                                        <div class="project-description">
-                                            <p>A responsive portfolio website built with HTML, CSS, and JavaScript, showcasing academic projects, professional experiences, certifications, and technical skills. The site uses a dynamic skills extraction system that scans project descriptions, experiences, certifications, and awards to categorize and count skills across Design/Simulation Software, Programming Languages, Mechanical & Electrical, AI and Quantum, and other categories. Interactive elements include expandable project descriptions, a collapsible timeline for experiences, and a "Show More/Less" feature for skills, projects, and awards to improve navigation and readability.</p>
-                                            <p class="project-description-extra" style="display: none;"><br>The design emphasizes a clean, modern interface with smooth transitions, hover effects, and a responsive layout that adapts to mobile, tablet, and desktop. The experience timeline uses CSS variables to dynamically adjust the vertical line connecting timeline dots, ensuring alignment whether two or all experiences are visible. The skills section automatically updates when new content is added, using fuzzy matching to identify skills even with slight variations in naming, ensuring accurate categorization and counting across all sections.</p>
-                                            <p class="project-description-extra" style="display: none;"><br>Deployed on GitHub Pages, the website serves as a portfolio and demonstrates front-end development skills, including DOM manipulation, event handling, and responsive design. The codebase is organized with semantic HTML, modular CSS with custom properties, and JavaScript functions for dynamic content rendering, making it maintainable and easy to extend with new projects, experiences, or certifications.</p>
-                                            <button class="project-more-btn">More</button>
-                                            <button class="project-less-btn" style="display: none;">Less</button>
-                                        </div>
-                                        <div class="project-tags">
-                                            <span class="project-tag">HTML</span>
-                                            <span class="project-tag">CSS</span>
-                                            <span class="project-tag">JavaScript</span>
-                                            <span class="project-tag">GitHub Pages</span>
-                                            <span class="project-tag">Web Development</span>
-                                            <span class="project-tag">Responsive Design</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                                                    <div class="project-image">
+                                                        <img src="Port.png" alt="Portfolio Website" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
+                                                        <div class="project-overlay">
+                                                            <div class="project-links">
+                                                                <a href="https://ir02.github.io/Irfan-Portfolio/" class="project-link-secondary" target="_blank">GitHub</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="project-content">
+                                                        <h3 class="project-title">Portfolio Website</h3>
+                                                        <div class="project-description">
+                                                            <p>A responsive portfolio website built with HTML, CSS, and JavaScript, showcasing academic projects, professional experiences, certifications, and technical skills. The site uses a dynamic skills extraction system that scans project descriptions, experiences, certifications, and awards to categorize and count skills across Design/Simulation Software, Programming Languages, Mechanical & Electrical, AI and Quantum, and other categories. Interactive elements include expandable project descriptions, a collapsible timeline for experiences, and a "Show More/Less" feature for skills, projects, and awards to improve navigation and readability.</p>
+                                                            <p class="project-description-extra" style="display: none;"><br>The design emphasizes a clean, modern interface with smooth transitions, hover effects, and a responsive layout that adapts to mobile, tablet, and desktop. The experience timeline uses CSS variables to dynamically adjust the vertical line connecting timeline dots, ensuring alignment whether two or all experiences are visible. The skills section automatically updates when new content is added, using fuzzy matching to identify skills even with slight variations in naming, ensuring accurate categorization and counting across all sections.</p>
+                                                            <p class="project-description-extra" style="display: none;"><br>Deployed on GitHub Pages, the website serves as a portfolio and demonstrates front-end development skills, including DOM manipulation, event handling, and responsive design. The codebase is organized with semantic HTML, modular CSS with custom properties, and JavaScript functions for dynamic content rendering, making it maintainable and easy to extend with new projects, experiences, or certifications.</p>
+                                                            <button class="project-more-btn">More</button>
+                                                            <button class="project-less-btn" style="display: none;">Less</button>
+                                                        </div>
+                                                        <div class="project-tags">
+                                                            <span class="project-tag">HTML</span>
+                                                            <span class="project-tag">CSS</span>
+                                                            <span class="project-tag">JavaScript</span>
+                                                            <span class="project-tag">GitHub Pages</span>
+                                                            <span class="project-tag">Web Development</span>
+                                                            <span class="project-tag">Responsive Design</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+            </div>
             </div>
         </div>
     </section>

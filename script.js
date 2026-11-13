@@ -404,27 +404,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     
-    // Project category filters
-    const projectFilterDescriptions = {
-        all: 'Browse all projects by category.',
-        research: 'MEng dissertation, future MSc thesis and substantial research investigations.',
-        laboratory: 'Hands-on optical experiments, instrumentation, testing and characterisation.',
-        engineering: 'University design, simulation, controls and computational modelling work.',
-        competition: 'Technical challenges, hackathon prototypes and competitive engineering designs.',
-        independent: 'Self-initiated software, hardware, research or entrepreneurial projects.'
-    };
-
+    // Project category filters — click a type to show matching cards
     const projectFilterBtns = document.querySelectorAll('.project-filter-btn');
     const projectFilterDesc = document.getElementById('projectFilterDesc');
     const projectsGrid = document.querySelector('.projects-grid');
-    let projectsEmpty = document.querySelector('.projects-empty');
-
-    if (projectsGrid && !projectsEmpty) {
-        projectsEmpty = document.createElement('p');
-        projectsEmpty.className = 'projects-empty';
-        projectsEmpty.textContent = 'No additional projects in this category — see Featured above.';
-        projectsGrid.appendChild(projectsEmpty);
-    }
 
     function applyProjectFilter(filter) {
         const cards = document.querySelectorAll('.projects-grid > .project-card');
@@ -437,12 +420,10 @@ document.addEventListener('DOMContentLoaded', () => {
             if (show) visibleCount += 1;
         });
 
-        if (projectsEmpty) {
-            projectsEmpty.classList.toggle('visible', visibleCount === 0);
-        }
-
         if (projectFilterDesc) {
-            projectFilterDesc.textContent = projectFilterDescriptions[filter] || projectFilterDescriptions.all;
+            projectFilterDesc.textContent = visibleCount === 1
+                ? '1 project shown'
+                : `${visibleCount} projects shown`;
         }
     }
 

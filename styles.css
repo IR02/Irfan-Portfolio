@@ -908,66 +908,41 @@ section {
     position: relative;
 }
 
-.featured-projects {
-    margin-bottom: 2.5rem;
-}
-
-.featured-title {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: var(--text-primary);
-    margin-bottom: 1.25rem;
-    letter-spacing: 0.04em;
-}
-
-.featured-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-    align-items: stretch;
-}
-
-@media (min-width: 1100px) {
-    .featured-grid {
-        grid-template-columns: repeat(4, 1fr);
-    }
-}
-
-@media (max-width: 768px) {
-    .featured-grid {
-        grid-template-columns: 1fr;
-    }
+.project-filters-label {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 0.75rem;
 }
 
 .project-filters {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.75rem;
-    margin-bottom: 0.75rem;
+    gap: 0.65rem;
+    margin-bottom: 0.85rem;
 }
 
 .project-filter-btn {
     background: transparent;
-    border: 1px solid var(--border-color);
-    color: var(--text-secondary);
-    padding: 0.55rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    color: var(--text-primary);
+    padding: 0.5rem 1.05rem;
     border-radius: 999px;
     font-size: 0.85rem;
     font-weight: 500;
     cursor: pointer;
-    transition: all 0.25s ease;
+    transition: all 0.2s ease;
 }
 
 .project-filter-btn:hover {
-    border-color: var(--neon-blue);
-    color: var(--text-primary);
+    border-color: #fff;
+    color: #fff;
 }
 
 .project-filter-btn.active {
-    background: rgba(59, 130, 246, 0.15);
-    border-color: var(--neon-blue);
-    color: var(--neon-blue);
+    background: #fff;
+    border-color: #fff;
+    color: #0a0a0a;
 }
 
 .project-filter-desc {
@@ -986,18 +961,6 @@ section {
 
 .project-filtered-out {
     display: none !important;
-}
-
-.projects-empty {
-    grid-column: 1 / -1;
-    text-align: center;
-    color: var(--text-secondary);
-    padding: 2rem 1rem;
-    display: none;
-}
-
-.projects-empty.visible {
-    display: block;
 }
 
 @media (max-width: 768px) {
