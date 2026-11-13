@@ -404,39 +404,61 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     
-    // Projects More/Less functionality
-    const showMoreProjectsBtn = document.getElementById('showMoreProjects');
-    const showLessProjectsBtn = document.getElementById('showLessProjects');
-    const hiddenProjects = document.querySelectorAll('.project-hidden');
-    
-    if (showMoreProjectsBtn && showLessProjectsBtn && hiddenProjects.length > 0) {
-        showMoreProjectsBtn.addEventListener('click', () => {
-            hiddenProjects.forEach(project => {
-                project.classList.remove('project-hidden');
-            });
-            showMoreProjectsBtn.style.display = 'none';
-            showLessProjectsBtn.style.display = 'inline-block';
-            setTimeout(() => {
-                showLessProjectsBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-            }, 300);
+    // Project category filters
+    const projectFilterDescriptions = {
+        all: 'Browse all projects by category.',
+        research: 'MEng dissertation, future MSc thesis and substantial research investigations.',
+        laboratory: 'Hands-on optical experiments, instrumentation, testing and characterisation.',
+        engineering: 'University design, simulation, controls and computational modelling work.',
+        competition: 'Technical challenges, hackathon prototypes and competitive engineering designs.',
+        independent: 'Self-initiated software, hardware, research or entrepreneurial projects.'
+    };
+
+    const projectFilterBtns = document.querySelectorAll('.project-filter-btn');
+    const projectFilterDesc = document.getElementById('projectFilterDesc');
+    const projectsGrid = document.querySelector('.projects-grid');
+    let projectsEmpty = document.querySelector('.projects-empty');
+
+    if (projectsGrid && !projectsEmpty) {
+        projectsEmpty = document.createElement('p');
+        projectsEmpty.className = 'projects-empty';
+        projectsEmpty.textContent = 'No additional projects in this category — see Featured above.';
+        projectsGrid.appendChild(projectsEmpty);
+    }
+
+    function applyProjectFilter(filter) {
+        const cards = document.querySelectorAll('.projects-grid > .project-card');
+        let visibleCount = 0;
+
+        cards.forEach(card => {
+            const category = card.getAttribute('data-category');
+            const show = filter === 'all' || category === filter;
+            card.classList.toggle('project-filtered-out', !show);
+            if (show) visibleCount += 1;
         });
-        
-        showLessProjectsBtn.addEventListener('click', () => {
-            hiddenProjects.forEach(project => {
-                project.classList.add('project-hidden');
-            });
-            showMoreProjectsBtn.style.display = 'inline-block';
-            showLessProjectsBtn.style.display = 'none';
-            setTimeout(() => {
-                document.getElementById('projects').scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }, 300);
-        });
-    } else if (showMoreProjectsBtn && hiddenProjects.length === 0) {
-        showMoreProjectsBtn.style.display = 'none';
-        if (showLessProjectsBtn) {
-            showLessProjectsBtn.style.display = 'none';
+
+        if (projectsEmpty) {
+            projectsEmpty.classList.toggle('visible', visibleCount === 0);
+        }
+
+        if (projectFilterDesc) {
+            projectFilterDesc.textContent = projectFilterDescriptions[filter] || projectFilterDescriptions.all;
         }
     }
+
+    projectFilterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const filter = btn.getAttribute('data-filter') || 'all';
+            projectFilterBtns.forEach(other => {
+                const isActive = other === btn;
+                other.classList.toggle('active', isActive);
+                other.setAttribute('aria-selected', isActive ? 'true' : 'false');
+            });
+            applyProjectFilter(filter);
+        });
+    });
+
+    applyProjectFilter('all');
     
     // Update certificate count on page load
     updateCertificateCount();
