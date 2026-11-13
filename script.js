@@ -404,13 +404,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     
-    // Project category filters + Show More / Less (first 4 per active category)
+    // Project category filters + single Show More / Less toggle below the grid
     const PROJECT_PREVIEW_COUNT = 4;
     const projectFilterBtns = document.querySelectorAll('.project-filter-btn');
     const projectFilterDesc = document.getElementById('projectFilterDesc');
-    const showMoreProjectsBtn = document.getElementById('showMoreProjects');
-    const showLessProjectsBtn = document.getElementById('showLessProjects');
-    const projectsMoreWrap = document.querySelector('.projects-more');
+    const toggleProjectsBtn = document.getElementById('toggleProjectsBtn');
+    const projectsMoreWrap = document.getElementById('projectsMoreWrap');
     let currentProjectFilter = 'all';
     let projectsExpanded = false;
 
@@ -452,14 +451,18 @@ document.addEventListener('DOMContentLoaded', () => {
             card.classList.toggle('project-hidden', !isVisible && index >= PROJECT_PREVIEW_COUNT);
         });
 
-        if (showMoreProjectsBtn) {
-            showMoreProjectsBtn.hidden = !(needsToggle && !projectsExpanded);
-        }
-        if (showLessProjectsBtn) {
-            showLessProjectsBtn.hidden = !(needsToggle && projectsExpanded);
-        }
         if (projectsMoreWrap) {
             projectsMoreWrap.hidden = !needsToggle;
+        }
+
+        if (toggleProjectsBtn) {
+            toggleProjectsBtn.textContent = projectsExpanded
+                ? 'Show Less Projects'
+                : 'Show More Projects';
+            toggleProjectsBtn.setAttribute(
+                'aria-label',
+                projectsExpanded ? 'Show fewer projects' : 'Show more projects'
+            );
         }
 
         if (projectFilterDesc) {
@@ -487,20 +490,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    if (showMoreProjectsBtn) {
-        showMoreProjectsBtn.addEventListener('click', () => {
-            projectsExpanded = true;
+    if (toggleProjectsBtn) {
+        toggleProjectsBtn.addEventListener('click', () => {
+            projectsExpanded = !projectsExpanded;
             refreshProjectsView(currentProjectFilter);
-        });
-    }
-
-    if (showLessProjectsBtn) {
-        showLessProjectsBtn.addEventListener('click', () => {
-            projectsExpanded = false;
-            refreshProjectsView(currentProjectFilter);
-            const projectsSection = document.getElementById('projects');
-            if (projectsSection) {
-                projectsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            if (!projectsExpanded) {
+                const projectsSection = document.getElementById('projects');
+                if (projectsSection) {
+                    projectsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
             }
         });
     }
