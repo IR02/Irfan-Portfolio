@@ -637,7 +637,13 @@ const skillsDatabase = {
         'CAD',
         'Siemens TIA Portal', 'PLC Programming', 'Ladder Logic', 'WinCC HMI',
         'PID Control', 'Industrial Automation', 'Sensors & Actuators',
-        'PicoScope', 'FFT', 'Carbon Fibre Reinforced Polymer', 'Data Acquisition'
+        'PicoScope', 'FFT', 'Carbon Fibre Reinforced Polymer', 'Data Acquisition',
+        'Optical Fibre Alignment', 'Optical Spectroscopy', 'Optical Communications',
+        'Optical Coupling', 'Optical Testing', 'Interferometry', 'Optical Metrology',
+        'Fourier Optics', 'Optical Polarisation', 'Diffraction', 'Image Processing',
+        'Microscopy', 'Holography',
+        'Silicon Photonics', 'PIC Design', 'Photonic Packaging', 'Optical Modulators',
+        'Heterogeneous Integration'
     ],
     aiQuantum: [
         'Qiskit', 'Pennylane', 'Cirq', 'TKET', 'Qiskit Pulse', 'VQE', 'QAOA', 
