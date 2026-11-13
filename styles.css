@@ -909,47 +909,55 @@ section {
 }
 
 .project-filters-label {
-    color: var(--text-secondary);
-    font-size: 0.85rem;
-    font-weight: 500;
-    margin-bottom: 0.75rem;
+    color: var(--neon-cyan);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0 0 0.85rem;
 }
 
 .project-filters {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.65rem;
-    margin-bottom: 0.85rem;
+    justify-content: center;
+    gap: 0.7rem;
+    margin: 0 auto 1rem;
+    max-width: 920px;
 }
 
 .project-filter-btn {
-    background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.55);
-    color: var(--text-primary);
-    padding: 0.5rem 1.05rem;
+    background: rgba(59, 130, 246, 0.06);
+    border: 1.5px solid rgba(59, 130, 246, 0.45);
+    color: var(--text-secondary);
+    padding: 0.55rem 1.15rem;
     border-radius: 999px;
     font-size: 0.85rem;
-    font-weight: 500;
+    font-weight: 600;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.25s ease;
 }
 
 .project-filter-btn:hover {
-    border-color: #fff;
-    color: #fff;
+    border-color: var(--neon-cyan);
+    color: var(--neon-cyan);
+    background: rgba(6, 182, 212, 0.1);
 }
 
 .project-filter-btn.active {
-    background: #fff;
-    border-color: #fff;
-    color: #0a0a0a;
+    background: var(--gradient-ai);
+    border-color: transparent;
+    color: var(--bg-dark);
+    box-shadow: 0 0 18px rgba(59, 130, 246, 0.35);
 }
 
 .project-filter-desc {
     color: var(--text-secondary);
-    font-size: 0.95rem;
-    margin: 0 0 1.5rem;
+    font-size: 0.9rem;
+    margin: 0 auto 1.75rem;
     min-height: 1.4em;
+    text-align: center;
 }
 
 .projects-grid {
