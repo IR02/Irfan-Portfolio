@@ -404,26 +404,64 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     
-    // Project category filters — click a type to show matching cards
+    // Project category filters + Show More / Less (first 4 per category)
+    const PROJECT_PREVIEW_COUNT = 4;
     const projectFilterBtns = document.querySelectorAll('.project-filter-btn');
     const projectFilterDesc = document.getElementById('projectFilterDesc');
-    const projectsGrid = document.querySelector('.projects-grid');
+    const showMoreProjectsBtn = document.getElementById('showMoreProjects');
+    const showLessProjectsBtn = document.getElementById('showLessProjects');
+    let currentProjectFilter = 'all';
+    let projectsExpanded = false;
 
-    function applyProjectFilter(filter) {
-        const cards = document.querySelectorAll('.projects-grid > .project-card');
-        let visibleCount = 0;
-
-        cards.forEach(card => {
+    function getMatchingProjectCards(filter) {
+        return Array.from(document.querySelectorAll('.projects-grid > .project-card')).filter(card => {
             const category = card.getAttribute('data-category');
-            const show = filter === 'all' || category === filter;
-            card.classList.toggle('project-filtered-out', !show);
-            if (show) visibleCount += 1;
+            return filter === 'all' || category === filter;
+        });
+    }
+
+    function applyProjectFilter(filter, { resetExpanded = true } = {}) {
+        if (resetExpanded) {
+            projectsExpanded = false;
+        }
+        currentProjectFilter = filter;
+
+        const allCards = Array.from(document.querySelectorAll('.projects-grid > .project-card'));
+        const matching = getMatchingProjectCards(filter);
+
+        allCards.forEach(card => {
+            card.classList.add('project-filtered-out');
+            card.classList.remove('project-hidden');
         });
 
+        matching.forEach((card, index) => {
+            card.classList.remove('project-filtered-out');
+            if (!projectsExpanded && index >= PROJECT_PREVIEW_COUNT) {
+                card.classList.add('project-hidden');
+            }
+        });
+
+        const total = matching.length;
+        const shown = projectsExpanded ? total : Math.min(PROJECT_PREVIEW_COUNT, total);
+        const needsToggle = total > PROJECT_PREVIEW_COUNT;
+
+        if (showMoreProjectsBtn) {
+            showMoreProjectsBtn.style.display = needsToggle && !projectsExpanded ? 'inline-block' : 'none';
+        }
+        if (showLessProjectsBtn) {
+            showLessProjectsBtn.style.display = needsToggle && projectsExpanded ? 'inline-block' : 'none';
+        }
+
         if (projectFilterDesc) {
-            projectFilterDesc.textContent = visibleCount === 1
-                ? '1 project shown'
-                : `${visibleCount} projects shown`;
+            if (total === 0) {
+                projectFilterDesc.textContent = '0 projects shown';
+            } else if (needsToggle && !projectsExpanded) {
+                projectFilterDesc.textContent = `Showing ${shown} of ${total} projects`;
+            } else if (total === 1) {
+                projectFilterDesc.textContent = '1 project shown';
+            } else {
+                projectFilterDesc.textContent = `${total} projects shown`;
+            }
         }
     }
 
@@ -435,9 +473,34 @@ document.addEventListener('DOMContentLoaded', () => {
                 other.classList.toggle('active', isActive);
                 other.setAttribute('aria-selected', isActive ? 'true' : 'false');
             });
-            applyProjectFilter(filter);
+            applyProjectFilter(filter, { resetExpanded: true });
         });
     });
+
+    if (showMoreProjectsBtn) {
+        showMoreProjectsBtn.addEventListener('click', () => {
+            projectsExpanded = true;
+            applyProjectFilter(currentProjectFilter, { resetExpanded: false });
+            setTimeout(() => {
+                if (showLessProjectsBtn) {
+                    showLessProjectsBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }
+            }, 200);
+        });
+    }
+
+    if (showLessProjectsBtn) {
+        showLessProjectsBtn.addEventListener('click', () => {
+            projectsExpanded = false;
+            applyProjectFilter(currentProjectFilter, { resetExpanded: false });
+            setTimeout(() => {
+                const projectsSection = document.getElementById('projects');
+                if (projectsSection) {
+                    projectsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }, 200);
+        });
+    }
 
     applyProjectFilter('all');
     

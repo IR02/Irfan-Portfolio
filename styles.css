@@ -963,6 +963,15 @@ section {
     display: none !important;
 }
 
+.project-hidden {
+    display: none !important;
+}
+
+.projects-more {
+    text-align: center;
+    margin-top: 2rem;
+}
+
 @media (max-width: 768px) {
     .projects-grid {
         grid-template-columns: 1fr;
